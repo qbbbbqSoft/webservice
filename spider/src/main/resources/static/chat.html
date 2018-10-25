@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>聊天</title>
+    <style type="text/css">
+        #show{
+            width: 600px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+        .my-message{
+            background-color: rgba(105, 105, 105, 0.64);
+            color: #9e0505;
+            width: 200px;
+            float: right;
+            padding: 10px;
+        }
+        .other-message{
+            background-color: rgba(105, 105, 105, 0.64);
+            color: #9e0505;
+            width: 200px;
+            float: left;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="show"></div>
+<div class="panel">
+    内容：<textarea id="content"></textarea>
+    收信人：<input type="text" id="touser">
+    <input type="button" id="send-btn" value="发送">
+    <input type="button" id="close-btn" value="关闭">
+</div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var socket = new WebSocket("wss://www.bbqbb.top/wss/websocket/chat");
+
+    $("#close-btn").click(function () {
+        socket.close();
+    })
+
+    $("#send-btn").click(function () {
+        var touser = $("#touser").val();
+        var content = $("#content").val();
+        var htmlstr = "<div><p class='my-message'>我："+content+"</p></div>";
+
+        $("#show").append(htmlstr);
+        socket.send(content+"@"+touser);
+    })
+
+    socket.onmessage = function (p1) {
+        var htmlstr = "<div><p class='other-message'>"+p1.data+"</p></div>";
+        $("#show").append(htmlstr);
+    }
+</script>
+</html>
