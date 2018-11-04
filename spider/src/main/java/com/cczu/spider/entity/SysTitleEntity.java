@@ -1,5 +1,7 @@
 package com.cczu.spider.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 import javax.persistence.*;
 
@@ -20,6 +22,10 @@ public class SysTitleEntity {
      */
     @Column(name = "imageUrl")
     private String imageurl;
+    @Column(name = "imageWidth")
+    private String imagewidth;
+    @Column(name = "imageHeight")
+    private String imageheight;
 
     /**
      * 是否原创 默认1原创
@@ -62,6 +68,7 @@ public class SysTitleEntity {
     private String label;
 
     @Column(name = "createDate")
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createdate;
 
     /**
@@ -278,5 +285,21 @@ public class SysTitleEntity {
      */
     public void setCreatedate(Date createdate) {
         this.createdate = createdate;
+    }
+
+    public String getImagewidth() {
+        return imagewidth;
+    }
+
+    public void setImagewidth(String imagewidth) {
+        this.imagewidth = imagewidth;
+    }
+
+    public String getImageheight() {
+        return imageheight;
+    }
+
+    public void setImageheight(String imageheight) {
+        this.imageheight = imageheight;
     }
 }

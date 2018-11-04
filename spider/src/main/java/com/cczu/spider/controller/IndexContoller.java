@@ -22,7 +22,10 @@ import org.springframework.web.multipart.MultipartFile;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -136,6 +139,15 @@ public class IndexContoller {
     @ResponseBody
     public String headImgUpload(HttpServletRequest request, MultipartFile file) {
         Map<String, Object> value = new HashMap<String, Object>();
+        try {
+            BufferedImage image = ImageIO.read(file.getInputStream());
+            if (image != null) {//如果image=null 表示上传的不是图片格式
+                System.out.println(image.getWidth());//获取图片宽度，单位px
+                System.out.println(image.getHeight());//获取图片高度，单位px
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         try {
             String url = upImgService.updateHead(file);
             value.put("data", url);

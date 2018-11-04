@@ -1,5 +1,6 @@
 package com.cczu.spider;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 @EnableScheduling
 //@EnableAutoConfiguration(exclude = {MultipartAutoConfiguration.class})
 //@ComponentScan("com.cczu.spider.service")
+@MapperScan("com.cczu.spider.repository")
 public class SpiderApplication{
 
 	public static void main(String[] args) {
