@@ -19,8 +19,8 @@ package com.bbqbb.poem.admin.modules.oss.cloud;
 
 import com.bbqbb.poem.admin.common.utils.ConfigConstant;
 import com.bbqbb.poem.admin.common.utils.Constant;
-import com.bbqbb.poem.common.utils.SpringContextUtils;
 import com.bbqbb.poem.admin.modules.sys.service.SysConfigService;
+import com.bbqbb.poem.common.utils.SpringContextUtils;
 
 /**
  * 文件上传Factory

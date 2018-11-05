@@ -1,4 +1,4 @@
-package com.bbqbb.poem.admin.datasource;
+package com.bbqbb.poem.admin.datasources;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;

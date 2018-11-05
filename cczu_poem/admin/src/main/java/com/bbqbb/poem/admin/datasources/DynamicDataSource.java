@@ -1,4 +1,4 @@
-package com.bbqbb.poem.admin.datasource;
+package com.bbqbb.poem.admin.datasources;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 

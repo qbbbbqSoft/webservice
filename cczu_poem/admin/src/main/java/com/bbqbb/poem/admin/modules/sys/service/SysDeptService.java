@@ -19,7 +19,6 @@ package com.bbqbb.poem.admin.modules.sys.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.bbqbb.poem.admin.modules.sys.entity.SysDeptEntity;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
@@ -31,7 +30,6 @@ import java.util.Map;
  * @email sunlightcs@gmail.com
  * @date 2017-06-20 15:23:47
  */
-@Component
 public interface SysDeptService extends IService<SysDeptEntity> {
 
 	List<SysDeptEntity> queryList(Map<String, Object> map);

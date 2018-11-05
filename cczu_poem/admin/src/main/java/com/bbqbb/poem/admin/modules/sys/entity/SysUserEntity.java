@@ -21,8 +21,9 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.bbqbb.poem.common.validator.group.AddGroup;
-import com.bbqbb.poem.common.validator.group.UpdateGroup;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.bbqbb.poem.common.validator.group.AddGroup;
+import com.bbqbb.poem.common.validator.group.UpdateGroup;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

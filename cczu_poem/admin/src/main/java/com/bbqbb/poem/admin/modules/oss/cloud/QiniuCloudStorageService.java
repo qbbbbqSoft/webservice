@@ -16,12 +16,12 @@
 
 package com.bbqbb.poem.admin.modules.oss.cloud;
 
-import com.bbqbb.poem.common.exception.RRException;
 import com.qiniu.common.Zone;
 import com.qiniu.http.Response;
 import com.qiniu.storage.Configuration;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.util.Auth;
+import com.bbqbb.poem.common.exception.RRException;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;

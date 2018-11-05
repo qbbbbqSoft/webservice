@@ -18,7 +18,6 @@ package com.bbqbb.poem.admin.modules.sys.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.bbqbb.poem.admin.modules.sys.entity.SysRoleDeptEntity;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -30,7 +29,6 @@ import java.util.List;
  * @email sunlightcs@gmail.com
  * @date 2017年6月21日 23:42:30
  */
-@Component
 public interface SysRoleDeptService extends IService<SysRoleDeptEntity> {
 	
 	void saveOrUpdate(Long roleId, List<Long> deptIdList);

@@ -1,7 +1,7 @@
-package com.bbqbb.poem.admin.common.config;//package com.bbqbb.poem.admincommon.config;
+//package io.renren.common.config;
 //
 //import com.google.gson.Gson;
-//import com.bbqbb.poem.admincommon.utils.R;
+//import com.bbqbb.poem.common.utils.R;
 //import org.apache.http.HttpStatus;
 //import org.springframework.boot.web.servlet.FilterRegistrationBean;
 //import org.springframework.context.annotation.Bean;

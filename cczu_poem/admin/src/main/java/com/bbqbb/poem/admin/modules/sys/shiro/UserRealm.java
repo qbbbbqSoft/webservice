@@ -24,10 +24,10 @@ import java.util.List;
 import java.util.Set;
 
 import com.bbqbb.poem.admin.common.utils.Constant;
+import com.bbqbb.poem.admin.modules.sys.entity.SysUserEntity;
 import com.bbqbb.poem.admin.modules.sys.dao.SysMenuDao;
 import com.bbqbb.poem.admin.modules.sys.dao.SysUserDao;
 import com.bbqbb.poem.admin.modules.sys.entity.SysMenuEntity;
-import com.bbqbb.poem.admin.modules.sys.entity.SysUserEntity;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.CredentialsMatcher;

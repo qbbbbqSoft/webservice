@@ -16,21 +16,21 @@
 
 package com.bbqbb.poem.admin.modules.oss.controller;
 
-import com.bbqbb.poem.admin.common.utils.ConfigConstant;
-import com.bbqbb.poem.admin.common.utils.Constant;
 import com.bbqbb.poem.admin.common.validator.group.AliyunGroup;
 import com.bbqbb.poem.admin.common.validator.group.QcloudGroup;
+import com.google.gson.Gson;
+import com.bbqbb.poem.common.exception.RRException;
+import com.bbqbb.poem.admin.common.utils.ConfigConstant;
+import com.bbqbb.poem.admin.common.utils.Constant;
+import com.bbqbb.poem.common.utils.PageUtils;
+import com.bbqbb.poem.common.utils.R;
+import com.bbqbb.poem.common.validator.ValidatorUtils;
 import com.bbqbb.poem.admin.common.validator.group.QiniuGroup;
 import com.bbqbb.poem.admin.modules.oss.cloud.CloudStorageConfig;
 import com.bbqbb.poem.admin.modules.oss.cloud.OSSFactory;
 import com.bbqbb.poem.admin.modules.oss.entity.SysOssEntity;
 import com.bbqbb.poem.admin.modules.oss.service.SysOssService;
 import com.bbqbb.poem.admin.modules.sys.service.SysConfigService;
-import com.bbqbb.poem.common.exception.RRException;
-import com.bbqbb.poem.common.utils.PageUtils;
-import com.bbqbb.poem.common.utils.R;
-import com.bbqbb.poem.common.validator.ValidatorUtils;
-import com.google.gson.Gson;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -45,17 +45,17 @@ public class SwaggerConfig{
             //加了ApiOperation注解的类，生成接口文档
             .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
             //包下的类，生成接口文档
-            //.apis(RequestHandlerSelectors.basePackage("com.bbqbb.poem.adminmodules.job.controller"))
+            //.apis(RequestHandlerSelectors.basePackage("com.bbqbb.poem.admin.modules.job.controller"))
             .paths(PathSelectors.any())
             .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("cczu_poem")
-            .description("cczu_poem文档")
-            .termsOfServiceUrl("https://www.bbqbb.top")
-            .version("1.0.0")
+            .title("人人开源")
+            .description("renren-admin文档")
+            .termsOfServiceUrl("http://www.renren.io")
+            .version("3.2.0")
             .build();
     }
 
