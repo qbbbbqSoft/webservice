@@ -18,12 +18,14 @@
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
   <![endif]-->
 </head>
 <body class="hold-transition login-page">
 <div class="login-box" id="rrapp" v-cloak>
   <div class="login-logo">
     <b>人人权限系统</b>
+
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -39,13 +41,15 @@
         <input type="password" class="form-control" v-model="password" placeholder="密码">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" v-model="captcha" @keyup.enter="login" placeholder="验证码">
-        <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <img alt="如果看不清楚，请单击图片刷新！" class="pointer" :src="src" @click="refreshCode">
-        &nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" @click="refreshCode">点击刷新</a>
+      <!--<div class="form-group has-feedback">-->
+        <!--<input type="text" class="form-control" v-model="captcha" @keyup.enter="login" placeholder="验证码">-->
+        <!--<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>-->
+      <!--</div>-->
+      <div class="form-group has-feedback" style="width: 300px">
+
+        <!--<img alt="如果看不清楚，请单击图片刷新！" class="pointer" :src="src" @click="refreshCode">-->
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" @click="refreshCode">点击刷新</a>-->
+          <div id="popup-captcha-mobile"><p style="text-align: center">完成验证以登陆</p></div>
       </div>
       
       
@@ -55,9 +59,9 @@
           </div>
         </div>
         <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="button" class="btn btn-primary btn-block btn-flat" @click="login">登录</button>
-        </div>
+        <!--<div class="col-xs-4">-->
+          <!--<button type="button" class="btn btn-primary btn-block btn-flat" @click="login">登录</button>-->
+        <!--</div>-->
         <!-- /.col -->
       </div>
     <!-- /.social-auth-links -->
@@ -66,6 +70,7 @@
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
+<script src="http://static.geetest.com/static/tools/gt.js"></script>
 <script src="${request.contextPath}/statics/libs/jquery.min.js"></script>
 <script src="${request.contextPath}/statics/libs/vue.min.js"></script>
 <script src="${request.contextPath}/statics/libs/bootstrap.min.js"></script>
@@ -73,46 +78,110 @@
 <script src="${request.contextPath}/statics/libs/fastclick.min.js"></script>
 <script src="${request.contextPath}/statics/libs/app.js"></script>
 <script type="text/javascript">
-var vm = new Vue({
-	el:'#rrapp',
-	data:{
-		username: '',
-		password: '',
-		captcha: '',
-		error: false,
-		errorMsg: '',
-		src: 'captcha.jpg'
-	},
-	beforeCreate: function(){
-		if(self != top){
-			top.location.href = self.location.href;
-		}
-	},
-	methods: {
-		refreshCode: function(){
-			this.src = "captcha.jpg?t=" + $.now();
-		},
-		login: function (event) {
-			var data = "username="+vm.username+"&password="+vm.password+"&captcha="+vm.captcha;
-			$.ajax({
-				type: "POST",
-			    url: "sys/login",
-			    data: data,
-			    dataType: "json",
-			    success: function(result){
-					if(result.code == 0){//登录成功
-						parent.location.href ='index.html';
-					}else{
-						vm.error = true;
-						vm.errorMsg = result.msg;
-						
-						vm.refreshCode();
-					}
-				}
-			});
-		}
-	}
-});
+    $(function () {
+        getCaptcha();
+        // $("#show-mobile-captcha").click(function () {
+        //     //alert('ok');
+        //     $("#popup-captcha-mobile").removeClass('hide');
+        // });
+
+
+
+    });
+
+    var vm = new Vue({
+        el:'#rrapp',
+        data:{
+            username: '',
+            password: '',
+            captcha: '',
+            error: false,
+            errorMsg: '',
+            src: 'captcha.jpg'
+        },
+        // beforeCreate: function(){
+        //     if(self != top){
+        //         top.location.href = self.location.href;
+        //     }
+        // },
+        methods: {
+            refreshCode: function(){
+                this.src = "captcha.jpg?t=" + $.now();
+            },
+            login: function (event) {
+                var data = "username="+vm.username+"&password="+vm.password+"&captcha="+vm.captcha;
+                $.ajax({
+                    type: "POST",
+                    url: "sys/login",
+                    data: data,
+                    dataType: "json",
+                    success: function(result){
+                        if(result.code == 0){//登录成功
+                            parent.location.href ='index.html';
+                        }else{
+                            vm.error = true;
+                            vm.errorMsg = result.msg;
+
+                            // vm.refreshCode();
+                            // $("#popup-captcha-mobile").empty();
+                            getCaptcha();
+                        }
+
+                    }
+                });
+            }
+        }
+    });
+    var getCaptcha = function() {
+        $.ajax({
+            // 获取id，challenge，success（是否启用failback）
+            url: 'startCaptcha',
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                console.log(data.gt);
+                // 使用initGeetest接口
+                // 参数1：配置参数
+                // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+                initGeetest({
+                    gt: data.gt,
+                    challenge: data.challenge,
+                    offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+                    // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+                }, handlerPopupMobile);
+            }
+        });
+    };
+
+    var handlerPopupMobile = function (captchaObj) {
+        // 将验证码加到id为captcha的元素里
+        captchaObj.appendTo("#popup-captcha-mobile");
+        //拖动验证成功后两秒(可自行设置时间)自动发生跳转等行为
+        captchaObj.onSuccess(function () {
+            var validate = captchaObj.getValidate();
+            //alert(validate.geetest_challenge);
+            $.ajax({
+                url:  "ajax_validate", // 进行二次验证
+                type: "post",
+                dataType: "json",
+                data: {
+                    // 二次验证所需的三个值
+                    geetest_challenge: validate.geetest_challenge,
+                    geetest_validate: validate.geetest_validate,
+                    geetest_seccode: validate.geetest_seccode
+                },
+                success: function (data) {
+                    if (data && (data.status === "success")) {
+                        vm.login();
+                    } else {
+                        captchaObj.reset()
+                    }
+                }
+            });
+        });
+        // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+    };
+
 </script>
 </body>
 </html>

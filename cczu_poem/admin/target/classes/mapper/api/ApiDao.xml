@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bbqbb.poem.admin.modules.api.dao.ApiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.bbqbb.poem.admin.modules.admin.entity.SysSuggestionEntity" id="sysSuggestionMap">
+        <result property="id" column="ID"/>
+        <result property="email" column="email"/>
+        <result property="content" column="content"/>
+        <result property="nickname" column="nickName"/>
+        <result property="createdate" column="createDate"/>
+    </resultMap>
+
+    <select id="getTitleList" resultType="com.bbqbb.poem.admin.modules.api.model.SysTitleModel" parameterType="java.util.Map">
+        SELECT
+            st.*,
+            count( sc.ID ) AS commentCount
+        FROM
+            sys_title st
+            LEFT JOIN sys_comment sc ON st.ID = sc.TitleID
+        GROUP BY
+            st.ID
+        ORDER BY
+            st.createDate DESC
+    </select>
+
+</mapper>

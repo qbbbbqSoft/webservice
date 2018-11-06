@@ -1,12 +1,24 @@
 $(function () {
     $("#jqGrid").jqGrid({
-        url: baseURL + 'admin/syssuggestion/list',
+        url: baseURL + 'admin/systitle/list',
         datatype: "json",
         colModel: [			
 			{ label: 'id', name: 'id', index: 'ID', width: 50, key: true },
-			{ label: '邮箱', name: 'email', index: 'email', width: 80 }, 			
-			{ label: '建议的内容', name: 'content', index: 'content', width: 80 }, 			
-			{ label: '昵称', name: 'nickname', index: 'nickName', width: 80 }, 			
+			{ label: '文章标题', name: 'title', index: 'title', width: 80 }, 			
+			{ label: '文章图片', name: 'imageurl', index: 'imageUrl', width: 80 }, 			
+			{ label: '图片的宽', name: 'imagewidth', index: 'imageWidth', width: 80 }, 			
+			{ label: '图片的高', name: 'imageheight', index: 'imageHeight', width: 80 }, 			
+			{ label: '是否原创 默认1原创', name: 'original', index: 'original', width: 80 }, 			
+			{ label: '', name: 'type', index: 'type', width: 80 }, 			
+			{ label: '内容', name: 'content', index: 'content', width: 80 }, 			
+			{ label: '是否私密，默认0不私密', name: 'privatestatus', index: 'privateStatus', width: 80 }, 			
+			{ label: '默认0，不删除', name: 'delstatus', index: 'delStatus', width: 80 }, 			
+			{ label: '默认0 需审核', name: 'adminstatus', index: 'adminStatus', width: 80 }, 			
+			{ label: '对应sys_zone的ID', name: 'zoneid', index: 'zoneID', width: 80 }, 			
+			{ label: '作者', name: 'author', index: 'author', width: 80 }, 			
+			{ label: '标签', name: 'label', index: 'label', width: 80 }, 			
+			{ label: '喜欢', name: 'likecount', index: 'likeCount', width: 80 }, 			
+			{ label: '不喜欢', name: 'notlikecount', index: 'notLikeCount', width: 80 }, 			
 			{ label: '日期', name: 'createdate', index: 'createDate', width: 80 }			
         ],
 		viewrecords: true,
@@ -41,7 +53,7 @@ var vm = new Vue({
 	data:{
 		showList: true,
 		title: null,
-		sysSuggestion: {}
+		sysTitle: {}
 	},
 	methods: {
 		query: function () {
@@ -50,7 +62,7 @@ var vm = new Vue({
 		add: function(){
 			vm.showList = false;
 			vm.title = "新增";
-			vm.sysSuggestion = {};
+			vm.sysTitle = {};
 		},
 		update: function (event) {
 			var id = getSelectedRow();
@@ -63,12 +75,12 @@ var vm = new Vue({
             vm.getInfo(id)
 		},
 		saveOrUpdate: function (event) {
-			var url = vm.sysSuggestion.id == null ? "admin/syssuggestion/save" : "admin/syssuggestion/update";
+			var url = vm.sysTitle.id == null ? "admin/systitle/save" : "admin/systitle/update";
 			$.ajax({
 				type: "POST",
 			    url: baseURL + url,
                 contentType: "application/json",
-			    data: JSON.stringify(vm.sysSuggestion),
+			    data: JSON.stringify(vm.sysTitle),
 			    success: function(r){
 			    	if(r.code === 0){
 						alert('操作成功', function(index){
@@ -89,7 +101,7 @@ var vm = new Vue({
 			confirm('确定要删除选中的记录？', function(){
 				$.ajax({
 					type: "POST",
-				    url: baseURL + "admin/syssuggestion/delete",
+				    url: baseURL + "admin/systitle/delete",
                     contentType: "application/json",
 				    data: JSON.stringify(ids),
 				    success: function(r){
@@ -105,8 +117,8 @@ var vm = new Vue({
 			});
 		},
 		getInfo: function(id){
-			$.get(baseURL + "admin/syssuggestion/info/"+id, function(r){
-                vm.sysSuggestion = r.sysSuggestion;
+			$.get(baseURL + "admin/systitle/info/"+id, function(r){
+                vm.sysTitle = r.sysTitle;
             });
 		},
 		reload: function (event) {

@@ -1,13 +1,13 @@
 $(function () {
     $("#jqGrid").jqGrid({
-        url: baseURL + 'sys/syssuggestion/list',
+        url: baseURL + 'admin/syssuggestion/list',
         datatype: "json",
         colModel: [			
 			{ label: 'id', name: 'id', index: 'ID', width: 50, key: true },
-			{ label: '', name: 'email', index: 'email', width: 80 }, 			
-			{ label: '', name: 'content', index: 'content', width: 80 }, 			
-			{ label: '', name: 'nickname', index: 'nickName', width: 80 }, 			
-			{ label: '', name: 'createdate', index: 'createDate', width: 80 }			
+			{ label: '邮箱', name: 'email', index: 'email', width: 80 }, 			
+			{ label: '建议的内容', name: 'content', index: 'content', width: 80 }, 			
+			{ label: '昵称', name: 'nickname', index: 'nickName', width: 80 }, 			
+			{ label: '日期', name: 'createdate', index: 'createDate', width: 80 }			
         ],
 		viewrecords: true,
         height: 385,
@@ -63,7 +63,7 @@ var vm = new Vue({
             vm.getInfo(id)
 		},
 		saveOrUpdate: function (event) {
-			var url = vm.sysSuggestion.id == null ? "sys/syssuggestion/save" : "sys/syssuggestion/update";
+			var url = vm.sysSuggestion.id == null ? "admin/syssuggestion/save" : "admin/syssuggestion/update";
 			$.ajax({
 				type: "POST",
 			    url: baseURL + url,
@@ -89,7 +89,7 @@ var vm = new Vue({
 			confirm('确定要删除选中的记录？', function(){
 				$.ajax({
 					type: "POST",
-				    url: baseURL + "sys/syssuggestion/delete",
+				    url: baseURL + "admin/syssuggestion/delete",
                     contentType: "application/json",
 				    data: JSON.stringify(ids),
 				    success: function(r){
@@ -105,7 +105,7 @@ var vm = new Vue({
 			});
 		},
 		getInfo: function(id){
-			$.get(baseURL + "sys/syssuggestion/info/"+id, function(r){
+			$.get(baseURL + "admin/syssuggestion/info/"+id, function(r){
                 vm.sysSuggestion = r.sysSuggestion;
             });
 		},
