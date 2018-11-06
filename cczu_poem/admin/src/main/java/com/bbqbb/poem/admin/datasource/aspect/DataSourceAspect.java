@@ -1,8 +1,8 @@
-package com.bbqbb.poem.admin.datasources.aspect;
+package com.bbqbb.poem.admin.datasource.aspect;
 
-import com.bbqbb.poem.admin.datasources.DataSourceNames;
-import com.bbqbb.poem.admin.datasources.DynamicDataSource;
-import com.bbqbb.poem.admin.datasources.annotation.DataSource;
+import com.bbqbb.poem.admin.datasource.DataSourceNames;
+import com.bbqbb.poem.admin.datasource.DynamicDataSource;
+import com.bbqbb.poem.admin.datasource.annotation.DataSource;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -26,7 +26,7 @@ import java.lang.reflect.Method;
 public class DataSourceAspect implements Ordered {
     protected Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Pointcut("@annotation(com.bbqbb.poem.admin.datasources.annotation.DataSource)")
+    @Pointcut("@annotation(com.bbqbb.poem.admin.datasource.annotation.DataSource)")
     public void dataSourcePointCut() {
 
     }

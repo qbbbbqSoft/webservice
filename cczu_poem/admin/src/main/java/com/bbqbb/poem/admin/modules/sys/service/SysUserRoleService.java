@@ -18,6 +18,7 @@ package com.bbqbb.poem.admin.modules.sys.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.bbqbb.poem.admin.modules.sys.entity.SysUserRoleEntity;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -29,6 +30,7 @@ import java.util.List;
  * @email sunlightcs@gmail.com
  * @date 2016年9月18日 上午9:43:24
  */
+@Component
 public interface SysUserRoleService extends IService<SysUserRoleEntity> {
 	
 	void saveOrUpdate(Long userId, List<Long> roleIdList);

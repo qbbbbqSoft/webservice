@@ -17,9 +17,9 @@
 package com.bbqbb.poem.admin.modules.sys.controller;
 
 import com.bbqbb.poem.admin.common.utils.Constant;
-import com.bbqbb.poem.common.utils.R;
 import com.bbqbb.poem.admin.modules.sys.entity.SysDeptEntity;
 import com.bbqbb.poem.admin.modules.sys.service.SysDeptService;
+import com.bbqbb.poem.common.utils.R;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

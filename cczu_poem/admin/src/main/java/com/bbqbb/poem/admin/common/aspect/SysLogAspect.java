@@ -16,15 +16,16 @@
 
 package com.bbqbb.poem.admin.common.aspect;
 
+import com.bbqbb.poem.admin.common.annotation.SysLog;
+import com.bbqbb.poem.admin.modules.sys.entity.SysLogEntity;
+import com.bbqbb.poem.admin.modules.sys.entity.SysUserEntity;
+import com.bbqbb.poem.admin.modules.sys.service.SysLogService;
 import com.bbqbb.poem.common.utils.HttpContextUtils;
 import com.bbqbb.poem.common.utils.IPUtils;
 import com.google.gson.Gson;
 
 
-import com.bbqbb.poem.admin.common.annotation.SysLog;
-import com.bbqbb.poem.admin.modules.sys.entity.SysLogEntity;
-import com.bbqbb.poem.admin.modules.sys.entity.SysUserEntity;
-import com.bbqbb.poem.admin.modules.sys.service.SysLogService;
+
 
 import org.apache.shiro.SecurityUtils;
 import org.aspectj.lang.ProceedingJoinPoint;

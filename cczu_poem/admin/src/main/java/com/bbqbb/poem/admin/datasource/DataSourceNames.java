@@ -1,4 +1,4 @@
-package com.bbqbb.poem.admin.datasources;
+package com.bbqbb.poem.admin.datasource;
 
 /**
  * 增加多数据源，在此配置

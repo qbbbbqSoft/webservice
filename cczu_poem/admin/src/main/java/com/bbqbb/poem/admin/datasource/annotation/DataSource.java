@@ -1,4 +1,4 @@
-package com.bbqbb.poem.admin.datasources.annotation;
+package com.bbqbb.poem.admin.datasource.annotation;
 
 import java.lang.annotation.*;
 
