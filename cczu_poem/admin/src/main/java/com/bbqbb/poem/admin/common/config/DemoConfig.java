@@ -1,7 +1,7 @@
 //package io.renren.common.config;
 //
 //import com.google.gson.Gson;
-//import com.bbqbb.poem.common.utils.R;
+//import R;
 //import org.apache.http.HttpStatus;
 //import org.springframework.boot.web.servlet.FilterRegistrationBean;
 //import org.springframework.context.annotation.Bean;

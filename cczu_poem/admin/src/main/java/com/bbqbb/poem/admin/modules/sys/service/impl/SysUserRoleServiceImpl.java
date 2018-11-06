@@ -18,7 +18,7 @@ package com.bbqbb.poem.admin.modules.sys.service.impl;
 
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.bbqbb.poem.common.utils.MapUtils;
+import com.bbqbb.poem.admin.common.utils.MapUtils;
 import com.bbqbb.poem.admin.modules.sys.dao.SysUserRoleDao;
 import com.bbqbb.poem.admin.modules.sys.entity.SysUserRoleEntity;
 import com.bbqbb.poem.admin.modules.sys.service.SysUserRoleService;

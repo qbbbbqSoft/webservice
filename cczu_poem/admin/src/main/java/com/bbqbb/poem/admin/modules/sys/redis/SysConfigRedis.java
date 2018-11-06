@@ -19,7 +19,7 @@ package com.bbqbb.poem.admin.modules.sys.redis;
 
 import com.bbqbb.poem.admin.common.utils.RedisKeys;
 import com.bbqbb.poem.admin.modules.sys.entity.SysConfigEntity;
-import com.bbqbb.poem.common.utils.RedisUtils;
+import com.bbqbb.poem.admin.common.utils.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

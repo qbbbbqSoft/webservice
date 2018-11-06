@@ -17,7 +17,7 @@
 package com.bbqbb.poem.admin.modules.oss.cloud;
 
 import com.aliyun.oss.OSSClient;
-import com.bbqbb.poem.common.exception.RRException;
+import com.bbqbb.poem.admin.common.exception.RRException;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

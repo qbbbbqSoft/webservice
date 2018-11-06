@@ -16,8 +16,7 @@
 
 package com.bbqbb.poem.admin.common.exception;
 
-import com.bbqbb.poem.common.exception.RRException;
-import com.bbqbb.poem.common.utils.R;
+import com.bbqbb.poem.admin.common.utils.R;
 import org.apache.shiro.authz.AuthorizationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

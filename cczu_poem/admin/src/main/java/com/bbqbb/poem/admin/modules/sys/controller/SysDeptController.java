@@ -17,7 +17,7 @@
 package com.bbqbb.poem.admin.modules.sys.controller;
 
 import com.bbqbb.poem.admin.common.utils.Constant;
-import com.bbqbb.poem.common.utils.R;
+import com.bbqbb.poem.admin.common.utils.R;
 import com.bbqbb.poem.admin.modules.sys.entity.SysDeptEntity;
 import com.bbqbb.poem.admin.modules.sys.service.SysDeptService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;

@@ -17,7 +17,7 @@
 package com.bbqbb.poem.admin.modules.sys.service;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.bbqbb.poem.common.utils.PageUtils;
+import com.bbqbb.poem.admin.common.utils.PageUtils;
 import com.bbqbb.poem.admin.modules.sys.entity.SysUserEntity;
 
 import java.util.List;

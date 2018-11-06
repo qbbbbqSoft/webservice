@@ -18,7 +18,7 @@ package com.bbqbb.poem.admin.common.aspect;
 
 
 import com.bbqbb.poem.admin.common.annotation.DataFilter;
-import com.bbqbb.poem.common.exception.RRException;
+import com.bbqbb.poem.admin.common.exception.RRException;
 import com.bbqbb.poem.admin.common.utils.Constant;
 import com.bbqbb.poem.admin.modules.sys.entity.SysUserEntity;
 import com.bbqbb.poem.admin.modules.sys.service.SysDeptService;

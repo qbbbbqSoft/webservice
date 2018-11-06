@@ -16,7 +16,7 @@
 
 package com.bbqbb.poem.admin.common.config;
 
-import com.bbqbb.poem.common.xss.XssFilter;
+import com.bbqbb.poem.admin.common.xss.XssFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

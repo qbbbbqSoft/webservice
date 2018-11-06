@@ -24,7 +24,7 @@ import com.bbqbb.poem.admin.modules.sys.entity.SysMenuEntity;
 import com.bbqbb.poem.admin.modules.sys.service.SysMenuService;
 import com.bbqbb.poem.admin.modules.sys.service.SysRoleMenuService;
 import com.bbqbb.poem.admin.modules.sys.service.SysUserService;
-import com.bbqbb.poem.common.utils.MapUtils;
+import com.bbqbb.poem.admin.common.utils.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

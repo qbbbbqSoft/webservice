@@ -20,7 +20,7 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.bbqbb.poem.admin.common.utils.Constant;
-import com.bbqbb.poem.common.utils.PageUtils;
+import com.bbqbb.poem.admin.common.utils.PageUtils;
 import com.bbqbb.poem.admin.common.utils.Query;
 import com.bbqbb.poem.admin.modules.job.dao.ScheduleJobDao;
 import com.bbqbb.poem.admin.modules.job.entity.ScheduleJobEntity;

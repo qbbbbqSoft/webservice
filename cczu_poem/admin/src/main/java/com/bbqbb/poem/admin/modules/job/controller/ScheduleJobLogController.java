@@ -16,8 +16,8 @@
 
 package com.bbqbb.poem.admin.modules.job.controller;
 
-import com.bbqbb.poem.common.utils.PageUtils;
-import com.bbqbb.poem.common.utils.R;
+import com.bbqbb.poem.admin.common.utils.PageUtils;
+import com.bbqbb.poem.admin.common.utils.R;
 import com.bbqbb.poem.admin.modules.job.entity.ScheduleJobLogEntity;
 import com.bbqbb.poem.admin.modules.job.service.ScheduleJobLogService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;

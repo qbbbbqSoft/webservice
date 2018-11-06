@@ -16,8 +16,8 @@
 
 package com.bbqbb.poem.admin.common.aspect;
 
-import com.bbqbb.poem.common.utils.HttpContextUtils;
-import com.bbqbb.poem.common.utils.IPUtils;
+import com.bbqbb.poem.admin.common.utils.HttpContextUtils;
+import com.bbqbb.poem.admin.common.utils.IPUtils;
 import com.google.gson.Gson;
 
 

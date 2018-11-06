@@ -19,7 +19,7 @@ package com.bbqbb.poem.admin.modules.sys.controller;
 
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
-import com.bbqbb.poem.common.utils.R;
+import com.bbqbb.poem.admin.common.utils.R;
 import com.bbqbb.poem.admin.modules.sys.shiro.ShiroUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;

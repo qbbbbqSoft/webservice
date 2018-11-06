@@ -21,7 +21,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.bbqbb.poem.admin.common.annotation.DataFilter;
 import com.bbqbb.poem.admin.common.utils.Constant;
-import com.bbqbb.poem.common.utils.PageUtils;
+import com.bbqbb.poem.admin.common.utils.PageUtils;
 import com.bbqbb.poem.admin.common.utils.Query;
 import com.bbqbb.poem.admin.modules.sys.dao.SysRoleDao;
 import com.bbqbb.poem.admin.modules.sys.entity.SysDeptEntity;

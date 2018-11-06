@@ -20,8 +20,8 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.google.gson.Gson;
-import com.bbqbb.poem.common.exception.RRException;
-import com.bbqbb.poem.common.utils.PageUtils;
+import com.bbqbb.poem.admin.common.exception.RRException;
+import com.bbqbb.poem.admin.common.utils.PageUtils;
 import com.bbqbb.poem.admin.common.utils.Query;
 import com.bbqbb.poem.admin.modules.sys.dao.SysConfigDao;
 import com.bbqbb.poem.admin.modules.sys.entity.SysConfigEntity;
@@ -36,6 +36,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 @Service("sysConfigService")
+@Transactional
 public class SysConfigServiceImpl extends ServiceImpl<SysConfigDao, SysConfigEntity> implements SysConfigService {
 	@Autowired
 	private SysConfigRedis sysConfigRedis;

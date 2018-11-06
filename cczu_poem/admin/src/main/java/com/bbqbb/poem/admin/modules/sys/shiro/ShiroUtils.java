@@ -16,7 +16,7 @@
 
 package com.bbqbb.poem.admin.modules.sys.shiro;
 
-import com.bbqbb.poem.common.exception.RRException;
+import com.bbqbb.poem.admin.common.exception.RRException;
 import com.bbqbb.poem.admin.modules.sys.entity.SysUserEntity;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;

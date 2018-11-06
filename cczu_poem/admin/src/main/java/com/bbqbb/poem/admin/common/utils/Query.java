@@ -17,7 +17,7 @@
 package com.bbqbb.poem.admin.common.utils;
 
 import com.baomidou.mybatisplus.plugins.Page;
-import com.bbqbb.poem.common.xss.SQLFilter;
+import com.bbqbb.poem.admin.common.xss.SQLFilter;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.LinkedHashMap;
