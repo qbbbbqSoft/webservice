@@ -53,6 +53,7 @@
             privateStatus,
             zoneID,
             author,
+            avatarUrl,
             CreateDate )
         VALUES
             ( #{title},
@@ -63,6 +64,7 @@
              #{privatestatus},
              #{zoneid},
              #{author},
+             #{avatarurl},
              #{createdate}
              )
     </update>

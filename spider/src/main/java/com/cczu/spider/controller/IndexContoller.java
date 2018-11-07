@@ -144,6 +144,8 @@ public class IndexContoller {
             if (image != null) {//如果image=null 表示上传的不是图片格式
                 System.out.println(image.getWidth());//获取图片宽度，单位px
                 System.out.println(image.getHeight());//获取图片高度，单位px
+                value.put("height",image.getWidth());
+                value.put("width",image.getWidth());
             }
         } catch (IOException e) {
             e.printStackTrace();

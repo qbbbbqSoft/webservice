@@ -87,6 +87,11 @@ public class SysTitleEntity implements Serializable {
 	 */
 	private Date createdate;
 
+
+	private String avatarurl;
+
+	private String wxotherinfo;
+
 	/**
 	 * 设置：
 	 */
@@ -290,5 +295,22 @@ public class SysTitleEntity implements Serializable {
 	 */
 	public Date getCreatedate() {
 		return createdate;
+	}
+
+
+	public String getAvatarurl() {
+		return avatarurl;
+	}
+
+	public void setAvatarurl(String avatarurl) {
+		this.avatarurl = avatarurl;
+	}
+
+	public String getWxotherinfo() {
+		return wxotherinfo;
+	}
+
+	public void setWxotherinfo(String wxotherinfo) {
+		this.wxotherinfo = wxotherinfo;
 	}
 }

@@ -1,5 +1,7 @@
 package com.bbqbb.poem.admin.modules.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
 public class SysTitleModel {
@@ -36,14 +38,17 @@ public class SysTitleModel {
     /**
      * 是否私密，默认0不私密
      */
+    @JsonIgnore
     private Integer privatestatus;
     /**
      * 默认0，不删除
      */
+    @JsonIgnore
     private Integer delstatus;
     /**
      * 默认0 需审核
      */
+    @JsonIgnore
     private Integer adminstatus;
     /**
      * 对应sys_zone的ID
@@ -71,6 +76,11 @@ public class SysTitleModel {
     private Date createdate;
 
     private Integer commentCount;
+
+
+    private String avatarurl;
+
+    private String wxotherinfo;
 
 
     public Long getId() {
@@ -215,5 +225,21 @@ public class SysTitleModel {
 
     public void setCommentCount(Integer commentCount) {
         this.commentCount = commentCount;
+    }
+
+    public String getAvatarurl() {
+        return avatarurl;
+    }
+
+    public void setAvatarurl(String avatarurl) {
+        this.avatarurl = avatarurl;
+    }
+
+    public String getWxotherinfo() {
+        return wxotherinfo;
+    }
+
+    public void setWxotherinfo(String wxotherinfo) {
+        this.wxotherinfo = wxotherinfo;
     }
 }

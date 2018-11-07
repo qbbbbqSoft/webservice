@@ -12,10 +12,12 @@ import com.bbqbb.poem.common.utils.RedisUtils;
 import com.bbqbb.poem.common.validator.ValidatorUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -78,6 +80,26 @@ public class ApiController {
     public R checkPrivateZoneByZoneCode (@PathVariable("zoneCode") String zoneCode) {
 
         return R.ok();
+    }
+
+    @RequestMapping(value = "/postsmt",method = RequestMethod.POST)
+    public R post(@RequestBody Map<String,Object> reqbody) throws InvocationTargetException, IllegalAccessException {
+
+        Object obj = null;
+        Class<?> sysTitleEntityClass = SysTitleEntity.class;
+        try {
+            obj = sysTitleEntityClass.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        BeanUtils.populate(obj,reqbody);
+        SysTitleEntity entity = (SysTitleEntity)obj;
+
+        entity.setCreatedate(new Date());
+        int result = apiService.insertSysTitleDetail(entity);
+        return R.ok().put("result",result);
     }
 
 }
