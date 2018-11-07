@@ -10,6 +10,7 @@ import com.bbqbb.poem.common.utils.GeetestLib;
 import com.bbqbb.poem.common.utils.PageUtils;
 import com.bbqbb.poem.common.utils.R;
 import com.bbqbb.poem.common.validator.ValidatorUtils;
+import io.swagger.annotations.Api;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,6 +33,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @RestController
 @RequestMapping("admin/syssuggestion")
+
+@Api(value = "*****")
 public class SysSuggestionController {
     @Autowired
     private SysSuggestionService sysSuggestionService;

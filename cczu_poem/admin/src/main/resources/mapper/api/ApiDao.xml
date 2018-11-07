@@ -4,13 +4,13 @@
 <mapper namespace="com.bbqbb.poem.admin.modules.api.dao.ApiDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.bbqbb.poem.admin.modules.admin.entity.SysSuggestionEntity" id="sysSuggestionMap">
-        <result property="id" column="ID"/>
-        <result property="email" column="email"/>
-        <result property="content" column="content"/>
-        <result property="nickname" column="nickName"/>
-        <result property="createdate" column="createDate"/>
-    </resultMap>
+    <!--<resultMap type="com.bbqbb.poem.admin.modules.admin.entity.SysSuggestionEntity" id="sysSuggestionMap">-->
+        <!--<result property="id" column="ID"/>-->
+        <!--<result property="email" column="email"/>-->
+        <!--<result property="content" column="content"/>-->
+        <!--<result property="nickname" column="nickName"/>-->
+        <!--<result property="createdate" column="createDate"/>-->
+    <!--</resultMap>-->
 
     <select id="getTitleList" resultType="com.bbqbb.poem.admin.modules.api.model.SysTitleModel" parameterType="java.util.Map">
         SELECT
@@ -24,5 +24,47 @@
         ORDER BY
             st.createDate DESC
     </select>
+
+    <select id="getTitleDetailByID" parameterType="java.util.Map" resultType="com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity">
+        SELECT
+            *
+        FROM
+            sys_title
+        WHERE
+            ID = #{ID}
+    </select>
+
+    <select id="getCommentDetailByTitleID" parameterType="java.util.Map" resultType="com.bbqbb.poem.admin.modules.admin.entity.SysCommentEntity">
+        SELECT
+            *
+        FROM
+            sys_comment
+        WHERE
+            TitleID = #{titleID}
+    </select>
+    
+    <update id="insertTitleDetail" parameterType="com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity" >
+        INSERT INTO sys_title
+            ( title,
+            imageUrl,
+            imageWidth,
+            imageHeight,
+            content,
+            privateStatus,
+            zoneID,
+            author,
+            CreateDate )
+        VALUES
+            ( #{title},
+             #{imageurl},
+             #{imagewidth},
+             #{imageheight},
+             #{content},
+             #{privatestatus},
+             #{zoneid},
+             #{author},
+             #{createdate}
+             )
+    </update>
 
 </mapper>
