@@ -30,6 +30,19 @@ public class SysZoneEntity implements Serializable {
 	 * 第一个创建的人可以设置
 	 */
 	private String zonename;
+
+	/**
+	 * 评论人微信昵称
+	 */
+	private String nickname;
+	/**
+	 * 评论人的微信头像
+	 */
+	private String avatarurl;
+	/**
+	 * 评论人微信的信息
+	 */
+	private String wxotherinfo;
 	/**
 	 * 创建时间
 	 */
@@ -82,5 +95,29 @@ public class SysZoneEntity implements Serializable {
 	 */
 	public Date getCreatedate() {
 		return createdate;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getAvatarurl() {
+		return avatarurl;
+	}
+
+	public void setAvatarurl(String avatarurl) {
+		this.avatarurl = avatarurl;
+	}
+
+	public String getWxotherinfo() {
+		return wxotherinfo;
+	}
+
+	public void setWxotherinfo(String wxotherinfo) {
+		this.wxotherinfo = wxotherinfo;
 	}
 }

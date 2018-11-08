@@ -92,6 +92,16 @@ public class SysTitleEntity implements Serializable {
 
 	private String wxotherinfo;
 
+	private Integer delCode;
+
+	public Integer getDelCode() {
+		return delCode;
+	}
+
+	public void setDelCode(Integer delCode) {
+		this.delCode = delCode;
+	}
+
 	/**
 	 * 设置：
 	 */

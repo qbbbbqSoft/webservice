@@ -21,6 +21,10 @@
             LEFT JOIN sys_comment sc ON st.ID = sc.TitleID
         GROUP BY
             st.ID
+        HAVING 1 = 1
+        <if test="zoneID != null">
+            AND st.zoneID = #{zoneID}
+        </if>
         ORDER BY
             st.createDate DESC
     </select>
@@ -54,6 +58,8 @@
             zoneID,
             author,
             avatarUrl,
+            `type`,
+            delCode,
             CreateDate )
         VALUES
             ( #{title},
@@ -65,8 +71,25 @@
              #{zoneid},
              #{author},
              #{avatarurl},
+             #{type},
+             #{delCode},
              #{createdate}
              )
     </update>
+
+    <select id="checkZoneExistByZoneCode" parameterType="java.lang.String" resultType="com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity">
+        SELECT
+            *
+        FROM
+            `sys_zone`
+        WHERE
+            ZoneCode = #{zoneCode}
+    </select>
+
+    <insert id="insertZoneDetail" parameterType="com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity">
+       INSERT INTO `sys_zone` (`ZoneCode`, `ZoneName`, `avatarUrl`, `nickName`, `wxOtherInfo`, `CreateDate` )
+    VALUES
+	( #{zonecode},#{zonename},#{avatarurl},#{nickname},#{wxotherinfo},#{createdate});
+    </insert>
 
 </mapper>

@@ -5,8 +5,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.bbqbb.poem.admin.common.utils.HttpClientUtil;
 import com.bbqbb.poem.admin.common.utils.JsonUtils;
+import com.bbqbb.poem.admin.common.utils.Query;
 import com.bbqbb.poem.admin.modules.admin.entity.SysCommentEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity;
+import com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity;
 import com.bbqbb.poem.admin.modules.api.model.DataModel;
 import com.bbqbb.poem.admin.modules.api.model.SysTitleModel;
 import com.bbqbb.poem.admin.modules.api.model.TokenModel;
@@ -42,8 +44,9 @@ public class ApiController {
     private RedisUtils redisUtils;
 
     @RequestMapping("getTitleList")
-    public R getTitleList() {
-        List<SysTitleModel> titleList = apiService.getTitleList();
+    public R getTitleList(@RequestBody Map<String,Object> params) {
+        Query query = new Query(params);
+        List<SysTitleModel> titleList = apiService.getTitleList(query);
         return R.ok().put("data",titleList);
     }
 
@@ -140,7 +143,8 @@ public class ApiController {
         String templateUrl = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=" + tokenModel.getAccess_token();
         params.put("data",argsJSONStr);
         System.out.println(argsJSONStr.replaceAll("=",":"));
-        String sendTemplateResult = HttpClientUtil.doPostJson(templateUrl,argsJSONStr.replaceAll("\"\"",""));
+        System.out.println(argsJSONStr.replaceAll("\"\\{","{").replaceAll("\\\\","").replaceAll("}\"","}"));
+        String sendTemplateResult = HttpClientUtil.doPostJson(templateUrl,argsJSONStr.replaceAll("\"\\{","{").replaceAll("\\\\","").replaceAll("}\"","}"));
         logger.info(sendTemplateResult);
         System.out.println(sendTemplateResult);
 //        body: {
@@ -195,6 +199,19 @@ public class ApiController {
                 60 * 5);
 
         return R.ok().put("data",model);
+    }
+
+    @RequestMapping("/checkZoneExistByZoneCode/{zoneCode}")
+    public R checkZoneExistByZoneCode(@PathVariable("zoneCode") String zoneCode) {
+        SysZoneEntity sysZoneEntity = apiService.checkZoneExistByZoneCode(zoneCode);
+        return R.ok().put("data",sysZoneEntity);
+    }
+
+    @RequestMapping("/insertZoneDetail")
+    public R insertZoneDetail(@RequestBody SysZoneEntity entity) {
+        entity.setCreatedate(new Date());
+        int result = apiService.insertZoneDetail(entity);
+        return R.ok().put("result",result);
     }
 
 }

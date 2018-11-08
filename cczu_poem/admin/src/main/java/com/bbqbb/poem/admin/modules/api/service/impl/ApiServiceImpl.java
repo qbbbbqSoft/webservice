@@ -3,6 +3,7 @@ package com.bbqbb.poem.admin.modules.api.service.impl;
 import com.bbqbb.poem.admin.modules.admin.dao.SysCommentDao;
 import com.bbqbb.poem.admin.modules.admin.entity.SysCommentEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity;
+import com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity;
 import com.bbqbb.poem.admin.modules.api.dao.ApiDao;
 import com.bbqbb.poem.admin.modules.api.model.SysTitleModel;
 import com.bbqbb.poem.admin.modules.api.service.ApiService;
@@ -19,8 +20,8 @@ public class ApiServiceImpl implements ApiService {
     private ApiDao apiDao;
 
     @Override
-    public List<SysTitleModel> getTitleList() {
-        return apiDao.getTitleList();
+    public List<SysTitleModel> getTitleList(Map<String, Object> params) {
+        return apiDao.getTitleList(params);
     }
 
 
@@ -37,5 +38,15 @@ public class ApiServiceImpl implements ApiService {
     @Override
     public int insertSysTitleDetail(SysTitleEntity entity) {
         return apiDao.insertTitleDetail(entity);
+    }
+
+    @Override
+    public SysZoneEntity checkZoneExistByZoneCode(String zoneCode) {
+        return apiDao.checkZoneExistByZoneCode(zoneCode);
+    }
+
+    @Override
+    public int insertZoneDetail(SysZoneEntity entity) {
+        return apiDao.insertZoneDetail(entity);
     }
 }
