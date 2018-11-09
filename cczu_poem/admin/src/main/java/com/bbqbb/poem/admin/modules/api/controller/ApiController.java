@@ -19,6 +19,7 @@ import com.bbqbb.poem.common.utils.R;
 import com.bbqbb.poem.common.utils.RedisUtils;
 import com.bbqbb.poem.common.validator.ValidatorUtils;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.http.HttpRequest;
@@ -43,24 +44,32 @@ public class ApiController {
     @Autowired
     private RedisUtils redisUtils;
 
-    @RequestMapping("getTitleList")
+
+    @ApiOperation(value = "word数据的分页获取")
+    @ApiImplicitParam(name = "params", value = "chakan", required =true, dataType ="java.util.Map<java.lang.String, java.lang.Object>")
+    @PostMapping("getTitleList")
     public R getTitleList(@RequestBody Map<String,Object> params) {
         Query query = new Query(params);
         List<SysTitleModel> titleList = apiService.getTitleList(query);
         return R.ok().put("data",titleList);
     }
 
-    @RequestMapping("/getTitleAndCommentDetailByTitleID/{ID}")
+    @ApiOperation("根据ID查看某条的word的内容")
+    @GetMapping("/getTitleByTitleID/{ID}")
     public R getTitleDetailByID(@PathVariable("ID")Long ID) {
         Map<String, Object> param = new HashMap<>();
         param.put("ID",ID);
         param.put("titleID",ID);
         SysTitleEntity titleDetailByID = apiService.getTitleDetailByID(param);
-        List<SysCommentEntity> commentDetailByTitleID = apiService.getCommentDetailByTitleID(param);
-        redisUtils.set("commentDetailByTitleID:" + System.currentTimeMillis(),commentDetailByTitleID,30);
-        String redisStr = redisUtils.get("commentDetailByTitleID:");
-        System.out.println(redisStr);
-        return R.ok().put("titleDetail",titleDetailByID).put("commentDetail",commentDetailByTitleID);
+        return R.ok().put("titleDetail",titleDetailByID);
+    }
+
+    @ApiOperation("根据TitleID查看某条word的评论")
+    @RequestMapping(value = "/getCommentDetailByTitleID",method = RequestMethod.POST)
+    public R getCommentDetailByTitleID(@RequestBody Map<String,Object> params) {
+        Query query = new Query(params);
+        List<SysCommentEntity> commentDetailByTitleID = apiService.getCommentDetailByTitleID(query);
+        return R.ok().put("commentDetailList", commentDetailByTitleID);
     }
 
 
@@ -212,6 +221,18 @@ public class ApiController {
         entity.setCreatedate(new Date());
         int result = apiService.insertZoneDetail(entity);
         return R.ok().put("result",result);
+    }
+
+    @ApiOperation("根据code删除")
+    @RequestMapping(value = "/deleteTitleByDelCodeAndID",method = RequestMethod.POST)
+    public R deleteTitleByDelCodeAndID(@RequestBody Map<String,Object> params) {
+        SysTitleEntity titleDetailByDelCodeAndID = apiService.getTitleDetailByDelCodeAndID(params);
+        if (titleDetailByDelCodeAndID == null) {
+            return R.ok().put("message","删除码不正确");
+        } else {
+            int result = apiService.deleteTitleByID(params);
+            return R.ok().put("message","删除成功");
+        }
     }
 
 }

@@ -49,4 +49,14 @@ public class ApiServiceImpl implements ApiService {
     public int insertZoneDetail(SysZoneEntity entity) {
         return apiDao.insertZoneDetail(entity);
     }
+
+    @Override
+    public SysTitleEntity getTitleDetailByDelCodeAndID(Map<String, Object> params) {
+        return apiDao.getTitleDetailByDelCodeAndID(params);
+    }
+
+    @Override
+    public int deleteTitleByID(Map<String, Object> params) {
+        return apiDao.deleteTitleByID(params);
+    }
 }

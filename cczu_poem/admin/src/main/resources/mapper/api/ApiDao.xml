@@ -22,11 +22,26 @@
         GROUP BY
             st.ID
         HAVING 1 = 1
+        AND delStatus = 0
+        AND adminStatus = 1
+        AND privateStatus = #{privatestatus}
+        <if test="search != null and search.trim() != ''">
+            AND content like '%${search}%' OR title LIKE '%${search}%'
+        </if>
         <if test="zoneID != null">
             AND st.zoneID = #{zoneID}
         </if>
-        ORDER BY
-            st.createDate DESC
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+            <otherwise>
+                order by st.createDate DESC
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
     </select>
 
     <select id="getTitleDetailByID" parameterType="java.util.Map" resultType="com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity">
@@ -45,6 +60,17 @@
             sys_comment
         WHERE
             TitleID = #{titleID}
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+            <otherwise>
+                order by createDate DESC
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
     </select>
     
     <update id="insertTitleDetail" parameterType="com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity" >
@@ -91,5 +117,19 @@
     VALUES
 	( #{zonecode},#{zonename},#{avatarurl},#{nickname},#{wxotherinfo},#{createdate});
     </insert>
+
+    <select id="getTitleDetailByDelCodeAndID" resultType="com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity" parameterType="java.util.Map">
+        SELECT
+            *
+        FROM
+            sys_title
+        WHERE
+            delCode = #{delCode}
+            AND ID = #{ID}
+    </select>
+
+    <delete id="deleteTitleByID" parameterType="java.util.Map">
+        DELETE FROM sys_title WHERE ID = #{ID}
+    </delete>
 
 </mapper>

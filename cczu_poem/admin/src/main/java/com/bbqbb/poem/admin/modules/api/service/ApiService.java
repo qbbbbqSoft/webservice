@@ -22,4 +22,8 @@ public interface ApiService {
     SysZoneEntity checkZoneExistByZoneCode(String zoneCode);
 
     int insertZoneDetail(SysZoneEntity entity);
+
+    SysTitleEntity getTitleDetailByDelCodeAndID(Map<String, Object> params);
+
+    int deleteTitleByID(Map<String, Object> params);
 }
