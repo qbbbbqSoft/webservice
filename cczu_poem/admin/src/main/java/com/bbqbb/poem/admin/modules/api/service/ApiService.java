@@ -26,4 +26,18 @@ public interface ApiService {
     SysTitleEntity getTitleDetailByDelCodeAndID(Map<String, Object> params);
 
     int deleteTitleByID(Map<String, Object> params);
+
+    int updateGreatCountByCommentID(Map<String, Object> params);
+
+    int updateLikeCountByTitleID(Map<String, Object> params);
+
+    int updatenotLikeCountByTitleID(Map<String, Object> params);
+
+    SysTitleEntity getSysTitleEntity(SysTitleEntity entity);
+
+    int updateSysTitleEntity(SysTitleEntity entity);
+
+    int insertSysCommentEntity(SysCommentEntity entity);
+
+    SysZoneEntity getSysZoneEntity(SysZoneEntity entity);
 }

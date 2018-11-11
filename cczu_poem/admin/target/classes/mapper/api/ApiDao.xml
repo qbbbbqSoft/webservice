@@ -24,11 +24,11 @@
         HAVING 1 = 1
         AND delStatus = 0
         AND adminStatus = 1
-        AND privateStatus = #{privatestatus}
+        AND privateStatus = #{privateStatus}
         <if test="search != null and search.trim() != ''">
             AND content like '%${search}%' OR title LIKE '%${search}%'
         </if>
-        <if test="zoneID != null">
+        <if test="zoneID != null and zoneID != 0">
             AND st.zoneID = #{zoneID}
         </if>
         <choose>
@@ -65,7 +65,7 @@
                 order by ${sidx} ${order}
             </when>
             <otherwise>
-                order by createDate DESC
+                order by greatCount DESC
             </otherwise>
         </choose>
         <if test="offset != null and limit != null">
@@ -131,5 +131,51 @@
     <delete id="deleteTitleByID" parameterType="java.util.Map">
         DELETE FROM sys_title WHERE ID = #{ID}
     </delete>
+
+    <!--<select id="getHotCommentByTitleID" parameterType="java.util.Map" resultType="com.bbqbb.poem.admin.modules.admin.dao.SysCommentDao">-->
+        <!---->
+    <!--</select>-->
+
+    <update id="updateGreatCountByCommentID" parameterType="java.util.Map">
+        UPDATE sys_comment
+        SET greatCount =
+        <choose>
+            <when test="type != null and type == 0">
+                greatCount - 1
+            </when>
+            <otherwise>
+                greatCount + 1
+            </otherwise>
+        </choose>
+          WHERE ID = #{ID}
+    </update>
+
+    <update id="updateLikeCountByTitleID" parameterType="java.util.Map">
+        UPDATE sys_title
+        SET likeCount =
+        <choose>
+            <when test="type != null and type == 0">
+                likeCount - 1
+            </when>
+            <otherwise>
+                likeCount + 1
+            </otherwise>
+        </choose>
+        WHERE ID = #{ID}
+    </update>
+
+    <update id="updateNotLikeCountByTitleID" parameterType="java.util.Map">
+        UPDATE sys_title
+        SET notLikeCount =
+        <choose>
+            <when test="type != null and type == 0">
+                notLikeCount - 1
+            </when>
+            <otherwise>
+                notLikeCount + 1
+            </otherwise>
+        </choose>
+        WHERE ID = #{ID}
+    </update>
 
 </mapper>

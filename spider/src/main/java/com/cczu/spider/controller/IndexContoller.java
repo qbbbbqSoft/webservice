@@ -157,7 +157,7 @@ public class IndexContoller {
             value.put("msg", "图片上传成功");
         } catch (Exception e) {
             e.printStackTrace();
-            value.put("code", 2000);
+            value.put("code", 500);
             value.put("msg", "图片上传成功");
         }
         return JSONObject.toJSONString(value);

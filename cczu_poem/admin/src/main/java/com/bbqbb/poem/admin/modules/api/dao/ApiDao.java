@@ -27,4 +27,10 @@ public interface ApiDao {
     SysTitleEntity getTitleDetailByDelCodeAndID(Map<String, Object> params);
 
     int deleteTitleByID(Map<String, Object> params);
+
+    int updateGreatCountByCommentID(Map<String, Object> params);
+
+    int updateLikeCountByTitleID(Map<String, Object> params);
+
+    int updateNotLikeCountByTitleID(Map<String, Object> params);
 }

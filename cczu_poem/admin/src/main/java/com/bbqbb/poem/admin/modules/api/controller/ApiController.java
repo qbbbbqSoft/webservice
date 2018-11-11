@@ -115,17 +115,25 @@ public class ApiController {
         }
         BeanUtils.populate(obj,reqbody);
         SysTitleEntity entity = (SysTitleEntity)obj;
-
+        String page = "pages/kf/index";
         entity.setCreatedate(new Date());
         int result = apiService.insertSysTitleDetail(entity);
+        if (entity.getZoneid() != 0) {
+            SysZoneEntity sysZoneEntity = new SysZoneEntity();
+            sysZoneEntity.setId(entity.getZoneid());
+            SysZoneEntity zoneEntity = apiService.getSysZoneEntity(sysZoneEntity);
+            page = page + "?type=private&code=" + zoneEntity.getZonecode();
+        } else {
+            page = page + "?type=public&code=0";
+        }
         String urlForToken = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxcb506c516f5ee36d&secret=0b81a9888f3972585ecc837d8a950324";
         String tokenModelStr = HttpClientUtil.doGet(urlForToken);
         TokenModel tokenModel = JsonUtils.jsonToPojo(tokenModelStr, TokenModel.class);
         Map<String, String> params = new HashMap<>();
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("touser",reqbody.get("openID").toString());
-        jsonObject.put("template_id","GRDaIosbrSHKrvGPp5mY1qy8Hs7cQHSyvjYafpZVysA");
-        jsonObject.put("page","pages/kf/index");
+        jsonObject.put("template_id","yfhS6hfi0dqilZx5MjjrjEY2QMImUnPm2-VpliY4zfQ");
+        jsonObject.put("page",page);
         jsonObject.put("form_id",reqbody.get("formID").toString());
         jsonObject.put("data",reqbody.get("data").toString());
 //        JSONObject data2 = new JSONObject(reqbody);
@@ -233,6 +241,59 @@ public class ApiController {
             int result = apiService.deleteTitleByID(params);
             return R.ok().put("message","删除成功");
         }
+    }
+
+    @ApiOperation("评论点赞")
+    @PostMapping("/updateGreatCountByCommentID")
+    public R updateGreatCountByCommentID(@RequestBody Map<String,Object> params) {
+        int result = apiService.updateGreatCountByCommentID(params);
+        return R.ok().put("result", result);
+    }
+
+    @ApiOperation("文章点赞")
+    @PostMapping("/updateLikeCountByTitleID")
+    public R updateLikeCountByTitleID(@RequestBody Map<String,Object> params) {
+        int result = apiService.updateLikeCountByTitleID(params);
+        return R.ok().put("result", result);
+    }
+
+    @ApiOperation("文章踩")
+    @PostMapping("/updateNotLikeCountByTitleID")
+    public R updateNotLikeCountByTitleID(@RequestBody Map<String,Object> params) {
+        int result = apiService.updatenotLikeCountByTitleID(params);
+        return R.ok().put("result", result);
+    }
+
+    @ApiOperation("删除或者举报文章")
+    @PostMapping("/delOrReportTitle")
+    public R delOrReportTitle(@RequestBody Map<String, Object> params) {
+        int type = Integer.valueOf(params.get("type").toString());
+        Long ID = Long.valueOf(params.get("titleID").toString());
+
+        if (type == 1) {
+            Integer delCode = Integer.valueOf(params.get("inputContent").toString());
+            SysTitleEntity entity = new SysTitleEntity();
+            entity.setId(ID);
+            entity.setDelCode(delCode);
+            SysTitleEntity sysTitleEntity = apiService.getSysTitleEntity(entity);
+            if (sysTitleEntity != null) {
+                sysTitleEntity.setDelstatus(1);
+                apiService.updateSysTitleEntity(sysTitleEntity);
+                return R.ok().put("message", "删除成功").put("result",1);
+            } else {
+                return R.ok().put("message", "删除码错误").put("result",2);
+            }
+        } else {
+            return R.ok().put("message","举报成功").put("result",3);
+        }
+    }
+
+    @ApiOperation("插入评论")
+    @PostMapping("/insertSysComment")
+    public R insertSysComment(@RequestBody SysCommentEntity entity){
+        entity.setCreatedate(new Date());
+        int result = apiService.insertSysCommentEntity(entity);
+        return R.ok().put("result",result);
     }
 
 }

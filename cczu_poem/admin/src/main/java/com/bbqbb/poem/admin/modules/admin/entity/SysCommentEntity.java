@@ -46,10 +46,20 @@ public class SysCommentEntity implements Serializable {
 	 * 评论人微信的信息
 	 */
 	private String wxotherinfo;
+
+	private Integer greatcount;
 	/**
 	 * 评论时间
 	 */
 	private Date createdate;
+
+	public Integer getGreatcount() {
+		return greatcount;
+	}
+
+	public void setGreatcount(Integer greatcount) {
+		this.greatcount = greatcount;
+	}
 
 	/**
 	 * 设置：

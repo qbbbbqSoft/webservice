@@ -92,14 +92,14 @@ public class SysTitleEntity implements Serializable {
 
 	private String wxotherinfo;
 
-	private Integer delCode;
+	private Integer delcode;
 
 	public Integer getDelCode() {
-		return delCode;
+		return delcode;
 	}
 
 	public void setDelCode(Integer delCode) {
-		this.delCode = delCode;
+		this.delcode = delCode;
 	}
 
 	/**

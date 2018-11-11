@@ -1,6 +1,8 @@
 package com.bbqbb.poem.admin.modules.api.service.impl;
 
 import com.bbqbb.poem.admin.modules.admin.dao.SysCommentDao;
+import com.bbqbb.poem.admin.modules.admin.dao.SysTitleDao;
+import com.bbqbb.poem.admin.modules.admin.dao.SysZoneDao;
 import com.bbqbb.poem.admin.modules.admin.entity.SysCommentEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity;
@@ -18,6 +20,12 @@ public class ApiServiceImpl implements ApiService {
 
     @Autowired
     private ApiDao apiDao;
+    @Autowired
+    private SysTitleDao sysTitleDao;
+    @Autowired
+    private SysCommentDao sysCommentDao;
+    @Autowired
+    private SysZoneDao sysZoneDao;
 
     @Override
     public List<SysTitleModel> getTitleList(Map<String, Object> params) {
@@ -58,5 +66,40 @@ public class ApiServiceImpl implements ApiService {
     @Override
     public int deleteTitleByID(Map<String, Object> params) {
         return apiDao.deleteTitleByID(params);
+    }
+
+    @Override
+    public int updateGreatCountByCommentID(Map<String, Object> params) {
+        return apiDao.updateGreatCountByCommentID(params);
+    }
+
+    @Override
+    public int updateLikeCountByTitleID(Map<String, Object> params) {
+        return apiDao.updateLikeCountByTitleID(params);
+    }
+
+    @Override
+    public int updatenotLikeCountByTitleID(Map<String, Object> params) {
+        return apiDao.updateNotLikeCountByTitleID(params);
+    }
+
+    @Override
+    public SysTitleEntity getSysTitleEntity(SysTitleEntity entity) {
+        return sysTitleDao.selectOne(entity);
+    }
+
+    @Override
+    public int updateSysTitleEntity(SysTitleEntity entity) {
+        return sysTitleDao.updateAllColumnById(entity);
+    }
+
+    @Override
+    public int insertSysCommentEntity(SysCommentEntity entity) {
+        return sysCommentDao.insertAllColumn(entity);
+    }
+
+    @Override
+    public SysZoneEntity getSysZoneEntity(SysZoneEntity entity) {
+        return sysZoneDao.selectOne(entity);
     }
 }
