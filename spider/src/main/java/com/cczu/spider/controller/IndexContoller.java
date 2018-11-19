@@ -46,6 +46,11 @@ public class IndexContoller {
     @Autowired
     private LectureService lectureService;
 
+    @Autowired
+    private CCZU_spiderByHtmlUnit cczu_spiderByHtmlUnit;
+
+
+
     @Value("${ChromeDriver_Path_win}")
     private String ChromeDriver_Path_win;
     @Value("${ChromeDriver_Path_linux}")
@@ -75,7 +80,7 @@ public class IndexContoller {
             String result = redis.get(userName);
             List<CoursePojo> pojos = json.parseArray(result, CoursePojo.class);
             if (pojos == null){
-                CCZU_spiderByHtmlUnit cczu_spiderByHtmlUnit = new CCZU_spiderByHtmlUnit();
+//                CCZU_spiderByHtmlUnit cczu_spiderByHtmlUnit = new CCZU_spiderByHtmlUnit();
                 List<CoursePojo<List<OrderAndValue>>> strings = cczu_spiderByHtmlUnit.cczuSpider(userName,password,index);
                 redis.set(userName, json.toJSONString(strings));
                 String result2 = redis.get(userName);

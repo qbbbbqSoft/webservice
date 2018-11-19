@@ -2,6 +2,7 @@ package com.cczu.spider.utils;
 
 import com.cczu.spider.pojo.CoursePojo;
 import com.cczu.spider.pojo.OrderAndValue;
+import com.cczu.spider.repository.SysCourseRepo;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.CookieManager;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -10,14 +11,22 @@ import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
 
-@Component
+@Service
 public class CCZU_spiderByHtmlUnit {
+
+    @Autowired
+    private SysCourseRepo sysCourseRepo;
+
+    @Autowired
+    private CCZU_spiderUtils cczu_spiderUtils;
     public List<CoursePojo<List<OrderAndValue>>> cczuSpider(String inputUserName,String inputPassword,Integer term) throws Exception {
         WebClient webClient = new WebClient(BrowserVersion.CHROME);
         //解决net.sourceforge.htmlunit.corejs.javascript.EcmaError: TypeError: Cannot find function createObjectUR
@@ -59,7 +68,7 @@ public class CCZU_spiderByHtmlUnit {
         DomElement domElement = a.get(2);
         domElement.click();
         CookieManager cookieManager = webClient.getCookieManager();
-        CCZU_spiderUtils cczu_spiderUtils = new CCZU_spiderUtils();
+//        CCZU_spiderUtils cczu_spiderUtils = new CCZU_spiderUtils();
         List<CoursePojo<List<OrderAndValue>>> getinfo = cczu_spiderUtils.getinfo(cookieManager,term);
         long end = new Date().getTime();
         webClient.close();

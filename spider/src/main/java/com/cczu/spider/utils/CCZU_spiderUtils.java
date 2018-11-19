@@ -1,7 +1,9 @@
 package com.cczu.spider.utils;
 
+import com.cczu.spider.entity.SysCourseEntity;
 import com.cczu.spider.pojo.CoursePojo;
 import com.cczu.spider.pojo.OrderAndValue;
+import com.cczu.spider.repository.SysCourseRepo;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.CookieManager;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -14,13 +16,22 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Component
 public class CCZU_spiderUtils {
+
+    @Autowired
+    private SysCourseRepo sysCourseRepo;
+
+
 
     public List<CoursePojo<List<OrderAndValue>>> getinfo(CookieManager cookieManager,Integer index) throws Exception{
         WebClient webClient = new WebClient(BrowserVersion.CHROME);
@@ -78,8 +89,100 @@ public class CCZU_spiderUtils {
             }
             coursePojos.add(coursePojo);
         }
-        for (int i = 0; i < elementsByClass.size(); i++) {
-            System.out.println(course[i][1]);
+        SysCourseEntity entity;
+//        for (int i = 0; i < elementsByClass.size(); i++) {
+//            entity = new SysCourseEntity();
+//            for (int j = 1; j < 8; j++) {
+//                entity.setWeek(j);
+//                switch (i) {
+//                    case 0:
+//                        entity.setCourse1(course[0][j]);
+//                        break;
+//                    case 1:
+//                        entity.setCourse2(course[1][j]);
+//                        break;
+//                    case 2:
+//                        entity.setCourse3(course[2][j]);
+//                        break;
+//                    case 3:
+//                        entity.setCourse4(course[3][j]);
+//                        break;
+//                    case 4:
+//                        entity.setCourse5(course[4][j]);
+//                        break;
+//                    case 5:
+//                        entity.setCourse6(course[5][j]);
+//                        break;
+//                    case 6:
+//                        entity.setCourse7(course[6][j]);
+//                        break;
+//                    case 7:
+//                        entity.setCourse8(course[7][j]);
+//                        break;
+//                    case 8:
+//                        entity.setCourse9(course[8][j]);
+//                        break;
+//                    case 9:
+//                        entity.setCourse10(course[9][j]);
+//                        break;
+//                    case 10:
+//                        entity.setCourse11(course[10][j]);
+//                        break;
+//                    case 11:
+//                        entity.setCourse12(course[11][j]);
+//                        break;
+//                }
+//                entity.setCreatedate(new Date());
+//                System.out.println(course[i][j]);
+//                sysCourseRepo.save(entity);
+//            }
+//        }
+        for (int i = 1; i < 8; i++) {
+            entity = new SysCourseEntity();
+            for (int j = 0; j < elementsByClass.size(); j++) {
+                entity.setWeek(i);
+                switch (j) {
+                    case 0:
+                        entity.setCourse1(course[0][i]);
+                        break;
+                    case 1:
+                        entity.setCourse2(course[1][i]);
+                        break;
+                    case 2:
+                        entity.setCourse3(course[2][i]);
+                        break;
+                    case 3:
+                        entity.setCourse4(course[3][i]);
+                        break;
+                    case 4:
+                        entity.setCourse5(course[4][i]);
+                        break;
+                    case 5:
+                        entity.setCourse6(course[5][i]);
+                        break;
+                    case 6:
+                        entity.setCourse7(course[6][i]);
+                        break;
+                    case 7:
+                        entity.setCourse8(course[7][i]);
+                        break;
+                    case 8:
+                        entity.setCourse9(course[8][i]);
+                        break;
+                    case 9:
+                        entity.setCourse10(course[9][i]);
+                        break;
+                    case 10:
+                        entity.setCourse11(course[10][i]);
+                        break;
+                    case 11:
+                        entity.setCourse12(course[11][i]);
+                        break;
+                }
+                entity.setCreatedate(new Date());
+//                System.out.println(course[i][j]);
+                sysCourseRepo.save(entity);
+            }
         }
         webClient.close();
         return coursePojos;
