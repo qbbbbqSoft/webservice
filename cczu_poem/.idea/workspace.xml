@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="642912ab-94cb-47ec-b9a2-de242e3a54c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/logs/admin.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/admin.log" afterDir="false" />
-    </list>
+    <list default="true" id="642912ab-94cb-47ec-b9a2-de242e3a54c5" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/admin/target/" />
@@ -125,11 +123,12 @@
     <session id="749203411">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.3" value="4" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -188,8 +187,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="57" column="35" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="35" />
+            <state relative-caret-position="-1287">
+              <caret line="203" column="46" selection-start-line="203" selection-start-column="28" selection-end-line="203" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -434,8 +433,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -863,7 +860,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -938,11 +937,12 @@
       <workItem from="1541854561188" duration="3207000" />
       <workItem from="1541909669021" duration="12913000" />
       <workItem from="1542119066553" duration="681000" />
+      <workItem from="1542713931614" duration="1370000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109433000" />
+    <option name="totallyTimeSpent" value="110803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1384,8 +1384,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="57" column="35" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="35" />
+        <state relative-caret-position="-1287">
+          <caret line="203" column="46" selection-start-line="203" selection-start-column="28" selection-end-line="203" selection-end-column="46" />
         </state>
       </provider>
     </entry>
