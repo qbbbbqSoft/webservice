@@ -4,6 +4,7 @@ import com.cczu.spider.entity.SysCourseEntity;
 import com.cczu.spider.pojo.CoursePojo;
 import com.cczu.spider.pojo.OrderAndValue;
 import com.cczu.spider.repository.SysCourseRepo;
+import com.cczu.spider.utils.thread.CreateTask;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.CookieManager;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -185,6 +186,9 @@ public class CCZU_spiderUtils {
             }
         }
         webClient.close();
+        System.out.println("数据操作结束开始线程的时间" + new Date());
+        CreateTask.createTask("12345600");
+        System.out.println("返回数据的时间" + new Date());
         return coursePojos;
     }
 
