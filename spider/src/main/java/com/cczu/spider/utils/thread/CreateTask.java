@@ -66,4 +66,6 @@ public class CreateTask {
         thread.start();
         return "Binding";
     }
+
+    //ToDo 天气接口https://www.sojson.com/blog/305.html
 }

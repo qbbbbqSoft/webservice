@@ -72,7 +72,7 @@ public class SpiderApplicationTests {
 	@Test
 	public void findZoneByZoneCode() {
 		R zoneByZoneCode = sysZoneService.findZoneByZoneCode("121323");
-		Object data = zoneByZoneCode.getData();
+		Object data = zoneByZoneCode.get("data");
 		System.out.println(((SysZoneEntity)data).getId());
 	}
 }

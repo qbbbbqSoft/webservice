@@ -21,9 +21,9 @@ public class SysZoneServiceImpl implements SysZoneService {
     public R addNewZone(SysZoneEntity entity) {
         SysZoneEntity result = sysZoneRepo.save(entity);
         if (result != null) {
-            return R.isFail();
+            return R.error();
         }
-        return R.isOk();
+        return R.ok();
     }
 
     @Override
@@ -34,6 +34,6 @@ public class SysZoneServiceImpl implements SysZoneService {
         Optional one = sysZoneRepo.findOne(example);
         Object o = one.get();
 
-        return R.isOk().data((SysZoneEntity) o);
+        return R.ok().put("data",(SysZoneEntity) o);
     }
 }

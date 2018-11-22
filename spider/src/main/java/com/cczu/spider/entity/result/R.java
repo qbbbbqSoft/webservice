@@ -1,87 +1,50 @@
 package com.cczu.spider.entity.result;
 
-import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
-public class R<T> implements Serializable {
+public class R extends HashMap<String, Object> {
+    private static final long serialVersionUID = 1L;
 
-    private static final long serialVersionUID = -4577255781088498763L;
-    private static final int OK = 0;
-    private static final int FAIL = 1;
-    private static final int UNAUTHORIZED = 2;
+    public R() {
+        put("code", 0);
+        put("msg", "success");
+    }
 
-    private T data; //服务端数据
-    private int status = OK; //状态码
-    private String msg = ""; //描述信息
+    public static R error() {
+        return error(500, "未知异常，管理员会及时处理");
+    }
 
-    //APIS
-    public static R isOk(){
+    public static R error(String msg) {
+        return error(500, msg);
+    }
+
+    public static R error(int code, String msg) {
+        R r = new R();
+        r.put("code", code);
+        r.put("msg", msg);
+        return r;
+    }
+
+    public static R ok(String msg) {
+        R r = new R();
+        r.put("msg", msg);
+        return r;
+    }
+
+    public static R ok(Map<String, Object> map) {
+        R r = new R();
+        r.putAll(map);
+        return r;
+    }
+
+    public static R ok() {
         return new R();
     }
-    public static R isFail(){
-        return new R().status(FAIL);
-    }
-    public static R isFail(Throwable e){
-        return isFail().msg(e);
-    }
-    public R msg(Throwable e){
-        this.setMsg(e.toString());
+
+    @Override
+    public R put(String key, Object value) {
+        super.put(key, value);
         return this;
-    }
-    public R data(T data){
-        this.setData(data);
-        return this;
-    }
-    public R status(int status){
-        this.setStatus(status);
-        return this;
-    }
-
-
-    //Constructors
-    public R() {
-
-    }
-
-    //Getter&Setters
-
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public static int getOK() {
-        return OK;
-    }
-
-    public static int getFAIL() {
-        return FAIL;
-    }
-
-    public static int getUNAUTHORIZED() {
-        return UNAUTHORIZED;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
     }
 }

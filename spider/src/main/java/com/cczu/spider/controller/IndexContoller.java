@@ -184,7 +184,7 @@ public class IndexContoller {
         return lectureService.getLectureInfo();
     }
 
-    @RequestMapping("/checkUser")
+    @RequestMapping("/checkUserAndBinding")
     @ResponseBody
     public R checkUser(String username, String password,String openid) {
         SpiderForCheckUserNameAndPassword util = new SpiderForCheckUserNameAndPassword(username,password);
@@ -196,13 +196,13 @@ public class IndexContoller {
             int code = jsonp.getInt("code");//200 视为成功
             if (code == 200) {
                 String bindTask = CreateTask.createBindTask(username, password, openid);
-                return R.isOk().data(result).data(bindTask);
+                return R.ok().put("data",result).put("result",bindTask);
             } else {
-                return R.isFail();
+                return R.error();
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return R.isFail();
+            return R.error();
         }
 
     }
@@ -226,7 +226,7 @@ public class IndexContoller {
                 url = "http://mobile.cczu.edu.cn/mp/apps/introduRest/updateHistory";
                 break;
             default:
-                return R.isFail();
+                return R.error();
         }
         SpiderForCheckUserNameAndPassword util = new SpiderForCheckUserNameAndPassword(url);
         String result = "";
@@ -234,9 +234,9 @@ public class IndexContoller {
             result = util.getInfoAboutSchool();
         } catch (Exception e) {
             e.printStackTrace();
-            return R.isFail();
+            return R.error();
         }
-        return R.isOk().data(result);
+        return R.ok().put("data",result);
     }
 
 
