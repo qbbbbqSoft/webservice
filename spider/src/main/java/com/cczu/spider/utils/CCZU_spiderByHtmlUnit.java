@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.List;
 
-@Service
+@Service("CCZU_spiderByHtmlUnit")
 public class CCZU_spiderByHtmlUnit {
 
     @Autowired
@@ -27,7 +27,7 @@ public class CCZU_spiderByHtmlUnit {
 
     @Autowired
     private CCZU_spiderUtils cczu_spiderUtils;
-    public List<CoursePojo<List<OrderAndValue>>> cczuSpider(String inputUserName,String inputPassword,Integer term) throws Exception {
+    public List<CoursePojo<List<OrderAndValue>>> cczuSpider(String inputUserName,String inputPassword,Integer term, String openid) throws Exception {
         WebClient webClient = new WebClient(BrowserVersion.CHROME);
         //解决net.sourceforge.htmlunit.corejs.javascript.EcmaError: TypeError: Cannot find function createObjectUR
         webClient.getOptions().setThrowExceptionOnScriptError(false);
@@ -69,7 +69,7 @@ public class CCZU_spiderByHtmlUnit {
         domElement.click();
         CookieManager cookieManager = webClient.getCookieManager();
 //        CCZU_spiderUtils cczu_spiderUtils = new CCZU_spiderUtils();
-        List<CoursePojo<List<OrderAndValue>>> getinfo = cczu_spiderUtils.getinfo(cookieManager,term);
+        List<CoursePojo<List<OrderAndValue>>> getinfo = cczu_spiderUtils.getinfo(cookieManager,term,openid);
         long end = new Date().getTime();
         webClient.close();
         return getinfo;

@@ -34,7 +34,7 @@ public class JZSpiderUtil {
 
         long begin = new Date().getTime();
         // 获取Token与Cookie的请求
-        String url = "http://219.230.159.132/every_main.aspx";
+        String url = "http://219.230.159.132/web_jxrw/cx_jz_kcxkmd.aspx";
         URL link = new URL(url);
         WebRequest request = new WebRequest(link);
 //        request.setProxyHost("47.98.105.243");
@@ -51,9 +51,9 @@ public class JZSpiderUtil {
 //        webClient.getOptions().setTimeout(8000);
 //        Page page = webClient.getPage(request);
         HtmlPage page2 = webClient.getPage(request);
-        DomElement dataList1_ctl14_hyperLink1 = page2.getElementById("DataList1_ctl14_HyperLink1");
-        HtmlPage click = dataList1_ctl14_hyperLink1.click();
-        Document document = Jsoup.parse(click.asXml());
+//        DomElement dataList1_ctl14_hyperLink1 = page2.getElementById("DataList1_ctl14_HyperLink1");
+//        HtmlPage click = dataList1_ctl14_hyperLink1.click();
+        Document document = Jsoup.parse(page2.asXml());
         Element gVkbk = document.getElementById("GVkbk");
         Elements trs = gVkbk.getElementsByTag("tr");
         LectureEntity lectureEntity = null;

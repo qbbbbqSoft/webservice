@@ -2,6 +2,7 @@ package com.cczu.spider.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.cczu.spider.entity.LectureEntity;
+import com.cczu.spider.entity.result.R;
 import com.cczu.spider.pojo.CoursePojo;
 import com.cczu.spider.pojo.OrderAndValue;
 import com.cczu.spider.pojo.TermEnum;
@@ -13,6 +14,8 @@ import com.cczu.spider.service.UpImgService;
 import com.cczu.spider.utils.CCZU_spider;
 import com.cczu.spider.utils.CCZU_spiderByHtmlUnit;
 import com.cczu.spider.utils.CCZU_spiderUtils;
+import com.cczu.spider.utils.thread.CreateTask;
+import com.cczu.spider.utils.utilsforgetschoolinfo.SpiderForCheckUserNameAndPassword;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -81,7 +84,7 @@ public class IndexContoller {
             List<CoursePojo> pojos = json.parseArray(result, CoursePojo.class);
             if (pojos == null){
 //                CCZU_spiderByHtmlUnit cczu_spiderByHtmlUnit = new CCZU_spiderByHtmlUnit();
-                List<CoursePojo<List<OrderAndValue>>> strings = cczu_spiderByHtmlUnit.cczuSpider(userName,password,index);
+                List<CoursePojo<List<OrderAndValue>>> strings = cczu_spiderByHtmlUnit.cczuSpider(userName,password,index,"");
                 redis.set(userName, json.toJSONString(strings));
                 String result2 = redis.get(userName);
                 List<CoursePojo> pojos2 = json.parseArray(result2, CoursePojo.class);
@@ -179,6 +182,61 @@ public class IndexContoller {
     @ResponseBody
     public Page<LectureEntity> getLectureInfo() {
         return lectureService.getLectureInfo();
+    }
+
+    @RequestMapping("/checkUser")
+    @ResponseBody
+    public R checkUser(String username, String password,String openid) {
+        SpiderForCheckUserNameAndPassword util = new SpiderForCheckUserNameAndPassword(username,password);
+        String result = "";
+        try {
+            result = util.checkUserNameAndPassword();
+            org.json.JSONObject jsonObject = new org.json.JSONObject(result);
+            org.json.JSONObject jsonp = jsonObject.getJSONObject("jsonp");
+            int code = jsonp.getInt("code");//200 视为成功
+            if (code == 200) {
+                String bindTask = CreateTask.createBindTask(username, password, openid);
+                return R.isOk().data(result).data(bindTask);
+            } else {
+                return R.isFail();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return R.isFail();
+        }
+
+    }
+
+    /**
+     *type   1。学校概况 2。院系介绍 3。校史沿革
+     * @return
+     */
+    @RequestMapping("/getInfoAboutSchool/{type}")
+    @ResponseBody
+    public R getInfoAboutSchool(@PathVariable("type") Integer type) {
+        String url = "";
+        switch (type){
+            case 1:
+                url = "http://mobile.cczu.edu.cn/mp/apps/introduRest/index";
+                break;
+            case 2:
+                url = "http://mobile.cczu.edu.cn/mp/apps/introduRest/getDeparts";
+                break;
+            case 3:
+                url = "http://mobile.cczu.edu.cn/mp/apps/introduRest/updateHistory";
+                break;
+            default:
+                return R.isFail();
+        }
+        SpiderForCheckUserNameAndPassword util = new SpiderForCheckUserNameAndPassword(url);
+        String result = "";
+        try {
+            result = util.getInfoAboutSchool();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return R.isFail();
+        }
+        return R.isOk().data(result);
     }
 
 

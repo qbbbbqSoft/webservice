@@ -34,7 +34,7 @@ public class CCZU_spiderUtils {
 
 
 
-    public List<CoursePojo<List<OrderAndValue>>> getinfo(CookieManager cookieManager,Integer index) throws Exception{
+    public List<CoursePojo<List<OrderAndValue>>> getinfo(CookieManager cookieManager,Integer index,String openid) throws Exception{
         WebClient webClient = new WebClient(BrowserVersion.CHROME);
         //解决net.sourceforge.htmlunit.corejs.javascript.EcmaError: TypeError: Cannot find function createObjectUR
         webClient.getOptions().setThrowExceptionOnScriptError(false);
@@ -180,6 +180,7 @@ public class CCZU_spiderUtils {
                         entity.setCourse12(course[11][i]);
                         break;
                 }
+                entity.setOpenid(openid);
                 entity.setCreatedate(new Date());
 //                System.out.println(course[i][j]);
                 sysCourseRepo.save(entity);
@@ -187,7 +188,7 @@ public class CCZU_spiderUtils {
         }
         webClient.close();
         System.out.println("数据操作结束开始线程的时间" + new Date());
-        CreateTask.createTask("12345600");
+        String task = CreateTask.createTask(openid);
         System.out.println("返回数据的时间" + new Date());
         return coursePojos;
     }
