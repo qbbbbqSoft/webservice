@@ -10,4 +10,8 @@ public interface SysCourseService {
     SysCourseEntity updateData(SysCourseEntity entity);
 
     List<SysCourseEntity> getEntitiesByOpenID(String openID);
+
+    void deleteByOpenid(String openid);
+
+    List<SysCourseEntity> getEntitiesByOpenIDAndWeek(String openID,Integer week);
 }

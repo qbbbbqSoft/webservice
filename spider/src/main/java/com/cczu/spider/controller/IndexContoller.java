@@ -2,20 +2,21 @@ package com.cczu.spider.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.cczu.spider.entity.LectureEntity;
+import com.cczu.spider.entity.SysBindingWxEntity;
+import com.cczu.spider.entity.SysCourseEntity;
+import com.cczu.spider.entity.SysIndexEntity;
 import com.cczu.spider.entity.result.R;
 import com.cczu.spider.pojo.CoursePojo;
 import com.cczu.spider.pojo.OrderAndValue;
 import com.cczu.spider.pojo.TermEnum;
-import com.cczu.spider.pojo.TermMap;
-import com.cczu.spider.service.LectureService;
-import com.cczu.spider.service.MailService;
-import com.cczu.spider.service.RedisService;
-import com.cczu.spider.service.UpImgService;
+import com.cczu.spider.service.*;
 import com.cczu.spider.utils.CCZU_spider;
 import com.cczu.spider.utils.CCZU_spiderByHtmlUnit;
 import com.cczu.spider.utils.CCZU_spiderUtils;
+import com.cczu.spider.utils.thirdpart.WeatherUtil;
 import com.cczu.spider.utils.thread.CreateTask;
 import com.cczu.spider.utils.utilsforgetschoolinfo.SpiderForCheckUserNameAndPassword;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,9 +30,9 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.InvocationTargetException;
+import java.time.Year;
+import java.util.*;
 
 import static com.cczu.spider.pojo.TermMap.termMap;
 
@@ -39,6 +40,13 @@ import static com.cczu.spider.pojo.TermMap.termMap;
 @RequestMapping(value = "/cczu")
 public class IndexContoller {
     private static int onlineCount = 0;
+    @Value("${term.startYear}")
+    private Integer YEAR;
+    @Value("${term.startMonth}")
+    private Integer MONTH;
+    @Value("${term.startDay}")
+    private Integer DAY;
+
     @Autowired
     private UpImgService upImgService;
     @Autowired
@@ -51,6 +59,15 @@ public class IndexContoller {
 
     @Autowired
     private CCZU_spiderByHtmlUnit cczu_spiderByHtmlUnit;
+
+    @Autowired
+    private SysBindingWxService sysBindingWxService;
+
+    @Autowired
+    private SysCourseService sysCourseService;
+
+    @Autowired
+    private SysIndexService sysIndexService;
 
 
 
@@ -194,15 +211,23 @@ public class IndexContoller {
             org.json.JSONObject jsonObject = new org.json.JSONObject(result);
             org.json.JSONObject jsonp = jsonObject.getJSONObject("jsonp");
             int code = jsonp.getInt("code");//200 视为成功
-            if (code == 200) {
+            SysBindingWxEntity entity = new SysBindingWxEntity();
+            entity.setOpenid(openid);
+            entity.setUsername(username);
+            entity.setPassword(password);
+            boolean exist = sysBindingWxService.getOne(entity);
+            if (code == 200 && !exist) {
                 String bindTask = CreateTask.createBindTask(username, password, openid);
+                entity.setStatus(bindTask);
+                entity.setCreatedate(new Date());
+                sysBindingWxService.saveSysBindingWxEntity(entity);
                 return R.ok().put("data",result).put("result",bindTask);
             } else {
-                return R.error();
+                return R.error("账号不匹配或先解除绑定");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return R.error();
+            return R.error("出了点问题，稍后再试");
         }
 
     }
@@ -239,6 +264,68 @@ public class IndexContoller {
         return R.ok().put("data",result);
     }
 
+    /**
+     * 解除绑定
+     * @param openid
+     * @return
+     */
+    @RequestMapping("/relieveBinding")
+    public R relieveBinding(String openid) {
+        sysCourseService.deleteByOpenid(openid);
+        sysBindingWxService.deleteByOpenid(openid);
+        return R.ok();
+    }
 
+    //ToDo 天气接口https://www.sojson.com/blog/305.html
+
+    @RequestMapping("/getIndexList")
+    public R getIndexList(String openid) {
+        SysCourseEntity sysCourseEntity = null;
+        List<SysIndexEntity> data = sysIndexService.getAll();
+        List<SysCourseEntity> course = sysCourseService.getEntitiesByOpenIDAndWeek(openid,getWeek());
+        if (course.size() != 0) {
+            SysCourseEntity entity = course.get(0);
+            if (entity.getRemind() != null) {
+                System.out.println(getWeekOfTerm().toString());
+                if (entity.getRemind().contains(getWeekOfTerm().toString())) {
+                    try {
+                        sysCourseEntity = new SysCourseEntity();
+                        BeanUtils.copyProperties(sysCourseEntity,entity);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        String weather = "";
+        WeatherUtil util = new WeatherUtil();
+        try {
+            weather = util.getWeather();
+        } catch (Exception e) {
+            weather = null;
+        }
+        return R.ok().put("data",data).put("weather",weather).put("course",sysCourseEntity);
+    }
+
+    public static Integer getWeek() {
+        Date today = new Date();
+        Calendar c=Calendar.getInstance();
+        c.setTime(today);
+        int weekday=c.get(Calendar.DAY_OF_WEEK);
+        List<Integer> week = Arrays.asList(new Integer[]{7, 1, 2, 3, 4, 5, 6});
+        return week.get(weekday - 1);
+    }
+
+    public Integer getWeekOfTerm() {
+        Calendar cal = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+        cal.setTime(new Date());
+        int week_now = cal.get(Calendar.WEEK_OF_YEAR);
+        cal2.set(YEAR,MONTH,DAY);
+        int week_start = cal2.get(Calendar.WEEK_OF_YEAR);
+        return week_now - week_start + 1;
+    }
 
 }

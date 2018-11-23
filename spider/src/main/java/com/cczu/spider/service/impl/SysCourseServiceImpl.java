@@ -32,4 +32,20 @@ public class SysCourseServiceImpl implements SysCourseService {
         List<SysCourseEntity> all = sysCourseRepo.findAll(example);
         return all;
     }
+
+
+    @Override
+    public void deleteByOpenid(String openid) {
+        sysCourseRepo.deleteByOpenid(openid);
+    }
+
+    @Override
+    public List<SysCourseEntity> getEntitiesByOpenIDAndWeek(String openID, Integer week) {
+        SysCourseEntity entity = new SysCourseEntity();
+        entity.setOpenid(openID);
+        entity.setWeek(week);
+        Example<SysCourseEntity> example = Example.of(entity);
+        List<SysCourseEntity> all = sysCourseRepo.findAll(example);
+        return all;
+    }
 }

@@ -2,10 +2,16 @@ package com.cczu.spider.repository;
 
 import com.cczu.spider.entity.SysCourseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 
 public interface SysCourseRepo extends JpaRepository<SysCourseEntity,Long> {
-//    int saveSysCourse(SysCourseEntity entity);
+
+
+    @Modifying
+    @Transactional
+    @Query(value = "delete from SysCourseEntity sce where sce.openid = ?1")
+    void deleteByOpenid(String openid);
 }

@@ -11,6 +11,8 @@ public class SysBindingWxEntity {
     private String username;
     private String password;
     private Date createdate;
+    private Date updatedate;
+    private String status;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,5 +54,21 @@ public class SysBindingWxEntity {
 
     public void setCreatedate(Date createdate) {
         this.createdate = createdate;
+    }
+
+    public Date getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(Date updatedate) {
+        this.updatedate = updatedate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

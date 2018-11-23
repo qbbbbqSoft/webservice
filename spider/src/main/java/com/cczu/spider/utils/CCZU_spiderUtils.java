@@ -75,9 +75,9 @@ public class CCZU_spiderUtils {
                 int size = element.text().length();
 //                    System.out.println(i + "_" +j+element.text());
                 if (size == 1) {
-                    course[i][j] = "没有课yoo~~!";
+                    course[i][j] = "暂时没有课，休息一下吧!";
                     orderAndValue.setOrder(j);
-                    orderAndValue.setValue("没有课yoo~~!");
+                    orderAndValue.setValue("暂时没有课，休息一下吧!");
                 }
                 else {
                     course[i][j] = element.text();

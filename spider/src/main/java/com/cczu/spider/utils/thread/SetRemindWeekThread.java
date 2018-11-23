@@ -1,7 +1,9 @@
 package com.cczu.spider.utils.thread;
 
+import com.cczu.spider.entity.SysBindingWxEntity;
 import com.cczu.spider.entity.SysCourseEntity;
 import com.cczu.spider.repository.SysCourseRepo;
+import com.cczu.spider.service.SysBindingWxService;
 import com.cczu.spider.service.SysCourseService;
 import com.cczu.spider.utils.SpringContextUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class SetRemindWeekThread implements Runnable {
     @Override
     public void run() {
         SysCourseService sysCourseService = (SysCourseService) SpringContextUtils.getBean("sysCourseService");
+        SysBindingWxService sysBindingWxService = (SysBindingWxService)SpringContextUtils.getBean("SysBindingWxService");
+        SysBindingWxEntity entity = new SysBindingWxEntity();
+        entity.setOpenid(this.openID);
         try {
              System.out.println("这里开始新线程操作" + new Date());
             List<SysCourseEntity> alls = sysCourseService.getEntitiesByOpenID(this.openID);
@@ -43,7 +48,7 @@ public class SetRemindWeekThread implements Runnable {
                 lists.add(all.getCourse12());
                 for (String list:lists) {
                     weeks = new ArrayList<>();
-                    if (!list.equals("没有课yoo~~!")) {
+                    if (!list.equals("暂时没有课，休息一下吧!")) {
                          weeks = getRemindWeekStr(list);
                     }
                     for (Integer week:weeks) {
@@ -57,11 +62,15 @@ public class SetRemindWeekThread implements Runnable {
                 sysCourseService.updateData(all);
             }
             System.out.println(new Date());
+            entity.setStatus("Success");
             CreateTask.packageResultMap.put(openID,"Success");
         } catch (Exception e) {
             e.printStackTrace();
+            entity.setStatus("Failure");
             CreateTask.packageResultMap.put(openID,"Failure");
         } finally {
+            entity.setUpdatedate(new Date());
+            sysBindingWxService.updateEntity(entity);
             CreateTask.packageListMap.remove(openID);
         }
     }
