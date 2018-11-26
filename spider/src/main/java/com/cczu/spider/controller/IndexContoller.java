@@ -6,6 +6,7 @@ import com.cczu.spider.entity.SysBindingWxEntity;
 import com.cczu.spider.entity.SysCourseEntity;
 import com.cczu.spider.entity.SysIndexEntity;
 import com.cczu.spider.entity.result.R;
+import com.cczu.spider.pojo.CourseModel;
 import com.cczu.spider.pojo.CoursePojo;
 import com.cczu.spider.pojo.OrderAndValue;
 import com.cczu.spider.pojo.TermEnum;
@@ -281,6 +282,7 @@ public class IndexContoller {
     @RequestMapping("/getIndexList")
     public R getIndexList(String openid) {
         SysCourseEntity sysCourseEntity = null;
+        List<CourseModel> courseModels = null;
         List<SysIndexEntity> data = sysIndexService.getAll();
         List<SysCourseEntity> course = sysCourseService.getEntitiesByOpenIDAndWeek(openid,getWeek());
         if (course.size() != 0) {
@@ -291,6 +293,19 @@ public class IndexContoller {
                     try {
                         sysCourseEntity = new SysCourseEntity();
                         BeanUtils.copyProperties(sysCourseEntity,entity);
+                        courseModels = new ArrayList<>();
+                        courseModels.add(new CourseModel(1,sysCourseEntity.getCourse1()));
+                        courseModels.add(new CourseModel(2,sysCourseEntity.getCourse2()));
+                        courseModels.add(new CourseModel(3,sysCourseEntity.getCourse3()));
+                        courseModels.add(new CourseModel(4,sysCourseEntity.getCourse4()));
+                        courseModels.add(new CourseModel(5,sysCourseEntity.getCourse5()));
+                        courseModels.add(new CourseModel(6,sysCourseEntity.getCourse6()));
+                        courseModels.add(new CourseModel(7,sysCourseEntity.getCourse7()));
+                        courseModels.add(new CourseModel(8,sysCourseEntity.getCourse8()));
+                        courseModels.add(new CourseModel(9,sysCourseEntity.getCourse9()));
+                        courseModels.add(new CourseModel(10,sysCourseEntity.getCourse10()));
+                        courseModels.add(new CourseModel(11,sysCourseEntity.getCourse11()));
+                        courseModels.add(new CourseModel(12,sysCourseEntity.getCourse12()));
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     } catch (InvocationTargetException e) {
@@ -306,7 +321,7 @@ public class IndexContoller {
         } catch (Exception e) {
             weather = null;
         }
-        return R.ok().put("data",data).put("weather",weather).put("course",sysCourseEntity);
+        return R.ok().put("data",data).put("weather",weather).put("course",courseModels).put("todayWeek",getWeekOfTerm());
     }
 
     public static Integer getWeek() {
@@ -325,7 +340,12 @@ public class IndexContoller {
         int week_now = cal.get(Calendar.WEEK_OF_YEAR);
         cal2.set(YEAR,MONTH,DAY);
         int week_start = cal2.get(Calendar.WEEK_OF_YEAR);
-        return week_now - week_start + 1;
+        return week_now - week_start;
     }
 
+    public static void main(String[] args) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        System.out.println(cal.get(Calendar.HOUR_OF_DAY));
+    }
 }
