@@ -6,10 +6,7 @@ import com.cczu.spider.entity.SysBindingWxEntity;
 import com.cczu.spider.entity.SysCourseEntity;
 import com.cczu.spider.entity.SysIndexEntity;
 import com.cczu.spider.entity.result.R;
-import com.cczu.spider.pojo.CourseModel;
-import com.cczu.spider.pojo.CoursePojo;
-import com.cczu.spider.pojo.OrderAndValue;
-import com.cczu.spider.pojo.TermEnum;
+import com.cczu.spider.pojo.*;
 import com.cczu.spider.service.*;
 import com.cczu.spider.utils.CCZU_spider;
 import com.cczu.spider.utils.CCZU_spiderByHtmlUnit;
@@ -17,6 +14,7 @@ import com.cczu.spider.utils.CCZU_spiderUtils;
 import com.cczu.spider.utils.thirdpart.WeatherUtil;
 import com.cczu.spider.utils.thread.CreateTask;
 import com.cczu.spider.utils.utilsforgetschoolinfo.SpiderForCheckUserNameAndPassword;
+import com.cczu.spider.utils.utilsforgetschoolinfo.SpiderForLectureTimes;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -234,7 +232,8 @@ public class IndexContoller {
     }
 
     /**
-     *type   1。学校概况 2。院系介绍 3。校史沿革
+     *type   1。学校概况 2。院系介绍 3。校史沿革 4。通知公告 5。活动预告
+     * 6。常大要闻 7。媒体常大 8。校园快讯
      * @return
      */
     @RequestMapping("/getInfoAboutSchool/{type}")
@@ -250,6 +249,21 @@ public class IndexContoller {
                 break;
             case 3:
                 url = "http://mobile.cczu.edu.cn/mp/apps/introduRest/updateHistory";
+                break;
+            case 4:
+                url = "http://mobile.cczu.edu.cn/mp/apps/notice/getList?lastTime=&size=20";
+                break;
+            case 5:
+                url = "http://mobile.cczu.edu.cn/mp/apps/activityRest/getList";
+                break;
+            case 6:
+                url = "http://mobile.cczu.edu.cn/mp/home/newsService/getList?lastTime=&type=1&size=20";
+                break;
+            case 7:
+                url = "http://mobile.cczu.edu.cn/mp/home/newsService/getList?lastTime=&type=3&size=20";
+                break;
+            case 8:
+                url = "http://mobile.cczu.edu.cn/mp/home/newsService/getList?lastTime=&type=4&size=20";
                 break;
             default:
                 return R.error();
@@ -324,6 +338,64 @@ public class IndexContoller {
         return R.ok().put("data",data).put("weather",weather).put("course",courseModels).put("todayWeek",getWeekOfTerm());
     }
 
+
+    /**
+     * 活动预告详情
+     * @param id
+     * @return
+     */
+    @RequestMapping("/activityRestGetDetail")
+    @ResponseBody
+    public R activityRestGetDetail(String id) {
+        String url = "http://mobile.cczu.edu.cn/mp/apps/activityRest/getDetail?id=" + id;
+        SpiderForCheckUserNameAndPassword util = new SpiderForCheckUserNameAndPassword(url);
+        String result = "";
+        try {
+            result = util.getInfoAboutSchool();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return R.error();
+        }
+        return R.ok().put("data",result);
+    }
+
+    /**
+     * 新闻详情
+     * @param id
+     * @return
+     */
+    @RequestMapping("/newsGetDetail")
+    @ResponseBody
+    public R newsGetDetail(String id) {
+        String url = "http://mobile.cczu.edu.cn/mp/home/newsService/newsDetail?idNews=" + id;
+        SpiderForCheckUserNameAndPassword util = new SpiderForCheckUserNameAndPassword(url);
+        String result = "";
+        try {
+            result = util.getInfoAboutSchool();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return R.error();
+        }
+        return R.ok().put("data",result);
+    }
+
+    /**
+     * 本学期讲座刷卡的详细信息
+     * @param stuName 学生的姓名
+     * @return
+     */
+    @RequestMapping("/getLectureTimes")
+    @ResponseBody
+    public R getLectureTimes(String stuName) {
+        SpiderForLectureTimes spiderForLectureTimes = new SpiderForLectureTimes();
+        try {
+            List<LectureModel> lectureTimes = spiderForLectureTimes.getLectureTimes(stuName);
+            return R.ok().put("data",lectureTimes);
+        } catch (Exception e) {
+            return R.error();
+        }
+    }
+
     public static Integer getWeek() {
         Date today = new Date();
         Calendar c=Calendar.getInstance();
@@ -336,11 +408,13 @@ public class IndexContoller {
     public Integer getWeekOfTerm() {
         Calendar cal = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
+        cal.setFirstDayOfWeek(Calendar.MONDAY);
+        cal2.setFirstDayOfWeek(Calendar.MONDAY);
         cal.setTime(new Date());
         int week_now = cal.get(Calendar.WEEK_OF_YEAR);
         cal2.set(YEAR,MONTH,DAY);
         int week_start = cal2.get(Calendar.WEEK_OF_YEAR);
-        return week_now - week_start;
+        return week_now - week_start + 1;
     }
 
     public static void main(String[] args) {
