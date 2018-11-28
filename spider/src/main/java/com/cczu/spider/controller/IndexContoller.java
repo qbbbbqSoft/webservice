@@ -440,4 +440,19 @@ public class IndexContoller {
         }
         return R.ok();
     }
+
+    @RequestMapping("/getClassTableByOpenID")
+    @ResponseBody
+    public R getClassTableByOpenID(String openid) {
+        SysBindingWxEntity entity = new SysBindingWxEntity();
+        entity.setOpenid(openid);
+        boolean one = sysBindingWxService.getOne(entity);
+        if (one) {
+            List<SysCourseEntity> lists = sysCourseService.getEntitiesByOpenID(openid);
+            return R.ok().put("data",lists);
+        } else {
+            return R.error("您还未绑定");
+        }
+    }
+
 }
