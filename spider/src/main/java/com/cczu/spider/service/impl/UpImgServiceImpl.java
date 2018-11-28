@@ -21,4 +21,16 @@ public class UpImgServiceImpl implements UpImgService {
         String[] split = imgUrl.split("\\?");
         return split[0];
     }
+
+    @Override
+    public String updateErWeiMa(String path) throws Exception {
+        if (path == null || path.equals(null)) {
+            throw new Exception("file不能为空");
+        }
+        OSSClientUtil ossClient=new OSSClientUtil();
+        String name = ossClient.uploadImg2Oss(path);
+        String imgUrl = ossClient.getImgUrl(name);
+        String[] split = imgUrl.split("\\?");
+        return split[0];
+    }
 }

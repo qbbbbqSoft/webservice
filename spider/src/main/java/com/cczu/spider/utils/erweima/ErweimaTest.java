@@ -19,7 +19,7 @@ import java.util.Hashtable;
 public class ErweimaTest {
 
     public static void main(String[] args) throws IOException {
-        String text = "https://www.bbqbb.top/admin";
+        String text = "www.bbqbb.top/admin";
         int width = 100;
         int height = 100;
         String format = "png";
@@ -29,15 +29,15 @@ public class ErweimaTest {
         hints.put(EncodeHintType.MARGIN, 2);
         try {
             BitMatrix bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE, width, height, hints);
-            Path file = new java.io.File("/Volumes/Data/pic/erweima2.png").toPath();
-            File file1 = new File("/Volumes/Data/pic/erweima2.png");
+            Path file = new java.io.File("/Volumes/Data/pic/erweima3.png").toPath();
+//            File file1 = new File("/Volumes/Data/pic/erweima2.png");
+            MatrixToImageWriter.writeToPath(bitMatrix, format, file);
             UpImgService service = new UpImgServiceImpl();
             try {
-                service.updateHead((MultipartFile) file1);
+                service.updateErWeiMa("/Volumes/Data/pic/erweima3.png");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            MatrixToImageWriter.writeToPath(bitMatrix, format, file);
         } catch (WriterException e) {
 // TODO Auto-generated catch block
             e.printStackTrace();

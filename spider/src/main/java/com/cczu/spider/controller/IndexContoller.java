@@ -11,6 +11,7 @@ import com.cczu.spider.service.*;
 import com.cczu.spider.utils.CCZU_spider;
 import com.cczu.spider.utils.CCZU_spiderByHtmlUnit;
 import com.cczu.spider.utils.CCZU_spiderUtils;
+import com.cczu.spider.utils.QrCode.QrCodeUtil;
 import com.cczu.spider.utils.thirdpart.WeatherUtil;
 import com.cczu.spider.utils.thread.CreateTask;
 import com.cczu.spider.utils.utilsforgetschoolinfo.SpiderForCheckUserNameAndPassword;
@@ -418,8 +419,25 @@ public class IndexContoller {
     }
 
     public static void main(String[] args) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(new Date());
-        System.out.println(cal.get(Calendar.HOUR_OF_DAY));
+//        Calendar cal = Calendar.getInstance();
+//        cal.setTime(new Date());
+//        System.out.println(cal.get(Calendar.HOUR_OF_DAY));
+        Random random = new Random();
+        String name = random.nextInt(10000) + System.currentTimeMillis() + "";
+        System.out.println(name);
+    }
+
+    @RequestMapping("/createActivity")
+    @ResponseBody
+    public R createActivity(){
+        Random random = new Random();
+        String name = random.nextInt(10000) + System.currentTimeMillis() + "";
+        QrCodeUtil util = new QrCodeUtil();
+        try {
+            util.createQrCode(name);
+        } catch (Exception e) {
+            return R.error();
+        }
+        return R.ok();
     }
 }
