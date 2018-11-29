@@ -14,6 +14,7 @@ import com.bbqbb.poem.admin.modules.api.model.SysTitleModel;
 import com.bbqbb.poem.admin.modules.api.model.TokenModel;
 import com.bbqbb.poem.admin.modules.api.model.WXSessionModel;
 import com.bbqbb.poem.admin.modules.api.service.ApiService;
+import com.bbqbb.poem.admin.modules.api.utils.OSSUtil;
 import com.bbqbb.poem.common.exception.RRException;
 import com.bbqbb.poem.common.utils.R;
 import com.bbqbb.poem.common.utils.RedisUtils;
@@ -294,6 +295,31 @@ public class ApiController {
         entity.setCreatedate(new Date());
         int result = apiService.insertSysCommentEntity(entity);
         return R.ok().put("result",result);
+    }
+
+    @RequestMapping("/createWXQrCode")
+    @ResponseBody
+    public R createWxQrCode() {
+        String url = "https://api.weixin.qq.com/cgi-bin/token";
+        Map<String, String> param = new HashMap<>();
+        param.put("appid", "wxcb506c516f5ee36d");
+        param.put("secret", "0b81a9888f3972585ecc837d8a950324");
+        param.put("grant_type", "client_credential");
+        String wxResult = HttpClientUtil.doGet(url, param);
+        org.json.JSONObject jsonObject = new org.json.JSONObject(wxResult);
+        String access_token = jsonObject.getString("access_token");
+        OSSUtil ossUtil = new OSSUtil();
+        try {
+            ossUtil.asdasd(access_token);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        int expires_in = jsonObject.getInt("expires_in");
+        redisUtils.set("access_token",access_token,expires_in);
+        System.out.println(wxResult);
+        Random random = new Random();
+        String name = random.nextInt(10000) + System.currentTimeMillis() + "";
+        return R.ok();
     }
 
 }

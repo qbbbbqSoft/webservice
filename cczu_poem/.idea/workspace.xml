@@ -2,8 +2,531 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="642912ab-94cb-47ec-b9a2-de242e3a54c5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/utils/OSSUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spider/src/main/java/com/cczu/spider/utils/redis/RedisUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spider/src/main/java/com/cczu/spider/utils/wxutils/GetInfoFromWX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/oss/cloud/QcloudCloudStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/oss/cloud/QcloudCloudStorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/banner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/banner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/PoemAdminApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/PoemAdminApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/aspect/DataFilterAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/aspect/DataFilterAspect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/aspect/SysLogAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/aspect/SysLogAspect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/config/FreemarkerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/config/FreemarkerConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/config/ShiroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/config/ShiroConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/config/SwaggerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/config/SwaggerConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/exception/RRExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/exception/RRExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/Constant$CloudService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/Constant$CloudService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/Constant$MenuType.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/Constant$MenuType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/Constant$ScheduleStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/Constant$ScheduleStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/Constant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/HttpClientUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/HttpClientUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/JsonUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/JsonUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/Query.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/Query.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/RedisKeys.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/RedisKeys.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/datasource/DynamicDataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/datasource/DynamicDataSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/datasource/DynamicDataSourceConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/datasource/DynamicDataSourceConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/datasource/aspect/DataSourceAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/datasource/aspect/DataSourceAspect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/controller/SysCommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/controller/SysCommentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/controller/SysSuggestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/controller/SysSuggestionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/controller/SysTitleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/controller/SysTitleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/controller/SysZoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/controller/SysZoneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/entity/SysCommentEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/entity/SysCommentEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/entity/SysSuggestionEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/entity/SysSuggestionEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/entity/SysTitleEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/entity/SysTitleEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/entity/SysZoneEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/entity/SysZoneEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/SysCommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/SysCommentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/SysSuggestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/SysSuggestionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/SysTitleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/SysTitleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/SysZoneService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/SysZoneService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/impl/SysCommentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/impl/SysCommentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/impl/SysSuggestionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/impl/SysSuggestionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/impl/SysTitleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/impl/SysTitleServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/impl/SysZoneServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/admin/service/impl/SysZoneServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/controller/ApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/controller/ApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/dao/ApiDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/dao/ApiDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/model/DataModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/model/SysTitleModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/model/SysTitleModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/model/TemplateModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/model/TemplateModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/model/TokenModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/model/TokenModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/model/WXSessionModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/model/WXSessionModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/service/ApiService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/service/ApiService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/service/impl/ApiServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/service/impl/ApiServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/config/ScheduleConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/config/ScheduleConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/controller/ScheduleJobController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/controller/ScheduleJobController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/controller/ScheduleJobLogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/controller/ScheduleJobLogController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/dao/ScheduleJobDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/dao/ScheduleJobDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/entity/ScheduleJobEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/entity/ScheduleJobEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/entity/ScheduleJobLogEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/entity/ScheduleJobLogEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/service/ScheduleJobLogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/service/ScheduleJobLogService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/service/ScheduleJobService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/service/ScheduleJobService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/service/impl/ScheduleJobLogServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/service/impl/ScheduleJobLogServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/service/impl/ScheduleJobServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/service/impl/ScheduleJobServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/task/TestTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/task/TestTask.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/utils/ScheduleJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/utils/ScheduleJob.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/utils/ScheduleRunnable.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/utils/ScheduleRunnable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/utils/ScheduleUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/utils/ScheduleUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/cloud/AliyunCloudStorageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/cloud/AliyunCloudStorageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/cloud/CloudStorageConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/cloud/CloudStorageConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/cloud/CloudStorageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/cloud/CloudStorageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/cloud/QcloudCloudStorageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/cloud/QcloudCloudStorageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/cloud/QiniuCloudStorageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/cloud/QiniuCloudStorageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/controller/SysOssController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/controller/SysOssController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/entity/SysOssEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/entity/SysOssEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/service/SysOssService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/service/SysOssService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/service/impl/SysOssServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/service/impl/SysOssServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysConfigController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysConfigController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysDeptController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysDeptController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysDictController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysDictController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysLogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysLogController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysLoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysMenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysRoleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysRoleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/controller/SysUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysConfigDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysConfigDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysDeptDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysDeptDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysMenuDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysMenuDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysRoleDeptDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysRoleDeptDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysRoleMenuDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysRoleMenuDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysUserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysUserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysUserRoleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/dao/SysUserRoleDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysConfigEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysConfigEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysDeptEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysDeptEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysDictEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysDictEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysLogEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysLogEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysMenuEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysMenuEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysRoleDeptEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysRoleDeptEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysRoleEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysRoleEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysRoleMenuEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysRoleMenuEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysUserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysUserEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysUserRoleEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/entity/SysUserRoleEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/redis/SysConfigRedis.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/redis/SysConfigRedis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysConfigService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysConfigService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysDeptService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysDeptService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysDictService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysDictService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysLogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysLogService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysMenuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysMenuService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysRoleDeptService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysRoleDeptService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysRoleMenuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysRoleMenuService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysRoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysRoleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysUserRoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysUserRoleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/SysUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysConfigServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysConfigServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysDeptServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysDeptServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysDictServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysDictServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysLogServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysLogServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysMenuServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysMenuServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysRoleDeptServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysRoleDeptServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysRoleMenuServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysRoleMenuServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysRoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysRoleServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysUserRoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysUserRoleServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/service/impl/SysUserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/shiro/RedisShiroSessionDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/shiro/RedisShiroSessionDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/shiro/ShiroTag.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/shiro/ShiroTag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/shiro/ShiroUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/shiro/ShiroUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/shiro/UserRealm.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/sys/shiro/UserRealm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/admin/SysCommentDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/admin/SysCommentDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/admin/SysSuggestionDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/admin/SysSuggestionDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/admin/SysTitleDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/admin/SysTitleDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/admin/SysZoneDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/admin/SysZoneDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/job/ScheduleJobDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/job/ScheduleJobDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/job/ScheduleJobLogDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/job/ScheduleJobLogDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/oss/SysOssDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/oss/SysOssDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysConfigDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysConfigDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysDeptDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysDeptDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysDictDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysDictDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysLogDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysLogDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysMenuDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysMenuDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysRoleDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysRoleDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysRoleDeptDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysRoleDeptDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysRoleMenuDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysRoleMenuDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysUserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysUserDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysUserRoleDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/mapper/sys/SysUserRoleDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/css/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/css/print.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/css/reset.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/css/screen.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/css/screen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/css/typography.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/css/typography.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/fonts/DroidSans-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/fonts/DroidSans-Bold.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/fonts/DroidSans.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/fonts/DroidSans.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/collapse.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/collapse.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/expand.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/expand.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/explorer_icons.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/explorer_icons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/favicon-16x16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/favicon-32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/logo_small.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/logo_small.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/pet_store_api.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/pet_store_api.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/throbber.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/throbber.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/wordnik_api.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/images/wordnik_api.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/index.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/index.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lang/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lang/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lang/translator.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lang/translator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lang/zh-cn.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lang/zh-cn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/backbone-min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/backbone-min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/es5-shim.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/es5-shim.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/handlebars-4.0.5.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/handlebars-4.0.5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/highlight.9.1.0.pack.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/highlight.9.1.0.pack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/highlight.9.1.0.pack_extended.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/highlight.9.1.0.pack_extended.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/jquery-1.8.0.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/jquery-1.8.0.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/jquery.ba-bbq.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/jquery.ba-bbq.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/jquery.slideto.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/jquery.slideto.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/jquery.wiggle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/jquery.wiggle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/js-yaml.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/js-yaml.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/jsoneditor.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/jsoneditor.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/lodash.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/lodash.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/marked.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/marked.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/object-assign-pollyfill.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/object-assign-pollyfill.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/sanitize-html.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/sanitize-html.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/swagger-oauth.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/lib/swagger-oauth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/o2c.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/o2c.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/swagger-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/swagger-ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/public/swagger/swagger-ui.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/public/swagger/swagger-ui.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/css/AdminLTE.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/css/AdminLTE.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/css/all-skins.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/css/all-skins.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/css/bootstrap-table.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/css/bootstrap-table.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/css/font-awesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/css/index1.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/css/index1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/fonts/FontAwesome.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/fonts/glyphicons-halflings-regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/fonts/glyphicons-halflings-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/fonts/glyphicons-halflings-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/index1.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/index1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/admin/syscomment.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/admin/syscomment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/admin/syssuggestion.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/admin/syssuggestion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/admin/systitle.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/admin/systitle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/admin/syszone.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/admin/syszone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/job/schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/job/schedule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/job/schedule_log.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/job/schedule_log.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/oss/oss.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/oss/oss.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/dept.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/dept.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/dict.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/dict.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/log.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/modules/sys/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/js/navtab.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/js/navtab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/libs/ajaxupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/libs/ajaxupload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/libs/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/libs/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/libs/app.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/libs/app.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/libs/bootstrap-table.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/libs/bootstrap-table.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/libs/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/libs/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/libs/fastclick.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/libs/fastclick.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/libs/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/libs/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/libs/jquery.slimscroll.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/libs/jquery.slimscroll.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/libs/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/libs/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/libs/validator.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/libs/validator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/libs/vue-validator.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/libs/vue-validator.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/libs/vue.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/libs/vue.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/jqgrid/grid.locale-cn.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/jqgrid/grid.locale-cn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/jqgrid/jquery.jqGrid.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/jqgrid/jquery.jqGrid.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/jqgrid/ui.jqgrid-bootstrap-ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/jqgrid/ui.jqgrid-bootstrap-ui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/jqgrid/ui.jqgrid-bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/jqgrid/ui.jqgrid-bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/jqgrid/ui.jqgrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/jqgrid/ui.jqgrid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/layer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/mobile/layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/mobile/layer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/mobile/need/layer.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/mobile/need/layer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/default/icon-ext.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/default/icon-ext.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/default/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/default/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/default/layer.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/default/layer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/default/loading-0.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/default/loading-0.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/default/loading-1.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/default/loading-1.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/default/loading-2.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/default/loading-2.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/moon/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/moon/default.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/moon/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layer/skin/moon/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/code.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/code.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/_all.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/_all.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/aero.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/aero.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/aero.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/aero.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/aero@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/aero@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/blue.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/blue.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/blue.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/blue@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/blue@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/flat.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/flat.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/flat.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/flat.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/flat@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/flat@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/green.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/green.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/green.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/green.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/green@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/green@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/grey.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/grey.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/grey.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/grey.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/grey@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/grey@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/orange.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/orange.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/orange.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/orange.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/orange@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/orange@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/pink.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/pink.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/pink.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/pink.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/pink@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/pink@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/purple.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/purple.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/purple.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/purple.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/purple@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/purple@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/red.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/red.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/red.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/red.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/red@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/red@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/yellow.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/yellow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/yellow.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/yellow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/yellow@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/flat/yellow@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/futurico/futurico.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/futurico/futurico.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/futurico/futurico.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/futurico/futurico.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/futurico/futurico@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/futurico/futurico@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/icheck.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/icheck.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/_all.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/_all.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/aero.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/aero.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/blue.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/green.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/green.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/grey.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/grey.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/line.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/line.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/line.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/line.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/line@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/line@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/orange.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/orange.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/pink.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/pink.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/purple.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/purple.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/red.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/red.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/yellow.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/line/yellow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/_all.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/_all.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/aero.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/aero.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/aero.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/aero.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/aero@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/aero@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/blue.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/blue.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/blue.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/blue@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/blue@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/green.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/green.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/green.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/green.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/green@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/green@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/grey.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/grey.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/grey.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/grey.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/grey@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/grey@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/minimal.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/minimal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/minimal.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/minimal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/minimal@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/minimal@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/orange.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/orange.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/orange.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/orange.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/orange@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/orange@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/pink.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/pink.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/pink.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/pink.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/pink@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/pink@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/purple.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/purple.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/purple.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/purple.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/purple@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/purple@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/red.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/red.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/red.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/red.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/red@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/red@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/yellow.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/yellow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/yellow.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/yellow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/yellow@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/minimal/yellow@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/polaris/polaris.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/polaris/polaris.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/polaris/polaris.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/polaris/polaris.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/polaris/polaris@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/polaris/polaris@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/_all.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/_all.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/aero.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/aero.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/aero.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/aero.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/aero@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/aero@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/blue.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/blue.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/blue.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/blue@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/blue@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/green.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/green.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/green.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/green.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/green@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/green@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/grey.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/grey.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/grey.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/grey.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/grey@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/grey@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/orange.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/orange.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/orange.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/orange.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/orange@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/orange@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/pink.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/pink.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/pink.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/pink.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/pink@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/pink@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/purple.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/purple.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/purple.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/purple.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/purple@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/purple@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/red.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/red.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/red.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/red.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/red@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/red@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/square.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/square.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/square.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/square.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/square@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/square@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/yellow.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/yellow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/yellow.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/yellow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/yellow@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/icheck/square/yellow@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/laydate/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/laydate/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/laydate/laydate.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/laydate/laydate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/layer/default/icon-ext.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/layer/default/icon-ext.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/layer/default/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/layer/default/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/layer/default/layer.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/layer/default/layer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/layer/default/loading-0.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/layer/default/loading-0.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/layer/default/loading-1.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/layer/default/loading-1.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/layer/default/loading-2.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/css/modules/layer/default/loading-2.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/font/iconfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/font/iconfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/font/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/font/iconfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/font/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/font/iconfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/font/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/font/iconfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/0.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/0.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/1.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/1.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/10.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/10.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/11.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/11.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/12.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/12.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/13.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/13.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/14.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/14.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/15.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/15.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/16.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/16.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/17.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/17.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/18.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/18.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/19.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/19.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/2.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/2.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/20.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/20.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/21.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/21.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/22.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/22.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/23.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/23.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/24.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/24.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/25.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/25.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/26.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/26.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/27.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/27.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/28.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/28.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/29.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/29.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/3.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/3.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/30.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/30.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/31.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/31.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/32.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/32.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/33.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/33.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/34.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/34.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/35.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/35.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/36.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/36.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/37.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/37.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/38.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/38.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/39.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/39.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/4.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/4.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/40.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/40.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/41.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/41.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/42.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/42.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/43.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/43.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/44.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/44.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/45.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/45.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/46.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/46.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/47.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/47.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/48.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/48.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/49.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/49.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/5.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/5.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/50.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/50.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/51.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/51.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/52.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/52.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/53.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/53.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/54.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/54.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/55.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/55.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/56.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/56.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/57.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/57.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/58.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/58.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/59.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/59.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/6.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/6.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/60.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/60.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/61.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/61.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/62.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/62.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/63.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/63.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/64.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/64.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/65.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/65.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/66.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/66.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/67.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/67.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/68.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/68.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/69.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/69.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/7.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/7.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/70.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/70.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/71.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/71.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/8.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/8.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/9.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/images/face/9.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/dest/layui.all.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/dest/layui.all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/dest/layui.mod.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/dest/layui.mod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/lib/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/lib/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/code.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/element.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/element.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/flow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/laydate.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/laydate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/layedit.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/layedit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/layer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/laypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/laypage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/laytpl.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/laytpl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/tree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/lay/modules/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/layui.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/layui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/modules/icheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/modules/icheck.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/modules/pjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/layui/modules/pjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/img/collapse.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/img/collapse.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/img/expand.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/img/expand.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/img/file.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/img/file.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/img/folder.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/img/folder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/jquery.treegrid.bootstrap3.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/jquery.treegrid.bootstrap3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/jquery.treegrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/jquery.treegrid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/jquery.treegrid.extension.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/jquery.treegrid.extension.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/jquery.treegrid.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/jquery.treegrid.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/tree.table.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/treegrid/tree.table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/awesomeStyle/awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/awesomeStyle/awesome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/awesomeStyle/awesome.less" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/awesomeStyle/awesome.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/awesomeStyle/fa.less" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/awesomeStyle/fa.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/awesomeStyle/img/loading.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/awesomeStyle/img/loading.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/metroStyle/img/line_conn.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/metroStyle/img/line_conn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/metroStyle/img/loading.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/metroStyle/img/loading.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/metroStyle/img/metro.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/metroStyle/img/metro.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/metroStyle/img/metro.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/metroStyle/img/metro.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/metroStyle/metroStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/metroStyle/metroStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/1_close.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/1_close.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/1_open.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/1_open.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/8.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/9.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/diy/9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/line_conn.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/line_conn.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/loading.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/loading.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/zTreeStandard.gif" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/zTreeStandard.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/zTreeStandard.png" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/img/zTreeStandard.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/zTreeStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/css/zTreeStyle/zTreeStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/jquery.ztree.all.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/statics/plugins/ztree/jquery.ztree.all.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/index1.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/index1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/admin/syscomment.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/admin/syscomment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/admin/syssuggestion.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/admin/syssuggestion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/admin/systitle.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/admin/systitle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/admin/syszone.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/admin/syszone.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/job/schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/job/schedule.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/job/schedule_log.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/job/schedule_log.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/oss/oss.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/oss/oss.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/config.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/config.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/dept.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/dept.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/dict.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/dict.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/log.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/log.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/role.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/role.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/templates/modules/sys/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/admin.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/admin.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spider/src/main/java/com/cczu/spider/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spider/src/main/java/com/cczu/spider/config/RedisConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../spider/src/main/java/com/cczu/spider/controller/IndexContoller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spider/src/main/java/com/cczu/spider/controller/IndexContoller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spider/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../spider/src/main/resources/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -70,51 +593,52 @@
     <session id="-1423729320">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="2" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="12" />
+          <entry key="class" value="16" />
           <entry key="css" value="1" />
           <entry key="html" value="5" />
-          <entry key="java" value="55" />
+          <entry key="java" value="63" />
           <entry key="js" value="4" />
-          <entry key="xml" value="7" />
-          <entry key="yml" value="3" />
+          <entry key="xml" value="8" />
+          <entry key="yml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="12" />
+          <entry key="CLASS" value="16" />
           <entry key="CSS" value="1" />
           <entry key="HTML" value="5" />
-          <entry key="JAVA" value="55" />
+          <entry key="JAVA" value="63" />
           <entry key="JavaScript" value="4" />
-          <entry key="XML" value="7" />
-          <entry key="YAML" value="3" />
+          <entry key="XML" value="8" />
+          <entry key="YAML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="225" />
-          <entry key="java" value="3311" />
+          <entry key="java" value="3546" />
           <entry key="js" value="55" />
-          <entry key="xml" value="610" />
+          <entry key="xml" value="614" />
           <entry key="yml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="225" />
-          <entry key="JAVA" value="3311" />
+          <entry key="JAVA" value="3546" />
           <entry key="JavaScript" value="55" />
           <entry key="SQL" value="29" />
-          <entry key="XML" value="581" />
+          <entry key="XML" value="585" />
           <entry key="YAML" value="5" />
         </counts>
       </usages-collector>
@@ -185,8 +709,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/resources/mapper/api/ApiDao.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2415">
-              <caret line="115" column="28" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="28" />
+            <state relative-caret-position="1955">
+              <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -194,17 +718,104 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4032">
-              <caret line="221" column="11" selection-start-line="221" selection-start-column="11" selection-end-line="221" selection-end-column="11" />
+            <state relative-caret-position="255">
+              <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="7" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/sys/redis/SysConfigRedis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/sys/service/impl/SysConfigServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="700">
+              <caret line="73" column="22" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/sys/service/SysConfigService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/oss/cloud/QcloudCloudStorageService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/utils/OSSUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-263">
+              <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/bbqbb/poem/common/utils/RedisUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/model/WXSessionModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/src/main/java/com/bbqbb/poem/common/utils/R.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+            <state relative-caret-position="286">
+              <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -212,7 +823,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2289">
+            <state relative-caret-position="1853">
               <caret line="127" selection-start-line="127" selection-end-line="127" />
             </state>
           </provider>
@@ -221,8 +832,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/dao/ApiDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+            <state relative-caret-position="391">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
             </state>
           </provider>
         </entry>
@@ -230,8 +841,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/service/ApiService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
+            <state relative-caret-position="391">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
         </entry>
@@ -239,12 +850,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/service/impl/ApiServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1428">
-              <caret line="102" column="42" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
-              <folding>
-                <element signature="e#3117#3118#0" expanded="true" />
-                <element signature="e#3168#3169#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="663">
+              <caret line="105" selection-start-line="105" selection-end-line="105" />
             </state>
           </provider>
         </entry>
@@ -252,7 +859,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/model/SysTitleModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="819">
+            <state relative-caret-position="663">
               <caret line="41" column="33" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="33" />
             </state>
           </provider>
@@ -261,7 +868,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/entity/SysTitleEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1974">
+            <state relative-caret-position="1598">
               <caret line="101" column="20" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
             </state>
           </provider>
@@ -270,12 +877,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/entity/SysCommentEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="903">
+            <state relative-caret-position="731">
               <caret line="47" column="30" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="30" />
-              <folding>
-                <element signature="e#895#896#0" expanded="true" />
-                <element signature="e#919#920#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -316,6 +919,13 @@
       <find>未知</find>
       <find>未知异常</find>
       <find>sys_zone</find>
+      <find>wxlog</find>
+      <find>aliyun</find>
+      <find>com.aliyun.oss</find>
+      <find>sysConfigRedis</find>
+      <find>RedisUtils</find>
+      <find>redis</find>
+      <find>JedisConnectionFactory</find>
     </findStrings>
     <replaceStrings>
       <replace>com.bbqbb.poem.admin</replace>
@@ -327,8 +937,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/oss/controller/SysOssController.java" />
-        <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/oss/dao/SysOssDao.java" />
         <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/oss/service/impl/SysOssServiceImpl.java" />
         <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/job/utils/ScheduleJob.java" />
         <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/job/utils/ScheduleRunnable.java" />
@@ -360,7 +968,6 @@
         <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/controller/SysSuggestionController.java" />
         <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/model/SysTitleModel.java" />
         <option value="$PROJECT_DIR$/admin/src/main/resources/templates/login.html" />
-        <option value="$PROJECT_DIR$/admin/pom.xml" />
         <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/common/utils/HttpClientUtil.java" />
         <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/common/utils/JsonUtils.java" />
         <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/model/WXSessionModel.java" />
@@ -377,6 +984,9 @@
         <option value="$PROJECT_DIR$/common/src/main/java/com/bbqbb/poem/common/utils/R.java" />
         <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/service/ApiService.java" />
         <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/service/impl/ApiServiceImpl.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/oss/cloud/QcloudCloudStorageService.java" />
+        <option value="$PROJECT_DIR$/admin/pom.xml" />
+        <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/utils/OSSUtil.java" />
         <option value="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java" />
       </list>
     </option>
@@ -449,9 +1059,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -502,96 +1111,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="datasource" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
@@ -603,102 +1123,6 @@
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="sys" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="sys" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cczu_poem" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="sys" type="462c0819:PsiDirectoryNode" />
-              <item name="redis" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cczu_poem" type="b2602c69:ProjectViewProjectNode" />
@@ -888,7 +1312,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541863009072" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543481967856" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -959,17 +1383,18 @@
       <workItem from="1543238944648" duration="109000" />
       <workItem from="1543316525454" duration="1200000" />
       <workItem from="1543406213472" duration="614000" />
+      <workItem from="1543471322255" duration="7428000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114618000" />
+    <option name="totallyTimeSpent" value="122046000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="981" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49820143" visible="true" weight="0.28731343" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49820143" visible="true" weight="0.29020235" />
       <window_info id="Structure" order="1" sideWeight="0.50179857" side_tool="true" weight="0.2603834" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -980,14 +1405,14 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290993" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286334" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3546638" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.30023095" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286334" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32794458" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
@@ -999,7 +1424,7 @@
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.32889125" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.328541" />
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
   </component>
@@ -1020,73 +1445,61 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>167</line>
+          <line>176</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>150</line>
+          <line>159</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>160</line>
+          <line>169</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>141</line>
+          <line>150</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>138</line>
+          <line>147</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>214</line>
+          <line>223</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>109</line>
+          <line>110</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>51</line>
+          <line>52</line>
           <properties />
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>53</line>
+          <line>54</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>248</line>
-          <properties />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>269</line>
-          <properties />
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>120</line>
+          <line>129</line>
           <properties />
           <option name="timeStamp" value="22" />
         </line-breakpoint>
@@ -1097,51 +1510,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/job/service/impl/ScheduleJobServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/job/controller/ScheduleJobController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/job/service/ScheduleJobService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/resources/templates/modules/admin/syscomment.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/service/SysCommentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/controller/SysZoneController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/dao/SysSuggestionDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="52" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/service/impl/SysSuggestionServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1208,13 +1576,6 @@
     <entry file="file://$PROJECT_DIR$/admin/src/main/resources/statics/css/main.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/sys/redis/SysConfigRedis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/dao/SysTitleDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -1251,14 +1612,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/common/utils/JsonUtils.java" />
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/model/WXSessionModel.java" />
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/bbqbb/poem/common/utils/RedisUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/model/TemplateModel.java" />
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/model/TokenModel.java" />
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/common/utils/HttpClientUtil.java" />
@@ -1274,13 +1627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
           <caret line="72" column="59" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2016">
-          <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1308,13 +1654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="73" column="70" selection-start-line="73" selection-start-column="70" selection-end-line="73" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/resources/application-dev.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1334,79 +1673,161 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/resources/mapper/api/ApiDao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2415">
-          <caret line="115" column="28" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4032">
-          <caret line="221" column="11" selection-start-line="221" selection-start-column="11" selection-end-line="221" selection-end-column="11" />
+        <state relative-caret-position="1955">
+          <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2289">
+        <state relative-caret-position="1853">
           <caret line="127" selection-start-line="127" selection-end-line="127" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/dao/ApiDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+        <state relative-caret-position="391">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/service/ApiService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
+        <state relative-caret-position="391">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/service/impl/ApiServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="102" column="42" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
-          <folding>
-            <element signature="e#3117#3118#0" expanded="true" />
-            <element signature="e#3168#3169#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="663">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/model/SysTitleModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
+        <state relative-caret-position="663">
           <caret line="41" column="33" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/entity/SysTitleEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1974">
+        <state relative-caret-position="1598">
           <caret line="101" column="20" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/entity/SysCommentEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="903">
+        <state relative-caret-position="731">
           <caret line="47" column="30" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="30" />
-          <folding>
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#919#920#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common/src/main/java/com/bbqbb/poem/common/utils/R.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        <state relative-caret-position="286">
+          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/model/WXSessionModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/oss/cloud/QcloudCloudStorageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/utils/OSSUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-263">
+          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.10.RELEASE/spring-data-redis-2.0.10.RELEASE.jar!/org/springframework/data/redis/core/HashOperations.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.10.RELEASE/spring-data-redis-2.0.10.RELEASE.jar!/org/springframework/data/redis/core/ValueOperations.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/sys/redis/SysConfigRedis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/sys/service/impl/SysConfigServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="73" column="22" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/sys/service/SysConfigService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.10.RELEASE/spring-data-redis-2.0.10.RELEASE.jar!/org/springframework/data/redis/core/RedisTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/bbqbb/poem/common/utils/RedisUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
         </state>
       </provider>
     </entry>

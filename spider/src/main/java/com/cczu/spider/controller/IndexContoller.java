@@ -12,12 +12,16 @@ import com.cczu.spider.utils.CCZU_spider;
 import com.cczu.spider.utils.CCZU_spiderByHtmlUnit;
 import com.cczu.spider.utils.CCZU_spiderUtils;
 import com.cczu.spider.utils.QrCode.QrCodeUtil;
+import com.cczu.spider.utils.redis.RedisUtils;
 import com.cczu.spider.utils.thirdpart.WeatherUtil;
 import com.cczu.spider.utils.thread.CreateTask;
 import com.cczu.spider.utils.utilsforgetschoolinfo.SpiderForCheckUserNameAndPassword;
 import com.cczu.spider.utils.utilsforgetschoolinfo.SpiderForLectureTimes;
+import com.cczu.spider.utils.wxutils.GetInfoFromWX;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -68,6 +72,9 @@ public class IndexContoller {
 
     @Autowired
     private SysIndexService sysIndexService;
+
+    @Autowired
+    private RedisUtils redisUtils;
 
 
 
@@ -453,6 +460,50 @@ public class IndexContoller {
         } else {
             return R.error("您还未绑定");
         }
+    }
+
+    @RequestMapping("/createWXQrCode")
+    @ResponseBody
+    public R createWxQrCode() {
+//        GenericObjectPoolConfig jredisConfig = new GenericObjectPoolConfig();
+//        JedisPool pool = new JedisPool(jredisConfig, "47.98.105.243",6379,0,"root",15);
+//        Jedis redis = pool.getResource();
+//        String token = redis.get("access_token");
+        String token = redisUtils.get("access_token");
+//        String token = null;
+        GetInfoFromWX getInfoFromWX = new GetInfoFromWX();
+        Random random = new Random();
+        String name = random.nextInt(10000) + System.currentTimeMillis() + "";
+        if (token != null) {
+            try {
+                getInfoFromWX.getAndSaveWXQrCode(token,name);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return R.error("失败");
+            }
+        } else {
+            try {
+                Connection.Response res = Jsoup.connect("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxcb506c516f5ee36d&secret=0b81a9888f3972585ecc837d8a950324")
+                        .header("Accept", "*/*")
+                        .header("Accept-Encoding", "gzip, deflate")
+                        .header("Accept-Language","zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3")
+                        .header("Content-Type", "application/json;charset=UTF-8")
+                        .header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:48.0) Gecko/20100101 Firefox/48.0")
+                        .timeout(10000).ignoreContentType(true).execute();//.get();
+                String body = res.body();
+                org.json.JSONObject json = new org.json.JSONObject(body);
+                token = json.getString("access_token");
+                int expires_in = json.getInt("expires_in");
+                redisUtils.set("access_token",token,expires_in);
+                getInfoFromWX.getAndSaveWXQrCode(token,name);
+            }catch (Exception e) {
+                e.printStackTrace();
+                return R.error("失败");
+            }
+        }
+
+
+        return R.ok();
     }
 
 }

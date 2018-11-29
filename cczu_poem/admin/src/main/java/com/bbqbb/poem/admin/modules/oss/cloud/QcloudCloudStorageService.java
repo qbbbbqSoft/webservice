@@ -22,7 +22,6 @@ import com.qcloud.cos.COSClient;
 import com.qcloud.cos.ClientConfig;
 import com.qcloud.cos.request.UploadFileRequest;
 import com.qcloud.cos.sign.Credentials;
-import net.sf.json.JSONObject;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
@@ -67,10 +66,10 @@ public class QcloudCloudStorageService extends CloudStorageService {
         UploadFileRequest request = new UploadFileRequest(config.getQcloudBucketName(), path, data);
         String response = client.uploadFile(request);
 
-        JSONObject jsonObject = JSONObject.fromObject(response);
-        if(jsonObject.getInt("code") != 0) {
-            throw new RRException("文件上传失败，" + jsonObject.getString("message"));
-        }
+//        JSONObject jsonObject = JSONObject.fromObject(response);
+//        if(jsonObject.getInt("code") != 0) {
+//            throw new RRException("文件上传失败，" + jsonObject.getString("message"));
+//        }
 
         return config.getQcloudDomain() + path;
     }

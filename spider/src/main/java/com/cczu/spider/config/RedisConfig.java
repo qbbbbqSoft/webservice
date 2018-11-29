@@ -9,7 +9,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import redis.clients.jedis.JedisPoolConfig;
 
-@Configuration
+//@Configuration
 @EnableAutoConfiguration
 public class RedisConfig {
 
