@@ -21,14 +21,22 @@ public class CourseModel {
                 List<String> css = Arrays.asList(cs.get(0).split(" "));
                 this.name = css.get(0);
                 this.location = css.get(1);
-                this.week = css.get(2);
+                if (css.size() == 4) {
+                    this.week = css.get(3) + "[" + css.get(2) + "]";
+                } else {
+                    this.week = css.get(2);
+                }
             }
         } else {
             List<String> css2 = Arrays.asList(cs.get(0).split(" "));
             List<String> css3 = Arrays.asList(cs.get(1).split(" "));
             this.name = css2.get(0) + "/" + css3.get(0);
             this.location = css2.get(1) + "/" + css3.get(1);
-            this.week = css2.get(2) + "/" + css3.get(2);
+            if (css2.size() == 4 && css3.size() == 4) {
+                this.week = css2.get(3) + "[" + css2.get(2) + "]" + "/" + css3.get(3) + "[" + css3.get(2) + "]";
+            } else {
+                this.week = css2.get(2) + "/" + css3.get(2);
+            }
         }
     }
 

@@ -1,12 +1,17 @@
 package com.cczu.spider.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "sys_activity")
+@JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","fieldHandler"})
 public class SysActivityEntity {
-    private Long id;
+    @Column(name = "ID")
+    private Long ID;
     @Column(name = "activityID")
     private String activityID;
     @Column(name = "activityName")
@@ -29,13 +34,14 @@ public class SysActivityEntity {
     private Date updateDate;
 
     @Id
+    @JsonIgnore
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long getId() {
-        return id;
+    public Long getID() {
+        return ID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setID(Long ID) {
+        this.ID = ID;
     }
 
     public String getActivityID() {

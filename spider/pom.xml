@@ -166,8 +166,31 @@
 			<artifactId>druid</artifactId>
 			<version>1.1.0</version>
 		</dependency>
+		<!--excel导出相关 start-->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.9</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.9</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>3.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.jxls</groupId>
+			<artifactId>jxls-core</artifactId>
+			<version>1.0.5</version>
+		</dependency>
+		<!--excel导出相关 end-->
 	</dependencies>
 
 	<build>
@@ -195,7 +218,7 @@
 				<encoding>UTF-8</encoding>
 				<compilerArguments>
 					<verbose/>
-					<bootclasspath>${java.home}\lib\rt.jar;${java.home}\lib\jce.jar</bootclasspath>
+					<bootclasspath>${java.home}/lib/rt.jar:${java.home}/lib/jce.jar</bootclasspath>
 				</compilerArguments>
 			</configuration>
 		</plugin>

@@ -1,10 +1,7 @@
 package com.cczu.spider.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.cczu.spider.entity.LectureEntity;
-import com.cczu.spider.entity.SysBindingWxEntity;
-import com.cczu.spider.entity.SysCourseEntity;
-import com.cczu.spider.entity.SysIndexEntity;
+import com.cczu.spider.entity.*;
 import com.cczu.spider.entity.result.R;
 import com.cczu.spider.pojo.*;
 import com.cczu.spider.service.*;
@@ -12,6 +9,7 @@ import com.cczu.spider.utils.CCZU_spider;
 import com.cczu.spider.utils.CCZU_spiderByHtmlUnit;
 import com.cczu.spider.utils.CCZU_spiderUtils;
 import com.cczu.spider.utils.QrCode.QrCodeUtil;
+import com.cczu.spider.utils.excel.ExcelUtil;
 import com.cczu.spider.utils.redis.RedisUtils;
 import com.cczu.spider.utils.thirdpart.WeatherUtil;
 import com.cczu.spider.utils.thread.CreateTask;
@@ -32,9 +30,12 @@ import redis.clients.jedis.JedisPool;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
 import java.time.Year;
 import java.util.*;
 
@@ -50,6 +51,8 @@ public class IndexContoller {
     private Integer MONTH;
     @Value("${term.startDay}")
     private Integer DAY;
+    @Value("${FILE.PATH}")
+    private String filePath;
 
     @Autowired
     private UpImgService upImgService;
@@ -75,6 +78,9 @@ public class IndexContoller {
 
     @Autowired
     private RedisUtils redisUtils;
+
+    @Autowired
+    private SysActivityService sysActivityService;
 
 
 
@@ -464,19 +470,14 @@ public class IndexContoller {
 
     @RequestMapping("/createWXQrCode")
     @ResponseBody
-    public R createWxQrCode() {
-//        GenericObjectPoolConfig jredisConfig = new GenericObjectPoolConfig();
-//        JedisPool pool = new JedisPool(jredisConfig, "47.98.105.243",6379,0,"root",15);
-//        Jedis redis = pool.getResource();
-//        String token = redis.get("access_token");
+    public R createWxQrCode(String activityName,String openid) {
         String token = redisUtils.get("access_token");
-//        String token = null;
         GetInfoFromWX getInfoFromWX = new GetInfoFromWX();
         Random random = new Random();
         String name = random.nextInt(10000) + System.currentTimeMillis() + "";
         if (token != null) {
             try {
-                getInfoFromWX.getAndSaveWXQrCode(token,name);
+                getInfoFromWX.getAndSaveWXQrCode(token,name,filePath);
             } catch (Exception e) {
                 e.printStackTrace();
                 return R.error("失败");
@@ -495,15 +496,96 @@ public class IndexContoller {
                 token = json.getString("access_token");
                 int expires_in = json.getInt("expires_in");
                 redisUtils.set("access_token",token,expires_in);
-                getInfoFromWX.getAndSaveWXQrCode(token,name);
+                getInfoFromWX.getAndSaveWXQrCode(token,name,filePath);
             }catch (Exception e) {
                 e.printStackTrace();
                 return R.error("失败");
             }
         }
-
-
+        SysActivityEntity entity = new SysActivityEntity();
+        entity.setActivityName(activityName);
+        entity.setActivityDate(new Date());
+        entity.setActivityID(name);
+        entity.setOrganizingPeopleOpenID(openid);
+        entity.setActivityOrganizingPeople("cczu");
+        entity.setActivityPlcae("anywhere这里");
+        entity.setActivityQrCodeUrl("http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/" + name + ".png");
+        entity.setActivityStatus(0);
+        entity.setCreateDate(new Date());
+        sysActivityService.save(entity);
         return R.ok();
     }
 
+    @RequestMapping("/getSysActivityListByOpenid")
+    @ResponseBody
+    public R getSysActivityListByOpenid(String openid) {
+        List<SysActivityEntity> list = sysActivityService.getSysActivityListByOpenid(openid);
+        return R.ok().put("data",list);
+    }
+
+    @RequestMapping("/getOneActivityDetailByID")
+    @ResponseBody
+    public R getOneActivityDetailByID(Long ID) {
+        SysActivityEntity one = sysActivityService.getOneByID(ID);
+        return R.ok().put("data",one);
+    }
+
+    /**
+     * excel导出
+     * @param response
+     */
+    @RequestMapping("/exportExcel")
+    public void exportExcel(HttpServletResponse response) {
+        String sheetName = null;
+        String[] headers = null;
+        String[] columns = null;
+        OutputStream out = null;
+        String filename = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        headers = new String[]{
+                "标题1", "标题2","标题3", "标题4", "标题5"
+        };
+        columns = new String[]{
+                "head1", "head2", "head3", "head4", "head5"
+        };
+        sheetName = "sheetName";
+        List<HashMap<String,String>> col_cessList = new ArrayList<>();
+        HashMap<String,String> map = null;
+        for (int i = 0; i < 10; i++) {
+            map = new HashMap<>();
+            map.put("head1", (new Date()).toString() + "head1");
+            map.put("head2", (new Date()).toString() + "head2");
+            map.put("head3", (new Date()).toString() + "head3");
+            map.put("head4", (new Date()).toString() + "head4");
+            map.put("head5", (new Date()).toString() + "head5");
+            col_cessList.add(map);
+        }
+        try {
+            // 取得输出流
+            out = response.getOutputStream();
+//                    out.flush();
+            response.reset();// 清空输出流
+            response.setHeader("Content-disposition", "attachment; filename=" + new String(filename.getBytes("GB2312"), "8859_1") + ".xls");// 设定输出文件头
+            response.setContentType("application/msexcel");// 定义输出类型
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            List<Integer> textColumns = new ArrayList<>();
+            textColumns.add(1);
+            ExcelUtil.exportExcel(sheetName, null, headers, columns, col_cessList, out, "yyyy-MM-dd HH:mm:ss", textColumns);
+            out.close();
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    @RequestMapping("/sendMail")
+    public void sendMail() {
+        try {
+            mailService.sendHtmlMail("测试","测试");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

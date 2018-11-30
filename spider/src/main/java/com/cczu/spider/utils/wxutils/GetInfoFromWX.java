@@ -136,9 +136,10 @@ public class GetInfoFromWX {
         return null;
     }
 
-    public void getAndSaveWXQrCode(String token, String fileName) throws Exception {
+    public void getAndSaveWXQrCode(String token, String fileName, String filePath) throws Exception {
         Map<String, Object> params = new HashMap<>();
-        params.put("path", "pages/activity/index?activityCode=" + fileName);
+        params.put("scene",fileName);
+        params.put("path", "pages/activity/index");
         params.put("width", 430);
         params.put("auto_color", false);
         Map<String,Object> line_color = new HashMap<>();
@@ -149,7 +150,7 @@ public class GetInfoFromWX {
 
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
-        HttpPost httpPost = new HttpPost("https://api.weixin.qq.com/wxa/getwxacode?access_token="+token);
+        HttpPost httpPost = new HttpPost("https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token="+token);
         httpPost.addHeader(HTTP.CONTENT_TYPE, "application/json");
         String aa = com.alibaba.fastjson.JSON.toJSONString(params);
         StringEntity entity;
@@ -162,11 +163,11 @@ public class GetInfoFromWX {
         response = httpClient.execute(httpPost);
         InputStream inputStream = response.getEntity().getContent();
 
-        File targetFile = new File("/Volumes/Data/pic/");
+        File targetFile = new File(filePath);
         if(!targetFile.exists()){
             targetFile.mkdirs();
         }
-        FileOutputStream out = new FileOutputStream("/Volumes/Data/pic/" + fileName +".png");
+        FileOutputStream out = new FileOutputStream(filePath + fileName +".png");
 
         byte[] buffer = new byte[8192];
         int bytesRead = 0;
@@ -177,7 +178,7 @@ public class GetInfoFromWX {
         out.close();
         UpImgService service = new UpImgServiceImpl();
         try {
-            service.updateErWeiMa("/Volumes/Data/pic/" + fileName +".png");
+            service.updateErWeiMa(filePath + fileName +".png");
         } catch (Exception e) {
             e.printStackTrace();
         }
