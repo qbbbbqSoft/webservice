@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bbqbb.poem.admin.modules.admin.dao.SysWxuserinfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.bbqbb.poem.admin.modules.admin.entity.SysWxuserinfoEntity" id="sysWxuserinfoMap">
+        <result property="id" column="ID"/>
+        <result property="openid" column="openid"/>
+        <result property="wxheadimageurl" column="wxHeadImageUrl"/>
+        <result property="wxusername" column="wxUserName"/>
+        <result property="wxotheruserinfo" column="wxOtherUserInfo"/>
+        <result property="createdate" column="createDate"/>
+        <result property="updatedate" column="updateDate"/>
+    </resultMap>
+
+
+</mapper>

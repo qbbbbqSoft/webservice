@@ -82,6 +82,12 @@ public class IndexContoller {
     @Autowired
     private SysActivityService sysActivityService;
 
+    @Autowired
+    private SysSignUpService sysSignUpService;
+
+    @Autowired
+    private SysWxUserInfoService sysWxUserInfoService;
+
 
 
     @Value("${ChromeDriver_Path_win}")
@@ -528,6 +534,57 @@ public class IndexContoller {
     public R getOneActivityDetailByID(Long ID) {
         SysActivityEntity one = sysActivityService.getOneByID(ID);
         return R.ok().put("data",one);
+    }
+
+    @RequestMapping("/setActivityStatusByID")
+    @ResponseBody
+    public R setActivityStatusByID(Long ID,Integer status) {
+        sysActivityService.setActivityStatusByID(ID,status);
+        return R.ok();
+    }
+
+    @RequestMapping("/signUp")
+    @ResponseBody
+    public R signUp(Long ID, String openid) {
+        SysActivityEntity sysActivityEntity = sysActivityService.getOneByID(ID);
+        if (sysActivityEntity == null) {
+            return R.error("no this activity");
+        } else {
+            //签到人员
+            SysSignUpEntity sysSignUpEntity = sysSignUpService.getOneByOpenidAndActivityID(openid, ID);
+            SysWxUserInfoEntity sysWxUserInfoEntity = sysWxUserInfoService.getOneWxUserInfoByOpenid(openid);
+            if (sysActivityEntity.getActivityStatus() == 0) {
+                return R.error("unstart");
+            } else if(sysActivityEntity.getActivityStatus() == 1) {
+
+                if (sysSignUpEntity == null) {
+                    //ToDo 保存操作
+                    SysSignUpEntity entity = new SysSignUpEntity();
+                    entity.setActivityID(sysActivityEntity.getID());
+                    entity.setOpenid(sysWxUserInfoEntity.getOpenid());
+                    entity.setWxheadimageurl(sysWxUserInfoEntity.getWxheadimageurl());
+                    entity.setWxotherinfo(sysWxUserInfoEntity.getWxotheruserinfo());
+                    entity.setWxusername(sysWxUserInfoEntity.getWxusername());
+                    entity.setSigaddress("zhelila");
+                    entity.setStatus(false);
+                    entity.setSigndate(new Date());
+                    sysSignUpService.save(entity);
+                    return R.ok("signUp success");
+                } else {
+                    return R.error("already signUp");
+                }
+            } else if(sysActivityEntity.getActivityStatus() == 2) {
+                //签退的情况
+                if (sysSignUpEntity == null) {
+                    return R.error("unsignUp");
+                } else {
+                    //ToDo 保存操作
+                    return R.ok("signBack success");
+                }
+            } else {
+                return R.error("some error happened");
+            }
+        }
     }
 
     /**

@@ -95,7 +95,7 @@ public class MailServiceImpl implements MailService {
                 "\t\t\t\t<tbody><tr><td style=\"text-align:left\">\n" +
                 "\t\t\t\t扫码签到步骤：<br>\n" +
                 "\t\t\t\t1. 从微信小程序中搜索“常州大学课表”；<br>\n" +
-                "\t\t\t\t2. 打开“扫码签到工具”，点击“扫码签到”，扫码。<br>\n" +
+                "\t\t\t\t2. 打开“常州大学课表”，点击“扫码签到”，扫码。<br>\n" +
                 "\t\t\t\t</td></tr></tbody>\n" +
                 "\t\t\t\t</table>\n" +
                 "\t\t\t\t</td>\n" +
@@ -136,7 +136,7 @@ public class MailServiceImpl implements MailService {
         //SimpleMailMessage mailMsg = new SimpleMailMessage();//只支持文字
         helper.setFrom(FROM);//发件人
         helper.setTo("1747991245@qq.com");//收件人
-        helper.setSubject("很棒哦，今晚你回去扫地了");//邮件标题
+        helper.setSubject("常州大学课表小工具-扫码签到");//邮件标题
         helper.setText(html,true); //测试内容（html）
         try {
             javaMailSender.send(msg);

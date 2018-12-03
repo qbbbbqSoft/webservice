@@ -12,4 +12,6 @@ public interface SysActivityService {
     SysActivityEntity getOneSysActivityByActivityID(Long ID);
 
     SysActivityEntity getOneByID(Long ID);
+
+    void setActivityStatusByID(Long ID,Integer status);
 }

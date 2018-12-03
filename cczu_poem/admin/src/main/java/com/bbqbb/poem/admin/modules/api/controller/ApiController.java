@@ -8,7 +8,9 @@ import com.bbqbb.poem.admin.common.utils.JsonUtils;
 import com.bbqbb.poem.admin.common.utils.Query;
 import com.bbqbb.poem.admin.modules.admin.entity.SysCommentEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity;
+import com.bbqbb.poem.admin.modules.admin.entity.SysWxuserinfoEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity;
+import com.bbqbb.poem.admin.modules.admin.service.SysWxuserinfoService;
 import com.bbqbb.poem.admin.modules.api.model.DataModel;
 import com.bbqbb.poem.admin.modules.api.model.SysTitleModel;
 import com.bbqbb.poem.admin.modules.api.model.TokenModel;
@@ -41,6 +43,8 @@ public class ApiController {
 
     @Autowired
     private ApiService apiService;
+    @Autowired
+    private SysWxuserinfoService sysWxuserinfoService;
 
     @Autowired
     private RedisUtils redisUtils;
@@ -189,6 +193,7 @@ public class ApiController {
     }
 
 
+    //Todo 传入wxuserinfo并保存
     @PostMapping("/wxLogin")
     public R wxLogin(String code) {
 
@@ -215,7 +220,9 @@ public class ApiController {
         redisUtils.set("user-redis-session:" + model.getOpenid(),
                 model.getSession_key(),
                 60 * 5);
-
+        SysWxuserinfoEntity entity = new SysWxuserinfoEntity();
+        entity.setOpenid(model.getOpenid());
+        sysWxuserinfoService.insert(entity);
         return R.ok().put("data",model);
     }
 

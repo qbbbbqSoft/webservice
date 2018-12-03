@@ -41,4 +41,9 @@ public class SysActivityServiceImpl implements SysActivityService {
     public SysActivityEntity getOneByID(Long ID) {
         return sysActivityRepo.getOneByID(ID);
     }
+
+    @Override
+    public void setActivityStatusByID(Long ID, Integer status) {
+        sysActivityRepo.setActivityStatusByID(ID,status);
+    }
 }
