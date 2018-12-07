@@ -6,17 +6,34 @@ import com.cczu.spider.service.SysSignUpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SysSignUpServiceImpl implements SysSignUpService {
     @Autowired
     private SysSignUpRepo sysSignUpRepo;
     @Override
-    public SysSignUpEntity getOneByOpenidAndActivityID(String openid, Long activityID) {
+    public SysSignUpEntity getOneByOpenidAndActivityID(String openid, String activityID) {
         return sysSignUpRepo.getOneByID(openid,activityID);
     }
 
     @Override
     public void save(SysSignUpEntity entity) {
         sysSignUpRepo.save(entity);
+    }
+
+    @Override
+    public List<Long> getAllTakePartInActivityIDByOpenid(String openid) {
+        return sysSignUpRepo.getAllTakePartInActivityIDByOpenid(openid);
+    }
+
+    @Override
+    public List<SysSignUpEntity> getSysSignUpEntitiesByActivityID(String activityID) {
+        return sysSignUpRepo.getSysSignUpEntitiesByActivityID(activityID);
+    }
+
+    @Override
+    public SysSignUpEntity getSysSignUpEntityByActivityIDAndOpenid(String activityID, String openid) {
+        return sysSignUpRepo.getSysSignUpEntityByActivityIDAndOpenid(activityID,openid);
     }
 }

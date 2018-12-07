@@ -1,5 +1,6 @@
 package com.cczu.spider.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -16,8 +17,9 @@ public class SysActivityEntity {
     private String activityID;
     @Column(name = "activityName")
     private String activityName;
-    @Column(name = "activityPlcae")
-    private String activityPlcae;
+    @Column(name = "activityPlace")
+    private String activityPlace;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @Column(name = "activityDate")
     private Date activityDate;
     @Column(name = "activityQrCodeUrl")
@@ -28,13 +30,20 @@ public class SysActivityEntity {
     private String organizingPeopleOpenID;
     @Column(name = "activityStatus")
     private Integer activityStatus;
+    @Column(name = "activityConfiguration")
+    private String activityConfiguration;
+    @Column(name = "activityLabel")
+    private String activityLabel;
+    @Column(name = "activityBackgroundPic")
+    private String activityBackgroundPic;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @Column(name = "createDate")
     private Date createDate;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @Column(name = "updateDate")
     private Date updateDate;
 
     @Id
-    @JsonIgnore
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getID() {
         return ID;
@@ -60,12 +69,12 @@ public class SysActivityEntity {
         this.activityName = activityName;
     }
 
-    public String getActivityPlcae() {
-        return activityPlcae;
+    public String getActivityPlace() {
+        return activityPlace;
     }
 
-    public void setActivityPlcae(String activityPlcae) {
-        this.activityPlcae = activityPlcae;
+    public void setActivityPlace(String activityPlace) {
+        this.activityPlace = activityPlace;
     }
 
     public Date getActivityDate() {
@@ -122,5 +131,29 @@ public class SysActivityEntity {
 
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public String getActivityConfiguration() {
+        return activityConfiguration;
+    }
+
+    public void setActivityConfiguration(String activityConfiguration) {
+        this.activityConfiguration = activityConfiguration;
+    }
+
+    public String getActivityLabel() {
+        return activityLabel;
+    }
+
+    public void setActivityLabel(String activityLabel) {
+        this.activityLabel = activityLabel;
+    }
+
+    public String getActivityBackgroundPic() {
+        return activityBackgroundPic;
+    }
+
+    public void setActivityBackgroundPic(String activityBackgroundPic) {
+        this.activityBackgroundPic = activityBackgroundPic;
     }
 }

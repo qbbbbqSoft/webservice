@@ -9,7 +9,7 @@ public class SysSignUpEntity {
 
     private Long ID;
     private String openid;
-    private Long activityID;
+    private String activityID;
     private String name;
     private String phone;
     private String wxheadimageurl;
@@ -45,11 +45,11 @@ public class SysSignUpEntity {
         this.openid = openid;
     }
 
-    public Long getActivityID() {
+    public String getActivityID() {
         return activityID;
     }
 
-    public void setActivityID(Long activityID) {
+    public void setActivityID(String activityID) {
         this.activityID = activityID;
     }
 

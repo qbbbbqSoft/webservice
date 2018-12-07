@@ -23,6 +23,7 @@ import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import redis.clients.jedis.Jedis;
@@ -51,8 +52,7 @@ public class IndexContoller {
     private Integer MONTH;
     @Value("${term.startDay}")
     private Integer DAY;
-    @Value("${FILE.PATH}")
-    private String filePath;
+
 
     @Autowired
     private UpImgService upImgService;
@@ -76,17 +76,7 @@ public class IndexContoller {
     @Autowired
     private SysIndexService sysIndexService;
 
-    @Autowired
-    private RedisUtils redisUtils;
 
-    @Autowired
-    private SysActivityService sysActivityService;
-
-    @Autowired
-    private SysSignUpService sysSignUpService;
-
-    @Autowired
-    private SysWxUserInfoService sysWxUserInfoService;
 
 
 
@@ -256,7 +246,7 @@ public class IndexContoller {
      * 6。常大要闻 7。媒体常大 8。校园快讯
      * @return
      */
-    @RequestMapping("/getInfoAboutSchool/{type}")
+    @RequestMapping(value = "/getInfoAboutSchool/{type}")
     @ResponseBody
     public R getInfoAboutSchool(@PathVariable("type") Integer type) {
         String url = "";
@@ -446,19 +436,19 @@ public class IndexContoller {
         System.out.println(name);
     }
 
-    @RequestMapping("/createActivity")
-    @ResponseBody
-    public R createActivity(){
-        Random random = new Random();
-        String name = random.nextInt(10000) + System.currentTimeMillis() + "";
-        QrCodeUtil util = new QrCodeUtil();
-        try {
-            util.createQrCode(name);
-        } catch (Exception e) {
-            return R.error();
-        }
-        return R.ok();
-    }
+//    @RequestMapping("/createActivity")
+//    @ResponseBody
+//    public R createActivity(){
+//        Random random = new Random();
+//        String name = random.nextInt(10000) + System.currentTimeMillis() + "";
+//        QrCodeUtil util = new QrCodeUtil();
+//        try {
+//            util.createQrCode(name);
+//        } catch (Exception e) {
+//            return R.error();
+//        }
+//        return R.ok();
+//    }
 
     @RequestMapping("/getClassTableByOpenID")
     @ResponseBody
@@ -474,118 +464,7 @@ public class IndexContoller {
         }
     }
 
-    @RequestMapping("/createWXQrCode")
-    @ResponseBody
-    public R createWxQrCode(String activityName,String openid) {
-        String token = redisUtils.get("access_token");
-        GetInfoFromWX getInfoFromWX = new GetInfoFromWX();
-        Random random = new Random();
-        String name = random.nextInt(10000) + System.currentTimeMillis() + "";
-        if (token != null) {
-            try {
-                getInfoFromWX.getAndSaveWXQrCode(token,name,filePath);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return R.error("失败");
-            }
-        } else {
-            try {
-                Connection.Response res = Jsoup.connect("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxcb506c516f5ee36d&secret=0b81a9888f3972585ecc837d8a950324")
-                        .header("Accept", "*/*")
-                        .header("Accept-Encoding", "gzip, deflate")
-                        .header("Accept-Language","zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3")
-                        .header("Content-Type", "application/json;charset=UTF-8")
-                        .header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:48.0) Gecko/20100101 Firefox/48.0")
-                        .timeout(10000).ignoreContentType(true).execute();//.get();
-                String body = res.body();
-                org.json.JSONObject json = new org.json.JSONObject(body);
-                token = json.getString("access_token");
-                int expires_in = json.getInt("expires_in");
-                redisUtils.set("access_token",token,expires_in);
-                getInfoFromWX.getAndSaveWXQrCode(token,name,filePath);
-            }catch (Exception e) {
-                e.printStackTrace();
-                return R.error("失败");
-            }
-        }
-        SysActivityEntity entity = new SysActivityEntity();
-        entity.setActivityName(activityName);
-        entity.setActivityDate(new Date());
-        entity.setActivityID(name);
-        entity.setOrganizingPeopleOpenID(openid);
-        entity.setActivityOrganizingPeople("cczu");
-        entity.setActivityPlcae("anywhere这里");
-        entity.setActivityQrCodeUrl("http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/" + name + ".png");
-        entity.setActivityStatus(0);
-        entity.setCreateDate(new Date());
-        sysActivityService.save(entity);
-        return R.ok();
-    }
 
-    @RequestMapping("/getSysActivityListByOpenid")
-    @ResponseBody
-    public R getSysActivityListByOpenid(String openid) {
-        List<SysActivityEntity> list = sysActivityService.getSysActivityListByOpenid(openid);
-        return R.ok().put("data",list);
-    }
-
-    @RequestMapping("/getOneActivityDetailByID")
-    @ResponseBody
-    public R getOneActivityDetailByID(Long ID) {
-        SysActivityEntity one = sysActivityService.getOneByID(ID);
-        return R.ok().put("data",one);
-    }
-
-    @RequestMapping("/setActivityStatusByID")
-    @ResponseBody
-    public R setActivityStatusByID(Long ID,Integer status) {
-        sysActivityService.setActivityStatusByID(ID,status);
-        return R.ok();
-    }
-
-    @RequestMapping("/signUp")
-    @ResponseBody
-    public R signUp(Long ID, String openid) {
-        SysActivityEntity sysActivityEntity = sysActivityService.getOneByID(ID);
-        if (sysActivityEntity == null) {
-            return R.error("no this activity");
-        } else {
-            //签到人员
-            SysSignUpEntity sysSignUpEntity = sysSignUpService.getOneByOpenidAndActivityID(openid, ID);
-            SysWxUserInfoEntity sysWxUserInfoEntity = sysWxUserInfoService.getOneWxUserInfoByOpenid(openid);
-            if (sysActivityEntity.getActivityStatus() == 0) {
-                return R.error("unstart");
-            } else if(sysActivityEntity.getActivityStatus() == 1) {
-
-                if (sysSignUpEntity == null) {
-                    //ToDo 保存操作
-                    SysSignUpEntity entity = new SysSignUpEntity();
-                    entity.setActivityID(sysActivityEntity.getID());
-                    entity.setOpenid(sysWxUserInfoEntity.getOpenid());
-                    entity.setWxheadimageurl(sysWxUserInfoEntity.getWxheadimageurl());
-                    entity.setWxotherinfo(sysWxUserInfoEntity.getWxotheruserinfo());
-                    entity.setWxusername(sysWxUserInfoEntity.getWxusername());
-                    entity.setSigaddress("zhelila");
-                    entity.setStatus(false);
-                    entity.setSigndate(new Date());
-                    sysSignUpService.save(entity);
-                    return R.ok("signUp success");
-                } else {
-                    return R.error("already signUp");
-                }
-            } else if(sysActivityEntity.getActivityStatus() == 2) {
-                //签退的情况
-                if (sysSignUpEntity == null) {
-                    return R.error("unsignUp");
-                } else {
-                    //ToDo 保存操作
-                    return R.ok("signBack success");
-                }
-            } else {
-                return R.error("some error happened");
-            }
-        }
-    }
 
     /**
      * excel导出
@@ -637,12 +516,5 @@ public class IndexContoller {
         }
     }
 
-    @RequestMapping("/sendMail")
-    public void sendMail() {
-        try {
-            mailService.sendHtmlMail("测试","测试");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 }

@@ -2,6 +2,7 @@ package com.cczu.spider.service;
 
 import com.cczu.spider.entity.SysActivityEntity;
 
+import java.util.Date;
 import java.util.List;
 
 public interface SysActivityService {
@@ -13,5 +14,9 @@ public interface SysActivityService {
 
     SysActivityEntity getOneByID(Long ID);
 
-    void setActivityStatusByID(Long ID,Integer status);
+    SysActivityEntity getOneByActivityID(String activityID);
+
+    void setActivityStatusByID(Long ID, Integer status, Date updateDate);
+
+    List<SysActivityEntity> queryTakePartInActivityByOpenid(String openid);
 }

@@ -1,6 +1,5 @@
 package com.cczu.spider.utils.wxutils;
 
-import com.alibaba.fastjson.JSON;
 import com.cczu.spider.service.UpImgService;
 import com.cczu.spider.service.impl.UpImgServiceImpl;
 import org.apache.commons.codec.binary.Base64;
@@ -139,7 +138,7 @@ public class GetInfoFromWX {
     public void getAndSaveWXQrCode(String token, String fileName, String filePath) throws Exception {
         Map<String, Object> params = new HashMap<>();
         params.put("scene",fileName);
-        params.put("path", "pages/activity/index");
+        params.put("page", "pages/login/index");
         params.put("width", 430);
         params.put("auto_color", false);
         Map<String,Object> line_color = new HashMap<>();
@@ -147,6 +146,7 @@ public class GetInfoFromWX {
         line_color.put("g", 0);
         line_color.put("b", 0);
         params.put("line_color", line_color);
+        params.put("is_hyaline",true);
 
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 

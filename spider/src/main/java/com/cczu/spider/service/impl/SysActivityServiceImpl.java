@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class SysActivityServiceImpl implements SysActivityService {
@@ -43,7 +43,17 @@ public class SysActivityServiceImpl implements SysActivityService {
     }
 
     @Override
-    public void setActivityStatusByID(Long ID, Integer status) {
-        sysActivityRepo.setActivityStatusByID(ID,status);
+    public SysActivityEntity getOneByActivityID(String activityID) {
+        return sysActivityRepo.getOneByActivityID(activityID);
+    }
+
+    @Override
+    public void setActivityStatusByID(Long ID, Integer status, Date updateDate) {
+        sysActivityRepo.setActivityStatusByID(ID,status,updateDate);
+    }
+
+    @Override
+    public List<SysActivityEntity> queryTakePartInActivityByOpenid(String openid) {
+        return sysActivityRepo.queryTakePartInActivityByOpenid(openid);
     }
 }
