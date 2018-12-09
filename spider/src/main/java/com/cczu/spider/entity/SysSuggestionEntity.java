@@ -8,7 +8,7 @@ import java.util.Date;
 public class SysSuggestionEntity {
 
 
-    @Column(name = "ID")
+
     private Long id;
 
     private String email;
