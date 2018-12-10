@@ -131,4 +131,16 @@ public class SysWxuserinfoEntity implements Serializable {
 	public Date getUpdatedate() {
 		return updatedate;
 	}
+
+	public SysWxuserinfoEntity(String openid, String wxheadimageurl, String wxusername, String wxotheruserinfo, Date createdate) {
+		this.openid = openid;
+		this.wxheadimageurl = wxheadimageurl;
+		this.wxusername = wxusername;
+		this.wxotheruserinfo = wxotheruserinfo;
+		this.createdate = createdate;
+	}
+
+	public SysWxuserinfoEntity() {
+		super();
+	}
 }

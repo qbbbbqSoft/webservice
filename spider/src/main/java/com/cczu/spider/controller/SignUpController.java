@@ -128,7 +128,7 @@ public class SignUpController {
     public R getOneActivityDetailByID(@ApiParam(value = "活动的主键ID",required = true,defaultValue = "1")@RequestParam(value = "ID",required = true, defaultValue = "1") Long ID) {
         SysActivityEntity one = sysActivityService.getOneByID(ID);
         List<SysSignUpEntity> signUpEntities = sysSignUpService.getSysSignUpEntitiesByActivityID(one.getActivityID());
-        return R.ok().put("data",one).put("allSignUpInfo",signUpEntities);
+        return R.ok().put("data",one).put("allSignUpInfo",signUpEntities).put("count",signUpEntities.size());
     }
 
     /**
@@ -165,6 +165,13 @@ public class SignUpController {
                                                         @ApiParam(value = "微信的Openid",required = true,defaultValue = "123456")@RequestParam(value = "openid",required = true,defaultValue = "123456")String openid){
         SysSignUpEntity entity = sysSignUpService.getSysSignUpEntityByActivityIDAndOpenid(activityID, openid);
         return R.ok().put("data",entity);
+    }
+
+    @GetMapping("/getOneSysActivityByActivityID")
+    @ApiOperation(value = "扫码之后先获取活动的信息", notes = "扫码能获得活动的activityID，再获取activity的具体信息")
+    public R getOneSysActivityByActivityID(@ApiParam(value = "生成的activityID",required = true,defaultValue = "") @RequestParam("activityID")String activityID) {
+        SysActivityEntity sysActivityEntity = sysActivityService.getOneByActivityID(activityID);
+        return R.ok().put("data",sysActivityEntity);
     }
 
     /**

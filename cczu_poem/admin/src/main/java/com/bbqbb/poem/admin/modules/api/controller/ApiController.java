@@ -11,10 +11,7 @@ import com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysWxuserinfoEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity;
 import com.bbqbb.poem.admin.modules.admin.service.SysWxuserinfoService;
-import com.bbqbb.poem.admin.modules.api.model.DataModel;
-import com.bbqbb.poem.admin.modules.api.model.SysTitleModel;
-import com.bbqbb.poem.admin.modules.api.model.TokenModel;
-import com.bbqbb.poem.admin.modules.api.model.WXSessionModel;
+import com.bbqbb.poem.admin.modules.api.model.*;
 import com.bbqbb.poem.admin.modules.api.service.ApiService;
 import com.bbqbb.poem.admin.modules.api.utils.OSSUtil;
 import com.bbqbb.poem.common.exception.RRException;
@@ -195,9 +192,9 @@ public class ApiController {
 
     //Todo 传入wxuserinfo并保存
     @PostMapping("/wxLogin")
-    public R wxLogin(String code) {
+    public R wxLogin(@RequestBody WxUserInfoModel wxUserInfoModel) {
 
-        System.out.println("wxlogin - code: " + code);
+        System.out.println("wxlogin - code: " + wxUserInfoModel.getCode());
 
 //		https://api.weixin.qq.com/sns/jscode2session?
 //				appid=APPID&
@@ -209,7 +206,7 @@ public class ApiController {
         Map<String, String> param = new HashMap<>();
         param.put("appid", "wxcb506c516f5ee36d");
         param.put("secret", "0b81a9888f3972585ecc837d8a950324");
-        param.put("js_code", code);
+        param.put("js_code", wxUserInfoModel.getCode());
         param.put("grant_type", "authorization_code");
 
         String wxResult = HttpClientUtil.doGet(url, param);
@@ -220,8 +217,7 @@ public class ApiController {
         redisUtils.set("user-redis-session:" + model.getOpenid(),
                 model.getSession_key(),
                 60 * 5);
-        SysWxuserinfoEntity entity = new SysWxuserinfoEntity();
-        entity.setOpenid(model.getOpenid());
+        SysWxuserinfoEntity entity = new SysWxuserinfoEntity(model.getOpenid(),wxUserInfoModel.getSysWxuserinfoEntity().getWxheadimageurl(),wxUserInfoModel.getSysWxuserinfoEntity().getWxusername(),wxUserInfoModel.getSysWxuserinfoEntity().getWxotheruserinfo(),new Date());
         sysWxuserinfoService.insert(entity);
         return R.ok().put("data",model);
     }
