@@ -204,8 +204,12 @@ public class ApiController {
 
         String url = "https://api.weixin.qq.com/sns/jscode2session";
         Map<String, String> param = new HashMap<>();
-        param.put("appid", "wxcb506c516f5ee36d");
-        param.put("secret", "0b81a9888f3972585ecc837d8a950324");
+        //课表
+//        param.put("appid", "wxcb506c516f5ee36d");
+//        param.put("secret", "0b81a9888f3972585ecc837d8a950324");
+        //测试
+        param.put("appid", "wxa6c1aeeb2e756c68");
+        param.put("secret", "6fbc52179cb10926dffbc44ceee049b9");
         param.put("js_code", wxUserInfoModel.getCode());
         param.put("grant_type", "authorization_code");
 
@@ -323,6 +327,48 @@ public class ApiController {
         Random random = new Random();
         String name = random.nextInt(10000) + System.currentTimeMillis() + "";
         return R.ok();
+    }
+
+    public static void main(String[] args) {
+        String urlForToken = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxa6c1aeeb2e756c68&secret=6fbc52179cb10926dffbc44ceee049b9";
+        String tokenModelStr = HttpClientUtil.doGet(urlForToken);
+        TokenModel tokenModel = JsonUtils.jsonToPojo(tokenModelStr, TokenModel.class);
+        Map<String, String> params = new HashMap<>();
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("touser","ofAvj5H8KaNIkNdjQFTPaDqq-qKc");
+        jsonObject.put("template_id","XHKcRD4FT2WlymPsFluNFBBVYCkZGrcWlCiV2IQFMLQ");
+        jsonObject.put("page","pages/suggestion/index");
+        jsonObject.put("form_id","a8c4b419888270da8791a0707c98c88e");
+        String data = "{\"keyword1\":{\"value\":\"今日课程提醒\"},\"keyword2\":{\"value\":\"系统显示您今日有课程，点击查看详情\"}}";
+
+        jsonObject.put("data",data);
+        jsonObject.put("emphasis_keyword", "keyword1.DATA");
+//        JSONObject data2 = new JSONObject(reqbody);
+//        JSONObject data = JSON.parseObject(data2.get("data"));
+//        //把每个详细数据转化成JSON,fisrt,keyword1,keyword2....,remark
+//        Set<String> keySet = reqbody.keySet();
+//        for(String key:keySet)
+//        {
+//            //吧具体数据转化成JSON然后重新放回去
+//            if (key.equals("data")) {
+//                HashMap<String,Object> data1 = (HashMap<String, Object>) reqbody.get("data");
+//                Set<String> set = data1.keySet();
+//                for(String key2:set) {
+//                    String keyvalue = data1.get(key2).toString();
+//                    data.put(key2, keyvalue);
+//                }
+//
+//            }
+//        }
+//        jsonObject.put("data", data);
+        //最后整体数据进行转化为JSON格式用于传递给微信使用
+        String argsJSONStr = JSON.toJSONString(jsonObject);
+        String templateUrl = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=" + tokenModel.getAccess_token();
+        params.put("data",argsJSONStr);
+        System.out.println(argsJSONStr.replaceAll("=",":"));
+        System.out.println(argsJSONStr.replaceAll("\"\\{","{").replaceAll("\\\\","").replaceAll("}\"","}"));
+        String sendTemplateResult = HttpClientUtil.doPostJson(templateUrl,argsJSONStr.replaceAll("\"\\{","{").replaceAll("\\\\","").replaceAll("}\"","}"));
+        System.out.println(sendTemplateResult);
     }
 
 }

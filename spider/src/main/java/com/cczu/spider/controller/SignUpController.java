@@ -9,6 +9,7 @@ import com.cczu.spider.pojo.SysActivityAndSysSignUpModel;
 import com.cczu.spider.service.SysActivityService;
 import com.cczu.spider.service.SysSignUpService;
 import com.cczu.spider.service.SysWxUserInfoService;
+import com.cczu.spider.utils.erweima.ZXingCode;
 import com.cczu.spider.utils.redis.RedisUtils;
 import com.cczu.spider.utils.wxutils.GetInfoFromWX;
 import io.swagger.annotations.Api;
@@ -20,6 +21,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -139,7 +143,7 @@ public class SignUpController {
      */
     @GetMapping("/setActivityStatusByID")
     @ResponseBody
-    @ApiOperation(value = "设置活动的状态",notes = "默认0创建成功，1开始签到，2开始签退，3活动结束")
+    @ApiOperation(value = "设置活动的状态",notes = "默认0创建成功，1开始签到，2结束签到，3开始签退，4结束签退（可以修改状态），5活动结束（状态不可修改）")
     public R setActivityStatusByID(@ApiParam(value = "活动主键ID",required = true,defaultValue = "1")@RequestParam(value = "ID",required = true,defaultValue = "1") Long ID,
                                    @ApiParam(value = "设置的状态",required = true,defaultValue = "1")@RequestParam(value = "status",required = true,defaultValue = "1") Integer status) {
         sysActivityService.setActivityStatusByID(ID,status,new Date());
@@ -195,19 +199,27 @@ public class SignUpController {
             } else if(sysActivityEntity.getActivityStatus() == 1) {
                 if (sysSignUpEntity == null) {
                     //ToDo 保存操作
-                    entity.setOpenid(sysWxUserInfoEntity.getOpenid());
-                    entity.setWxheadimageurl(sysWxUserInfoEntity.getWxheadimageurl());
-                    entity.setWxotherinfo(sysWxUserInfoEntity.getWxotheruserinfo());
-                    entity.setWxusername(sysWxUserInfoEntity.getWxusername());
-                    entity.setStatus(false);
-                    entity.setSigndate(new Date());
-                    entity.setCreatedate(new Date());
-                    sysSignUpService.save(entity);
-                    return R.ok("signUp success");
+                    //Done
+                    int count = sysSignUpService.getTakePartInUserCount(entity.getActivityID());
+                    if (count < sysActivityEntity.getCount()) {
+                        entity.setOpenid(sysWxUserInfoEntity.getOpenid());
+                        entity.setWxheadimageurl(sysWxUserInfoEntity.getWxheadimageurl());
+                        entity.setWxotherinfo(sysWxUserInfoEntity.getWxotheruserinfo());
+                        entity.setWxusername(sysWxUserInfoEntity.getWxusername());
+                        entity.setStatus(false);
+                        entity.setSigndate(new Date());
+                        entity.setCreatedate(new Date());
+                        sysSignUpService.save(entity);
+                        return R.ok("signUp success");
+                    } else {
+                       return R.error("签到人数已经达到最大值");
+                    }
                 } else {
                     return R.error("already signUp");
                 }
-            } else if(sysActivityEntity.getActivityStatus() == 2) {
+            } else if (sysActivityEntity.getActivityStatus() == 2) {
+                return R.error("活动正在进行中");
+            }else if(sysActivityEntity.getActivityStatus() == 3) {
                 //签退的情况
                 if (sysSignUpEntity == null) {
                     return R.error("unsignUp");
@@ -219,11 +231,24 @@ public class SignUpController {
                     sysSignUpService.save(sysSignUpEntity);
                     return R.ok("signBack success");
                 }
-            } else if (sysActivityEntity.getActivityStatus() == 3) {
+            } else if (sysActivityEntity.getActivityStatus() == 4) {
                 return R.error("activity already fininshed");
             } else {
-                return R.error("some error happened");
+                return R.error("activity already fininshed");
             }
         }
+    }
+
+    @RequestMapping(value = "/downloadColorQrcode")
+    private void getColorQrcode(String content, String color, HttpServletRequest request, HttpServletResponse response){
+        try {
+            int size = 166;
+            OutputStream stream = response.getOutputStream();
+            ZXingCode.getColorQRCode(content, stream, size,color);
+        }
+        catch ( Exception ex){
+            ex.printStackTrace();
+        }
+
     }
 }

@@ -36,6 +36,12 @@ public class SysActivityEntity {
     private String activityLabel;
     @Column(name = "activityBackgroundPic")
     private String activityBackgroundPic;
+    @Column(name = "keep1")
+    private String keep1;
+    @Column(name = "keep2")
+    private String keep2;
+    @Column(name = "count")
+    private Integer count;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @Column(name = "createDate")
     private Date createDate;
@@ -155,5 +161,29 @@ public class SysActivityEntity {
 
     public void setActivityBackgroundPic(String activityBackgroundPic) {
         this.activityBackgroundPic = activityBackgroundPic;
+    }
+
+    public String getKeep1() {
+        return keep1;
+    }
+
+    public void setKeep1(String keep1) {
+        this.keep1 = keep1;
+    }
+
+    public String getKeep2() {
+        return keep2;
+    }
+
+    public void setKeep2(String keep2) {
+        this.keep2 = keep2;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 }

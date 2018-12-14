@@ -58,7 +58,7 @@ public class SetRemindWeekThread implements Runnable {
                     }
                 }
                 Collections.sort(remind);
-                all.setRemind(remind.toString());
+                all.setRemind(remind.toString().replaceAll(" ","").replaceAll("\\[","").replaceAll("\\]",""));
                 sysCourseService.updateData(all);
             }
             System.out.println(new Date());

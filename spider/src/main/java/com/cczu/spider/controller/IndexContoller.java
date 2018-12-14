@@ -76,6 +76,10 @@ public class IndexContoller {
     @Autowired
     private SysIndexService sysIndexService;
 
+    @Autowired
+    private RedisUtils redisUtils;
+
+
 
 
 
@@ -173,6 +177,7 @@ public class IndexContoller {
     @ResponseBody
     public String headImgUpload(HttpServletRequest request, MultipartFile file) {
         Map<String, Object> value = new HashMap<String, Object>();
+        System.out.println(file.getSize()/1024/1024);
         try {
             BufferedImage image = ImageIO.read(file.getInputStream());
             if (image != null) {//如果image=null 表示上传的不是图片格式
@@ -516,5 +521,10 @@ public class IndexContoller {
         }
     }
 
+    @RequestMapping("/saveFormid")
+    public R saveFormid(String formid) {
+        redisUtils.set("formid",formid);
+        return R.ok();
+    }
 
 }

@@ -15,4 +15,6 @@ public interface SysSignUpService {
 
     SysSignUpEntity getSysSignUpEntityByActivityIDAndOpenid(String activityID,String openid);
 
+    int getTakePartInUserCount(String activityID);
+
 }

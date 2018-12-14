@@ -4,6 +4,7 @@ import com.cczu.spider.entity.SysSignUpEntity;
 import com.cczu.spider.repository.SysSignUpRepo;
 import com.cczu.spider.service.SysSignUpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,5 +36,16 @@ public class SysSignUpServiceImpl implements SysSignUpService {
     @Override
     public SysSignUpEntity getSysSignUpEntityByActivityIDAndOpenid(String activityID, String openid) {
         return sysSignUpRepo.getSysSignUpEntityByActivityIDAndOpenid(activityID,openid);
+    }
+
+    @Override
+    public int getTakePartInUserCount(String activityID) {
+        SysSignUpEntity entity = new SysSignUpEntity();
+        entity.setActivityID(activityID);
+        Example example = Example.of(entity);
+        List all = sysSignUpRepo.findAll(example);
+        if (all == null)
+            return 0;
+        return all.size();
     }
 }

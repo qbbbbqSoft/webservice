@@ -27,14 +27,21 @@ public class HandlerInterceptorConfig implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         // 参数键值对
         Map<String, String[]> parameterMap = httpServletRequest.getParameterMap();
-        for (String[] val : parameterMap.values()) {
-            boolean valid = sqlValidate(val);
-            // 验证通过
-            if (!valid) {
-                // 发现异常参数访问
-                throw new IllegalAccessException("SqlInjectFilter find Illegal request!!!");
+        for (String k:parameterMap.keySet()) {
+            if (k.equals("openid")) {
+                return true;
+            } else {
+                for (String[] val : parameterMap.values()) {
+                    boolean valid = sqlValidate(val);
+                    // 验证通过
+                    if (!valid) {
+                        // 发现异常参数访问
+                        throw new IllegalAccessException("SqlInjectFilter find Illegal request!!!");
+                    }
+                }
             }
         }
+
         return true;
     }
 
