@@ -13,6 +13,7 @@ import com.cczu.spider.utils.excel.ExcelUtil;
 import com.cczu.spider.utils.redis.RedisUtils;
 import com.cczu.spider.utils.thirdpart.WeatherUtil;
 import com.cczu.spider.utils.thread.CreateTask;
+import com.cczu.spider.utils.thread.SaveImageThread;
 import com.cczu.spider.utils.utilsforgetschoolinfo.SpiderForCheckUserNameAndPassword;
 import com.cczu.spider.utils.utilsforgetschoolinfo.SpiderForLectureTimes;
 import com.cczu.spider.utils.wxutils.GetInfoFromWX;
@@ -33,8 +34,7 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.time.Year;
@@ -178,8 +178,30 @@ public class IndexContoller {
     public String headImgUpload(HttpServletRequest request, MultipartFile file) {
         Map<String, Object> value = new HashMap<String, Object>();
         System.out.println(file.getSize()/1024/1024);
+        String contentType = file.getContentType();
+        List<String> type = Arrays.asList(contentType.split("/"));
+        System.out.println(contentType);
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        try  {
+            InputStream inputStream = file.getInputStream();
+            BufferedInputStream in=null;
+            BufferedOutputStream out=null;
+            in=new BufferedInputStream(inputStream);
+            out=new BufferedOutputStream(new FileOutputStream("/Volumes/Data/pic/" + uuid + "." + type.get(1)));
+            int len=-1;
+            byte[] b=new byte[1024];
+            while((len=in.read(b))!=-1){
+                out.write(b,0,len);
+            }
+            in.close();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         try {
             BufferedImage image = ImageIO.read(file.getInputStream());
+//            File imageFile = new File("/Volumes/Data/pic/123456.jpeg");
+//            ImageIO.write(image,"png",imageFile);
             if (image != null) {//如果image=null 表示上传的不是图片格式
                 System.out.println(image.getWidth());//获取图片宽度，单位px
                 System.out.println(image.getHeight());//获取图片高度，单位px
@@ -190,8 +212,10 @@ public class IndexContoller {
             e.printStackTrace();
         }
         try {
-            String url = upImgService.updateHead(file);
-            value.put("data", url);
+//            String url = upImgService.updateHead(file);
+            Thread thread = new Thread(new SaveImageThread("/Volumes/Data/pic/" + uuid + "." + type.get(1)));
+            thread.start();
+            value.put("data", "https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/" + uuid + "." + type.get(1));
             value.put("code", 0);
             value.put("msg", "图片上传成功");
         } catch (Exception e) {

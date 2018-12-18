@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-@Service
+@Service("upImgService")
 public class UpImgServiceImpl implements UpImgService {
     public static final Logger logger = LoggerFactory.getLogger(UpImgServiceImpl.class);
     @Override
