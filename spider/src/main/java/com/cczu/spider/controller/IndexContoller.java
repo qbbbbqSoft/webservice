@@ -21,6 +21,9 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -114,7 +117,7 @@ public class IndexContoller {
             List<CoursePojo> pojos = json.parseArray(result, CoursePojo.class);
             if (pojos == null){
 //                CCZU_spiderByHtmlUnit cczu_spiderByHtmlUnit = new CCZU_spiderByHtmlUnit();
-                List<CoursePojo<List<OrderAndValue>>> strings = cczu_spiderByHtmlUnit.cczuSpider(userName,password,index,"");
+                List<CoursePojo<List<OrderAndValue>>> strings = cczu_spiderByHtmlUnit.cczuSpiderWithNode(userName,password,index,"",1);
                 redis.set(userName, json.toJSONString(strings));
                 String result2 = redis.get(userName);
                 List<CoursePojo> pojos2 = json.parseArray(result2, CoursePojo.class);
@@ -242,6 +245,7 @@ public class IndexContoller {
     @RequestMapping("/checkUserAndBinding")
     @ResponseBody
     public R checkUser(String username, String password,String openid) {
+        System.out.println("开始处理" + new Date());
         SpiderForCheckUserNameAndPassword util = new SpiderForCheckUserNameAndPassword(username,password);
         String result = "";
         try {
@@ -254,8 +258,16 @@ public class IndexContoller {
             entity.setUsername(username);
             entity.setPassword(password);
             boolean exist = sysBindingWxService.getOne(entity);
+            if (code == 0) {
+                CCZU_spiderUtils cczu_spiderUtils = new CCZU_spiderUtils();
+                boolean b = cczu_spiderUtils.checkLogin(username, password);
+                if (b) {
+                    code = 200;
+                }
+            }
             if (code == 200 && !exist) {
                 String bindTask = CreateTask.createBindTask(username, password, openid);
+                System.out.println(bindTask);
                 entity.setStatus(bindTask);
                 entity.setCreatedate(new Date());
                 sysBindingWxService.saveSysBindingWxEntity(entity);
@@ -551,4 +563,58 @@ public class IndexContoller {
         return R.ok();
     }
 
+    @GetMapping("/getCourse")
+    public R getCourse() {
+        long start = System.currentTimeMillis();
+        List<CoursePojo<List<OrderAndValue>>> coursePojos = new ArrayList<>();
+        try {
+            Connection.Response res = Jsoup.connect("http://192.168.23.254:3001/getcurriculum/17401124/01525X")
+                    .header("Accept", "*/*")
+                    .header("Accept-Encoding", "gzip, deflate")
+                    .header("Accept-Language","zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3")
+                    .header("Content-Type", "application/json;charset=UTF-8")
+                    .header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:48.0) Gecko/20100101 Firefox/48.0")
+                    .timeout(10000).ignoreContentType(true).execute();//.get();
+            String body = res.body();
+            Document document = Jsoup.parse(body);
+            Element gVxkkb = document.getElementById("GVxkkb");
+            Elements elementsByClass = gVxkkb.getElementsByClass("dg1-item");
+            Element c;
+            String[][] course = new String[elementsByClass.size()][8];
+
+            CoursePojo<List<OrderAndValue>> coursePojo;
+            List<OrderAndValue> orderAndValues;
+            OrderAndValue orderAndValue;
+            for (int i = 0; i < elementsByClass.size(); i++) {
+                coursePojo = new CoursePojo<>();
+                orderAndValues = new ArrayList<>();
+                c = elementsByClass.get(i);
+                for (int j = 1; j < 8; j++) {
+                    orderAndValue = new OrderAndValue();
+                    Element element = c.getElementsByTag("td").get(j);
+                    int size = element.text().length();
+//                    System.out.println(i + "_" +j+element.text());
+                    if (size == 1) {
+                        course[i][j] = "暂时没有课，休息一下吧!";
+                        orderAndValue.setOrder(j);
+                        orderAndValue.setValue("暂时没有课，休息一下吧!");
+                    }
+                    else {
+                        course[i][j] = element.text();
+                        orderAndValue.setOrder(j);
+                        orderAndValue.setValue(element.text());
+                    }
+                    orderAndValues.add(orderAndValue);
+                    coursePojo.setWeek(i);
+                    coursePojo.setData(orderAndValues);
+                }
+                coursePojos.add(coursePojo);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("时间为" + (end - start)/1000 + "s");
+        return R.ok().put("data",coursePojos);
+    }
 }

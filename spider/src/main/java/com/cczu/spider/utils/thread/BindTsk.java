@@ -22,7 +22,7 @@ public class BindTsk implements Runnable {
     public void run() {
         CCZU_spiderByHtmlUnit cczu_spiderByHtmlUnit = (CCZU_spiderByHtmlUnit) SpringContextUtils.getBean("CCZU_spiderByHtmlUnit");
         try {
-            cczu_spiderByHtmlUnit.cczuSpider(this.username,this.password,0,this.openid);
+            cczu_spiderByHtmlUnit.cczuSpiderWithNode(this.username,this.password,0,this.openid,2);
         } catch (Exception e) {
             CreateTask.packageListMap.remove(this.openid);
             CreateTask.packageResultMap.put(this.openid,e.getMessage());

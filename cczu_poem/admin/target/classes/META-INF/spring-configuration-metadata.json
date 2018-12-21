@@ -2,6 +2,11 @@
   "hints": [],
   "groups": [
     {
+      "sourceType": "com.bbqbb.poem.admin.modules.api.model.ConfigInfo",
+      "name": "my",
+      "type": "com.bbqbb.poem.admin.modules.api.model.ConfigInfo"
+    },
+    {
       "sourceType": "com.bbqbb.poem.admin.datasource.DynamicDataSourceConfig",
       "name": "spring.datasource.druid.first",
       "sourceMethod": "firstDataSource()",
@@ -14,5 +19,16 @@
       "type": "javax.sql.DataSource"
     }
   ],
-  "properties": []
+  "properties": [
+    {
+      "sourceType": "com.bbqbb.poem.admin.modules.api.model.ConfigInfo",
+      "name": "my.urls",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "com.bbqbb.poem.admin.modules.api.model.ConfigInfo",
+      "name": "my.urls",
+      "type": "java.util.List<java.lang.String>"
+    }
+  ]
 }

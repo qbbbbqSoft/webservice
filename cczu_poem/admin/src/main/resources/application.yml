@@ -79,3 +79,8 @@ logging:
   level.io.renren: debug
   path: logs/
   file: admin.log
+
+my:
+  urls:
+    - url1
+    - url2

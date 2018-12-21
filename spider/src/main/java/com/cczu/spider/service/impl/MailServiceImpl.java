@@ -26,9 +26,7 @@ public class MailServiceImpl implements MailService {
         simpleMailMessage.setFrom(FROM);
         simpleMailMessage.setTo("cczu_poem@126.com");
         simpleMailMessage.setSubject(type);
-        simpleMailMessage.setText("<html>" +
-                "<p>我HTML哦</p>" +
-                "</html>");
+        simpleMailMessage.setText(text);
         try {
             javaMailSender.send(simpleMailMessage);
         } catch (Exception e) {
