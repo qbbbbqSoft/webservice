@@ -24,11 +24,6 @@
       "sourceType": "com.bbqbb.poem.admin.modules.api.model.ConfigInfo",
       "name": "my.urls",
       "type": "java.util.List<java.lang.String>"
-    },
-    {
-      "sourceType": "com.bbqbb.poem.admin.modules.api.model.ConfigInfo",
-      "name": "my.urls",
-      "type": "java.util.List<java.lang.String>"
     }
   ]
 }

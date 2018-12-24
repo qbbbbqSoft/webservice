@@ -41,6 +41,7 @@ com\bbqbb\poem\admin\modules\sys\service\impl\SysUserServiceImpl.class
 com\bbqbb\poem\admin\modules\sys\entity\SysDictEntity.class
 com\bbqbb\poem\admin\modules\job\service\ScheduleJobLogService.class
 com\bbqbb\poem\admin\modules\sys\dao\SysRoleDeptDao.class
+com\bbqbb\poem\admin\modules\admin\service\impl\SysWxuserinfoServiceImpl.class
 com\bbqbb\poem\admin\modules\admin\entity\SysCommentEntity.class
 META-INF\spring-configuration-metadata.json
 com\bbqbb\poem\admin\modules\sys\dao\SysUserRoleDao.class
@@ -66,9 +67,12 @@ com\bbqbb\poem\admin\modules\admin\service\impl\SysSuggestionServiceImpl.class
 com\bbqbb\poem\admin\modules\oss\cloud\QcloudCloudStorageService.class
 com\bbqbb\poem\admin\modules\oss\entity\SysOssEntity.class
 com\bbqbb\poem\admin\modules\api\model\TemplateModel.class
+com\bbqbb\poem\admin\modules\api\model\ConfigInfo.class
 com\bbqbb\poem\admin\modules\sys\dao\SysConfigDao.class
 com\bbqbb\poem\admin\modules\sys\service\impl\SysDictServiceImpl.class
+com\bbqbb\poem\admin\modules\admin\entity\SysWxuserinfoEntity.class
 com\bbqbb\poem\admin\modules\admin\entity\SysTitleEntity.class
+com\bbqbb\poem\admin\modules\admin\dao\SysWxuserinfoDao.class
 com\bbqbb\poem\admin\modules\job\service\ScheduleJobService.class
 com\bbqbb\poem\admin\modules\api\model\SysTitleModel.class
 com\bbqbb\poem\admin\modules\admin\service\SysCommentService.class
@@ -99,6 +103,7 @@ com\bbqbb\poem\admin\modules\sys\service\SysConfigService.class
 com\bbqbb\poem\admin\modules\sys\entity\SysMenuEntity.class
 com\bbqbb\poem\admin\modules\api\model\DataModel.class
 com\bbqbb\poem\admin\modules\oss\service\impl\SysOssServiceImpl.class
+com\bbqbb\poem\admin\modules\admin\service\SysWxuserinfoService.class
 com\bbqbb\poem\admin\modules\api\model\TokenModel.class
 com\bbqbb\poem\admin\common\config\WebConfig.class
 com\bbqbb\poem\admin\modules\sys\dao\SysDictDao.class
@@ -107,6 +112,7 @@ com\bbqbb\poem\admin\common\utils\HttpClientUtil.class
 com\bbqbb\poem\admin\modules\job\utils\ScheduleUtils.class
 com\bbqbb\poem\admin\modules\sys\shiro\ShiroUtils.class
 com\bbqbb\poem\admin\modules\sys\entity\SysUserRoleEntity.class
+com\bbqbb\poem\admin\modules\api\utils\OSSUtil.class
 com\bbqbb\poem\admin\datasource\DynamicDataSourceConfig.class
 com\bbqbb\poem\admin\modules\admin\service\SysSuggestionService.class
 com\bbqbb\poem\admin\modules\sys\service\SysMenuService.class
@@ -116,6 +122,7 @@ com\bbqbb\poem\admin\modules\oss\cloud\AliyunCloudStorageService.class
 com\bbqbb\poem\admin\modules\sys\entity\SysLogEntity.class
 com\bbqbb\poem\admin\modules\sys\service\impl\SysConfigServiceImpl.class
 com\bbqbb\poem\admin\common\config\ShiroConfig.class
+com\bbqbb\poem\admin\modules\api\model\WxUserInfoModel.class
 com\bbqbb\poem\admin\modules\sys\controller\SysLogController.class
 com\bbqbb\poem\admin\modules\sys\service\SysUserRoleService.class
 com\bbqbb\poem\admin\modules\sys\entity\SysRoleEntity.class
@@ -129,6 +136,7 @@ com\bbqbb\poem\admin\modules\oss\controller\SysOssController.class
 com\bbqbb\poem\admin\modules\sys\service\impl\SysRoleMenuServiceImpl.class
 com\bbqbb\poem\admin\modules\sys\dao\SysLogDao.class
 com\bbqbb\poem\admin\modules\sys\dao\SysDeptDao.class
+com\bbqbb\poem\admin\modules\admin\controller\SysWxuserinfoController.class
 com\bbqbb\poem\admin\modules\sys\entity\SysDeptEntity.class
 com\bbqbb\poem\admin\modules\sys\controller\SysUserController.class
 com\bbqbb\poem\admin\modules\api\service\impl\ApiServiceImpl.class

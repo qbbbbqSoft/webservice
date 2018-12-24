@@ -1,9 +1,11 @@
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\job\controller\ScheduleJobLogController.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\controller\SysLoginController.java
+F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\admin\controller\SysWxuserinfoController.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\admin\entity\SysSuggestionEntity.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\job\task\TestTask.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\oss\cloud\AliyunCloudStorageService.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\service\SysRoleService.java
+F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\api\utils\OSSUtil.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\api\model\SysTitleModel.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\dao\SysUserRoleDao.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\job\service\impl\ScheduleJobLogServiceImpl.java
@@ -21,6 +23,7 @@ F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\com
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\dao\SysDeptDao.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\shiro\RedisShiroSessionDAO.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\controller\SysDeptController.java
+F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\api\model\WxUserInfoModel.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\common\exception\RRExceptionHandler.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\admin\dao\SysCommentDao.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\admin\service\SysSuggestionService.java
@@ -82,6 +85,7 @@ F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\mod
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\common\config\DemoConfig.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\oss\controller\SysOssController.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\job\controller\ScheduleJobController.java
+F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\admin\entity\SysWxuserinfoEntity.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\service\impl\SysMenuServiceImpl.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\common\annotation\DataFilter.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\dao\SysRoleMenuDao.java
@@ -90,6 +94,7 @@ F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\mod
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\api\model\TokenModel.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\admin\controller\SysTitleController.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\job\entity\ScheduleJobLogEntity.java
+F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\admin\service\impl\SysWxuserinfoServiceImpl.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\admin\service\impl\SysTitleServiceImpl.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\service\impl\SysUserServiceImpl.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\service\impl\SysRoleServiceImpl.java
@@ -97,6 +102,7 @@ F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\com
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\job\utils\ScheduleUtils.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\api\model\DataModel.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\admin\entity\SysZoneEntity.java
+F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\api\model\ConfigInfo.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\datasource\DynamicDataSourceConfig.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\common\utils\ConfigConstant.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\service\SysRoleDeptService.java
@@ -129,7 +135,9 @@ F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\mod
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\dao\SysRoleDao.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\entity\SysDictEntity.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\entity\SysRoleMenuEntity.java
+F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\admin\service\SysWxuserinfoService.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\oss\cloud\CloudStorageService.java
+F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\admin\dao\SysWxuserinfoDao.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\common\validator\group\AliyunGroup.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\api\controller\ApiController.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\PoemAdminApplication.java
