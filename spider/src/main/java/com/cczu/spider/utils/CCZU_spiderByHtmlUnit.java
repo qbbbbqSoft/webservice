@@ -85,7 +85,7 @@ public class CCZU_spiderByHtmlUnit {
     }
 
     public List<CoursePojo<List<OrderAndValue>>> cczuSpiderWithNode(String inputUserName,String inputPassword,Integer term, String openid,Integer type) throws Exception {
-        Connection.Response res = Jsoup.connect("http://192.168.23.254:3001/getcurriculum/"+ inputUserName + "/" + inputPassword)
+        Connection.Response res = Jsoup.connect("https://www.chenyaoyao.club/api/getcourse?stuNum="+ inputUserName + "&password=" + inputPassword)
                 .header("Accept", "*/*")
                 .header("Accept-Encoding", "gzip, deflate")
                 .header("Accept-Language","zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3")
@@ -93,6 +93,7 @@ public class CCZU_spiderByHtmlUnit {
                 .header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:48.0) Gecko/20100101 Firefox/48.0")
                 .timeout(10000).ignoreContentType(true).execute();//.get();
         String body = res.body();
+        System.out.println(body);
         Document document = Jsoup.parse(body);
         Element gVxkkb = document.getElementById("GVxkkb");
         Elements elementsByClass = gVxkkb.getElementsByClass("dg1-item");

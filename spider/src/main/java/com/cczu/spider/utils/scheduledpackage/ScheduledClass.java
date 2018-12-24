@@ -72,7 +72,7 @@ public class ScheduledClass {
 //        log.info(new Date() + "===========================delay");
 //    }
 
-    //    @Scheduled(cron = "0 10 8,9,10,11,12,13,14,15,16,17,18,19,20,21 * * ? ")
+//    @Scheduled(cron = "0 10 8,9,10,11,12,13,14,15,16,17,18,19,20,21 * * ? ")
     public void update() {
         lectureRepo.deleteAll();
         try {

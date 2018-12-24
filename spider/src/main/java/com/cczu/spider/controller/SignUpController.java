@@ -210,7 +210,7 @@ public class SignUpController {
                         entity.setSigndate(new Date());
                         entity.setCreatedate(new Date());
                         sysSignUpService.save(entity);
-                        return R.ok("signUp success");
+                        return R.ok().put("data","signUp success");
                     } else {
                        return R.error("签到人数已经达到最大值");
                     }
@@ -229,7 +229,7 @@ public class SignUpController {
                     sysSignUpEntity.setLeavedate(new Date());
                     sysSignUpEntity.setUpdatedate(new Date());
                     sysSignUpService.save(sysSignUpEntity);
-                    return R.ok("signBack success");
+                    return R.ok().put("data","signBack success");
                 }
             } else if (sysActivityEntity.getActivityStatus() == 4) {
                 return R.error("activity already fininshed");
