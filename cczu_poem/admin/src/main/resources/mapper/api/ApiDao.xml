@@ -26,7 +26,7 @@
         AND adminStatus = 1
         AND privateStatus = #{privateStatus}
         <if test="search != null and search.trim() != ''">
-            AND content like '%${search}%' OR title LIKE '%${search}%'
+            AND (content like '%${search}%' OR title LIKE '%${search}%')
         </if>
         <if test="zoneID != null and zoneID != 0">
             AND st.zoneID = #{zoneID}

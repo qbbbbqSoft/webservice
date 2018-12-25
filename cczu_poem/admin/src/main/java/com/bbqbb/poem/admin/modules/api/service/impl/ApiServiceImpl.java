@@ -9,9 +9,13 @@ import com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity;
 import com.bbqbb.poem.admin.modules.api.dao.ApiDao;
 import com.bbqbb.poem.admin.modules.api.model.SysTitleModel;
 import com.bbqbb.poem.admin.modules.api.service.ApiService;
+import com.bbqbb.poem.admin.modules.api.utils.DateTransUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -29,13 +33,35 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public List<SysTitleModel> getTitleList(Map<String, Object> params) {
-        return apiDao.getTitleList(params);
+        List<SysTitleModel> titleList = apiDao.getTitleList(params);
+        for (SysTitleModel model: titleList) {
+            if (model.getCreatedate() != null) {
+                try {
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    model.setCreateDateStamp(DateTransUtil.dateToStamp(simpleDateFormat.format(model.getCreatedate())));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return titleList;
     }
 
 
     @Override
     public List<SysCommentEntity> getCommentDetailByTitleID(Map<String, Object> param) {
-        return apiDao.getCommentDetailByTitleID(param);
+        List<SysCommentEntity> entities = apiDao.getCommentDetailByTitleID(param);
+        for (SysCommentEntity entity:entities) {
+            if (entity.getCreatedate() != null) {
+                try {
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    entity.setWxotherinfo(DateTransUtil.dateToStamp(simpleDateFormat.format(entity.getCreatedate())));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return entities;
     }
 
     @Override
@@ -102,4 +128,5 @@ public class ApiServiceImpl implements ApiService {
     public SysZoneEntity getSysZoneEntity(SysZoneEntity entity) {
         return sysZoneDao.selectOne(entity);
     }
+
 }

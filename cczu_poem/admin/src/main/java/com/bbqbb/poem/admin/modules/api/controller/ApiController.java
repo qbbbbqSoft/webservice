@@ -13,6 +13,7 @@ import com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity;
 import com.bbqbb.poem.admin.modules.admin.service.SysWxuserinfoService;
 import com.bbqbb.poem.admin.modules.api.model.*;
 import com.bbqbb.poem.admin.modules.api.service.ApiService;
+import com.bbqbb.poem.admin.modules.api.utils.DateTransUtil;
 import com.bbqbb.poem.admin.modules.api.utils.OSSUtil;
 import com.bbqbb.poem.common.exception.RRException;
 import com.bbqbb.poem.common.utils.R;
@@ -30,6 +31,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
@@ -63,6 +65,14 @@ public class ApiController {
         param.put("ID",ID);
         param.put("titleID",ID);
         SysTitleEntity titleDetailByID = apiService.getTitleDetailByID(param);
+        if (titleDetailByID.getCreatedate() != null) {
+            try {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                titleDetailByID.setLabel(DateTransUtil.dateToStamp(simpleDateFormat.format(titleDetailByID.getCreatedate())));
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return R.ok().put("titleDetail",titleDetailByID);
     }
 
@@ -205,11 +215,11 @@ public class ApiController {
         String url = "https://api.weixin.qq.com/sns/jscode2session";
         Map<String, String> param = new HashMap<>();
         //课表
-//        param.put("appid", "wxcb506c516f5ee36d");
-//        param.put("secret", "0b81a9888f3972585ecc837d8a950324");
+        param.put("appid", "wxcb506c516f5ee36d");
+        param.put("secret", "0b81a9888f3972585ecc837d8a950324");
         //测试
-        param.put("appid", "wxa6c1aeeb2e756c68");
-        param.put("secret", "6fbc52179cb10926dffbc44ceee049b9");
+//        param.put("appid", "wxa6c1aeeb2e756c68");
+//        param.put("secret", "6fbc52179cb10926dffbc44ceee049b9");
         param.put("js_code", wxUserInfoModel.getCode());
         param.put("grant_type", "authorization_code");
 

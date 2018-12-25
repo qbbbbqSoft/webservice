@@ -82,6 +82,15 @@ public class SysTitleModel {
 
     private String wxotherinfo;
 
+    private String createDateStamp;
+
+    public String getCreateDateStamp() {
+        return createDateStamp;
+    }
+
+    public void setCreateDateStamp(String createDateStamp) {
+        this.createDateStamp = createDateStamp;
+    }
 
     public Long getId() {
         return id;
