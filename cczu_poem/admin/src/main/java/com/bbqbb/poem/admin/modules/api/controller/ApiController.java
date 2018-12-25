@@ -147,7 +147,11 @@ public class ApiController {
         jsonObject.put("template_id","yfhS6hfi0dqilZx5MjjrjEY2QMImUnPm2-VpliY4zfQ");
         jsonObject.put("page",page);
         jsonObject.put("form_id",reqbody.get("formID").toString());
-        jsonObject.put("data",reqbody.get("data").toString());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd  HH:mm:ss");
+        String now = sdf.format(new Date());
+        String data = "{\"keyword1\":{\"value\":\"" + entity.getTitle() +"\"},\"keyword2\":{\"value\":\"删除码为" + entity.getDelCode()+ "，是你删除此word的唯一凭证\" },\"keyword3\":{\"value\":\"" + now + "\"}}";
+        jsonObject.put("data",data);
+        jsonObject.put("emphasis_keyword", "keyword1.DATA");
 //        JSONObject data2 = new JSONObject(reqbody);
 //        JSONObject data = JSON.parseObject(data2.get("data"));
 //        //把每个详细数据转化成JSON,fisrt,keyword1,keyword2....,remark
