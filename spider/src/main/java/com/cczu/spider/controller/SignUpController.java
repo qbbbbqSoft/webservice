@@ -95,7 +95,11 @@ public class SignUpController {
 //        entity.setActivityOrganizingPeople("cczu");
 //        entity.setActivityPlace("anywhere这里");
         entity.setActivityQrCodeUrl("https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/" + name + ".png");
-        entity.setActivityBackgroundPic("https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/" + name + ".png");
+        if (entity.getActivityBackgroundPic().equals("")) {
+            Random r = new Random();
+            int anInt = r.nextInt(3);
+            entity.setActivityBackgroundPic("https://bbqbb.oss-cn-beijing.aliyuncs.com/root/r" + String.valueOf(anInt) + ".jpg");
+        }
         entity.setActivityStatus(0);
         entity.setCreateDate(new Date());
         sysActivityService.save(entity);

@@ -3,29 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="642912ab-94cb-47ec-b9a2-de242e3a54c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/admin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/admin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/admin.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/admin.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/aspect/SysLogAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/aspect/SysLogAspect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/config/SwaggerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/config/SwaggerConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/Constant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/HttpClientUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/common/utils/HttpClientUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/datasource/aspect/DataSourceAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/datasource/aspect/DataSourceAspect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/controller/ApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/api/controller/ApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/utils/ScheduleJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/job/utils/ScheduleJob.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/controller/SysOssController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/com/bbqbb/poem/admin/modules/oss/controller/SysOssController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/api-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/api-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/bbqbb/poem/common/utils/GeetestLib.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/bbqbb/poem/common/utils/GeetestLib.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/bbqbb/poem/common/xss/HTMLFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/bbqbb/poem/common/xss/HTMLFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/common.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/common.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spider/src/main/java/com/cczu/spider/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spider/src/main/java/com/cczu/spider/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spider/src/main/java/com/cczu/spider/controller/SysController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spider/src/main/java/com/cczu/spider/controller/SysController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -92,16 +71,17 @@
     <session id="-1423729320">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -210,16 +190,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="346">
-              <caret line="151" column="124" lean-forward="true" selection-start-line="151" selection-start-column="124" selection-end-line="151" selection-end-column="124" />
+              <caret line="155" column="64" selection-start-line="155" selection-start-column="64" selection-end-line="155" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/entity/SysTitleEntity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="207">
@@ -235,7 +215,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/dao/ApiDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
+            <state relative-caret-position="119">
               <caret line="14" column="36" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="36" />
             </state>
           </provider>
@@ -244,7 +224,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/resources/mapper/api/ApiDao.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
+            <state relative-caret-position="459">
               <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
             </state>
           </provider>
@@ -253,7 +233,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/service/ApiService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="153">
               <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
             </state>
           </provider>
@@ -262,7 +242,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/controller/SysWxuserinfoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
+            <state relative-caret-position="272">
               <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="32" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -274,7 +254,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/service/impl/SysWxuserinfoServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="153">
               <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -286,7 +266,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/service/impl/SysTitleServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
+            <state relative-caret-position="102">
               <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
             </state>
           </provider>
@@ -295,7 +275,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/controller/SysTitleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="255">
               <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
             </state>
           </provider>
@@ -304,7 +284,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/entity/SysCommentEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
+            <state relative-caret-position="459">
               <caret line="31" column="18" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="18" />
             </state>
           </provider>
@@ -472,6 +452,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -732,9 +713,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -854,17 +833,18 @@
       <workItem from="1545661159820" duration="1687000" />
       <workItem from="1545699997883" duration="7067000" />
       <workItem from="1545743030675" duration="4106000" />
+      <workItem from="1545794918081" duration="1294000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161772000" />
+    <option name="totallyTimeSpent" value="163066000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="983" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4958949" visible="true" weight="0.30916846" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4958949" visible="true" weight="0.31256655" />
       <window_info id="Structure" order="1" sideWeight="0.50179857" side_tool="true" weight="0.2603834" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -894,7 +874,7 @@
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info active="true" anchor="right" id="Maven Projects" order="8" visible="true" weight="0.32782516" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.32747602" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32995737" />
     </layout>
   </component>
@@ -915,31 +895,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>193</line>
+          <line>197</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>176</line>
+          <line>180</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>186</line>
+          <line>190</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>170</line>
+          <line>174</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>252</line>
+          <line>256</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
@@ -963,7 +943,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java</url>
-          <line>213</line>
+          <line>217</line>
           <properties />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
@@ -1243,28 +1223,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/dao/ApiDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
+        <state relative-caret-position="119">
           <caret line="14" column="36" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/resources/mapper/api/ApiDao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
+        <state relative-caret-position="459">
           <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/service/ApiService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="153">
           <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/controller/SysWxuserinfoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
+        <state relative-caret-position="272">
           <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="32" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1274,7 +1254,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/service/impl/SysWxuserinfoServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="153">
           <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1284,29 +1264,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/service/impl/SysTitleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
+        <state relative-caret-position="102">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/controller/SysTitleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="255">
           <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/admin/entity/SysCommentEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
+        <state relative-caret-position="459">
           <caret line="31" column="18" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="151" column="124" lean-forward="true" selection-start-line="151" selection-start-column="124" selection-end-line="151" selection-end-column="124" />
         </state>
       </provider>
     </entry>
@@ -1318,6 +1291,13 @@
             <element signature="e#1336#1337#0" expanded="true" />
             <element signature="e#1357#1358#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/bbqbb/poem/admin/modules/api/controller/ApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="155" column="64" selection-start-line="155" selection-start-column="64" selection-end-line="155" selection-end-column="64" />
         </state>
       </provider>
     </entry>

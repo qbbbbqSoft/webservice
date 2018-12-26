@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -27,12 +29,28 @@ public class SysController {
     @Autowired
     private SysZoneMapper sysZoneMapper;
 
-    @RequestMapping(value = "/wxapi")
+    @GetMapping(value = "/wxapi")
     public String checkWeixinValid(@RequestParam(name="signature")String signature,
                                    @RequestParam(name="timestamp")String timestamp,
                                    @RequestParam(name="nonce")String nonce,
                                    @RequestParam(name="echostr")String echostr){
-        return "success";
+        System.out.println("GetMapping wxapi success");
+        return echostr;
+    }
+
+    @PostMapping(value = "/wxapi")
+    public void checkWeixinValid_post(@RequestParam(name="signature")String signature,
+                                        @RequestParam(name="timestamp")String timestamp,
+                                        @RequestParam(name="nonce")String nonce,
+                                        @RequestParam(name="echostr")String echostr, HttpServletResponse response){
+        response.reset();
+        System.out.println("PostMapping wxapi success");
+        try {
+            response.getOutputStream().print("success");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @RequestMapping("/writesuggestion")
