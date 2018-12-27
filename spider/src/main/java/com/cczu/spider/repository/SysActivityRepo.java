@@ -1,6 +1,7 @@
 package com.cczu.spider.repository;
 
 import com.cczu.spider.entity.SysActivityEntity;
+import com.cczu.spider.pojo.ActivityAndSignUpInfoModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -21,6 +22,9 @@ public interface SysActivityRepo extends JpaRepository<SysActivityEntity, Long> 
     @Query(value = "update SysActivityEntity sae set sae.activityStatus = ?2, sae.updateDate = ?3 where sae.ID = ?1")
     void setActivityStatusByID(Long ID, Integer status, Date updateDate);
 
-    @Query(nativeQuery = true,value = "SELECT * from sys_activity WHERE ID IN (SELECT activityid FROM sys_signup WHERE openid = ?1)")
+    @Query(nativeQuery = true,value = "SELECT * from sys_activity WHERE activityID IN (SELECT activityid FROM sys_signup WHERE openid = ?1)")
     List<SysActivityEntity> queryTakePartInActivityByOpenid(String openid);
+
+    @Query(value = "SELECT new com.cczu.spider.pojo.ActivityAndSignUpInfoModel(sac.id,ssi.name,ssi.phone,ssi.signAddress,ssi.className,ssi.stuNum,ssi.keep1,ssi.keep2, ssi.signDate,ssi.leaveDate) from sys_activity sac LEFT JOIN sys_signup ssi ON sac.activityID = ssi.activityID WHERE sac.activityID IN (SELECT activityid FROM sys_signup WHERE openid = ?1)")
+    List<ActivityAndSignUpInfoModel> queryActivityAndSignUpInfo(String openid);
 }

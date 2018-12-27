@@ -1,6 +1,7 @@
 package com.cczu.spider.service.impl;
 
 import com.cczu.spider.entity.SysActivityEntity;
+import com.cczu.spider.pojo.ActivityAndSignUpInfoModel;
 import com.cczu.spider.repository.SysActivityRepo;
 import com.cczu.spider.service.SysActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +56,10 @@ public class SysActivityServiceImpl implements SysActivityService {
     @Override
     public List<SysActivityEntity> queryTakePartInActivityByOpenid(String openid) {
         return sysActivityRepo.queryTakePartInActivityByOpenid(openid);
+    }
+
+    @Override
+    public List<ActivityAndSignUpInfoModel> queryActivityAndSignUpInfo(String openid) {
+        return sysActivityRepo.queryActivityAndSignUpInfo(openid);
     }
 }

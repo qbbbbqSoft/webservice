@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface SysWxUserInfoRepo extends JpaRepository<SysWxUserInfoEntity, Long> {
 
-    @Query(value = "select swuie from SysWxUserInfoEntity swuie where swuie.openid = ?1")
+    @Query( nativeQuery=true, value = "SELECT * FROM sys_wxuserinfo WHERE openID = ?1 ORDER BY createDate DESC LIMIT 1")
     SysWxUserInfoEntity getOneWxUserInfoByOpenid(String openid);
 }

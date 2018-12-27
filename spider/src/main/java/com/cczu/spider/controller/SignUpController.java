@@ -5,6 +5,8 @@ import com.cczu.spider.entity.SysActivityEntity;
 import com.cczu.spider.entity.SysSignUpEntity;
 import com.cczu.spider.entity.SysWxUserInfoEntity;
 import com.cczu.spider.entity.result.R;
+import com.cczu.spider.pojo.ActivityAndSignUpEntityModel;
+import com.cczu.spider.pojo.ActivityAndSignUpInfoModel;
 import com.cczu.spider.pojo.SysActivityAndSysSignUpModel;
 import com.cczu.spider.service.SysActivityService;
 import com.cczu.spider.service.SysSignUpService;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -164,7 +167,15 @@ public class SignUpController {
     @ApiOperation(value = "个人参加的活动列表",notes = "微信openid必须传入，返回数据为list，null时返回空数组")
     public R queryTakePartInActivityByOpenid(@ApiParam(value = "微信openid", required = true, defaultValue = "")@RequestParam(value = "openid",required = true,defaultValue = "123456") String openid) {
         List<SysActivityEntity> sysActivityEntities = sysActivityService.queryTakePartInActivityByOpenid(openid);
-        return R.ok().put("data",sysActivityEntities);
+        List<ActivityAndSignUpEntityModel> models = new ArrayList<>();
+        ActivityAndSignUpEntityModel model = null;
+        for(SysActivityEntity entity: sysActivityEntities) {
+            SysSignUpEntity oneByOpenidAndActivityID = sysSignUpService.getOneByOpenidAndActivityID(openid, entity.getActivityID());
+            model= new ActivityAndSignUpEntityModel(entity,oneByOpenidAndActivityID);
+            models.add(model);
+        }
+        List<ActivityAndSignUpInfoModel> activityAndSignUpInfoModels = sysActivityService.queryActivityAndSignUpInfo(openid);
+        return R.ok().put("data",activityAndSignUpInfoModels);
     }
 
     @GetMapping("/getOneSysSignUpEntityByActivityIDAndOpenid")
@@ -198,6 +209,9 @@ public class SignUpController {
             //签到人员
             SysSignUpEntity sysSignUpEntity = sysSignUpService.getOneByOpenidAndActivityID(entity.getOpenid(), entity.getActivityID());
             SysWxUserInfoEntity sysWxUserInfoEntity = sysWxUserInfoService.getOneWxUserInfoByOpenid(entity.getOpenid());
+            if (sysWxUserInfoEntity == null) {
+                return R.error("用户信息获取错误，请重新授权");
+            }
             if (sysActivityEntity.getActivityStatus() == 0) {
                 return R.error("unstart");
             } else if(sysActivityEntity.getActivityStatus() == 1) {

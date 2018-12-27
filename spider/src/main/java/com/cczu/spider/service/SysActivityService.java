@@ -1,6 +1,7 @@
 package com.cczu.spider.service;
 
 import com.cczu.spider.entity.SysActivityEntity;
+import com.cczu.spider.pojo.ActivityAndSignUpInfoModel;
 
 import java.util.Date;
 import java.util.List;
@@ -19,4 +20,6 @@ public interface SysActivityService {
     void setActivityStatusByID(Long ID, Integer status, Date updateDate);
 
     List<SysActivityEntity> queryTakePartInActivityByOpenid(String openid);
+
+    List<ActivityAndSignUpInfoModel> queryActivityAndSignUpInfo(String openid);
 }
