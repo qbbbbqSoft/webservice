@@ -25,6 +25,6 @@ public interface SysActivityRepo extends JpaRepository<SysActivityEntity, Long> 
     @Query(nativeQuery = true,value = "SELECT * from sys_activity WHERE activityID IN (SELECT activityid FROM sys_signup WHERE openid = ?1)")
     List<SysActivityEntity> queryTakePartInActivityByOpenid(String openid);
 
-    @Query(value = "SELECT new com.cczu.spider.pojo.ActivityAndSignUpInfoModel(sac.id,ssi.name,ssi.phone,ssi.signAddress,ssi.className,ssi.stuNum,ssi.keep1,ssi.keep2, ssi.signDate,ssi.leaveDate) from sys_activity sac LEFT JOIN sys_signup ssi ON sac.activityID = ssi.activityID WHERE sac.activityID IN (SELECT activityid FROM sys_signup WHERE openid = ?1)")
+    @Query(nativeQuery = true,value = "SELECT sac.activityname,sac.activityplace,sac.activitydate,sac.activityorganizingpeople,sac.activityconfiguration,sac.activitylabel,sac.keep1,sac.keep2,sac.count,ssi.name,ssi.phone,ssi.signAddress,ssi.className,ssi.stuNum,ssi.keep1 as signupkeep1,ssi.keep2 as signupkeep2, ssi.signDate,ssi.leaveDate from sys_activity sac LEFT JOIN sys_signup ssi ON sac.activityID = ssi.activityID WHERE sac.activityID IN (SELECT activityid FROM sys_signup WHERE openid = ?1)")
     List<ActivityAndSignUpInfoModel> queryActivityAndSignUpInfo(String openid);
 }
