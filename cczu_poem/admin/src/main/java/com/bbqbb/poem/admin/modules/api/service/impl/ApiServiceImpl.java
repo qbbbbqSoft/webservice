@@ -7,6 +7,7 @@ import com.bbqbb.poem.admin.modules.admin.entity.SysCommentEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity;
 import com.bbqbb.poem.admin.modules.api.dao.ApiDao;
+import com.bbqbb.poem.admin.modules.api.model.ActivityAndSignUpInfoModel;
 import com.bbqbb.poem.admin.modules.api.model.SysTitleModel;
 import com.bbqbb.poem.admin.modules.api.service.ApiService;
 import com.bbqbb.poem.admin.modules.api.utils.DateTransUtil;
@@ -129,4 +130,8 @@ public class ApiServiceImpl implements ApiService {
         return sysZoneDao.selectOne(entity);
     }
 
+    @Override
+    public List<ActivityAndSignUpInfoModel> queryActivityAndSignUpInfo(String openid) {
+        return apiDao.queryActivityAndSignUpInfo(openid);
+    }
 }

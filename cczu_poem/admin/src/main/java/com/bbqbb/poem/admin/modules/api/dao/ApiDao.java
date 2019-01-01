@@ -3,6 +3,7 @@ package com.bbqbb.poem.admin.modules.api.dao;
 import com.bbqbb.poem.admin.modules.admin.entity.SysCommentEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity;
+import com.bbqbb.poem.admin.modules.api.model.ActivityAndSignUpInfoModel;
 import com.bbqbb.poem.admin.modules.api.model.SysTitleModel;
 import org.springframework.stereotype.Component;
 
@@ -33,4 +34,6 @@ public interface ApiDao {
     int updateLikeCountByTitleID(Map<String, Object> params);
 
     int updateNotLikeCountByTitleID(Map<String, Object> params);
+
+    List<ActivityAndSignUpInfoModel> queryActivityAndSignUpInfo(String openid);
 }

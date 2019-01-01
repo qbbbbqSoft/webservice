@@ -3,6 +3,7 @@ package com.bbqbb.poem.admin.modules.api.service;
 import com.bbqbb.poem.admin.modules.admin.entity.SysCommentEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity;
+import com.bbqbb.poem.admin.modules.api.model.ActivityAndSignUpInfoModel;
 import com.bbqbb.poem.admin.modules.api.model.SysTitleModel;
 
 import java.util.List;
@@ -40,4 +41,6 @@ public interface ApiService {
     int insertSysCommentEntity(SysCommentEntity entity);
 
     SysZoneEntity getSysZoneEntity(SysZoneEntity entity);
+
+    List<ActivityAndSignUpInfoModel> queryActivityAndSignUpInfo(String openid);
 }

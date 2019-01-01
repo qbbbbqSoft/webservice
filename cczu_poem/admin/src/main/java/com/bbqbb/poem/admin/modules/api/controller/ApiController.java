@@ -22,6 +22,7 @@ import com.bbqbb.poem.common.validator.ValidatorUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.http.HttpRequest;
 import org.slf4j.Logger;
@@ -392,4 +393,12 @@ public class ApiController {
         return R.ok().put("data",urls);
     }
 
+
+    @GetMapping("/queryTakePartInActivityByOpenid")
+    @ResponseBody
+    @ApiOperation(value = "个人参加的活动列表",notes = "微信openid必须传入，返回数据为list，null时返回空数组")
+    public R queryTakePartInActivityByOpenid(@ApiParam(value = "微信openid", required = true, defaultValue = "")@RequestParam(value = "openid",required = true,defaultValue = "123456") String openid) {
+        List<ActivityAndSignUpInfoModel> activityAndSignUpInfoModels = apiService.queryActivityAndSignUpInfo(openid);
+        return R.ok().put("data",activityAndSignUpInfoModels);
+    }
 }

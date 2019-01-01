@@ -19,6 +19,7 @@ F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\com
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\admin\service\impl\SysCommentServiceImpl.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\api\dao\ApiDao.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\shiro\ShiroTag.java
+F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\api\model\ActivityAndSignUpInfoModel.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\common\config\MybatisPlusConfig.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\dao\SysDeptDao.java
 F:\git\service\webservice\cczu_poem\admin\src\main\java\com\bbqbb\poem\admin\modules\sys\shiro\RedisShiroSessionDAO.java

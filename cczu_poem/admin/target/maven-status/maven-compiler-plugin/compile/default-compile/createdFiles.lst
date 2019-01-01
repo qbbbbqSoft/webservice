@@ -1,5 +1,6 @@
 com\bbqbb\poem\admin\modules\oss\cloud\QiniuCloudStorageService.class
 com\bbqbb\poem\admin\common\aspect\SysLogAspect.class
+com\bbqbb\poem\admin\modules\api\model\ActivityAndSignUpInfoModel.class
 com\bbqbb\poem\admin\modules\sys\service\impl\SysLogServiceImpl.class
 com\bbqbb\poem\admin\common\config\MybatisPlusConfig.class
 com\bbqbb\poem\admin\modules\oss\dao\SysOssDao.class

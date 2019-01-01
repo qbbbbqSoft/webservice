@@ -178,4 +178,8 @@
         WHERE ID = #{ID}
     </update>
 
+    <select id="queryActivityAndSignUpInfo" resultType="com.bbqbb.poem.admin.modules.api.model.ActivityAndSignUpInfoModel" parameterType="java.lang.String">
+        SELECT sac.activityname,sac.activityplace,sac.activitydate,sac.activityorganizingpeople,sac.activityconfiguration,sac.activitylabel,sac.keep1,sac.keep2,sac.count,ssi.name,ssi.phone,ssi.signAddress,ssi.className,ssi.stuNum,ssi.keep1 as signupkeep1,ssi.keep2 as signupkeep2, ssi.signDate,ssi.leaveDate from sys_activity sac LEFT JOIN sys_signup ssi ON sac.activityID = ssi.activityID WHERE sac.activityID IN (SELECT activityid FROM sys_signup WHERE openid = #{openid})
+    </select>
+
 </mapper>
