@@ -1,12 +1,15 @@
 package com.cczu.spider.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "sys_signup")
-public class SysSignUpEntity {
-
+public class SysSignUpEntity implements Serializable {
+    private static final long serialVersionUID = 2L;
     private Long ID;
     private String openid;
     private String activityID;
@@ -21,9 +24,13 @@ public class SysSignUpEntity {
     private String stunum;
     private String keep1;
     private String keep2;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date signdate;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date leavedate;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createdate;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date updatedate;
 
 

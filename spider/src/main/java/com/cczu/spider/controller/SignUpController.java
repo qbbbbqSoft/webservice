@@ -7,6 +7,7 @@ import com.cczu.spider.entity.SysWxUserInfoEntity;
 import com.cczu.spider.entity.result.R;
 import com.cczu.spider.pojo.ActivityAndSignUpEntityModel;
 import com.cczu.spider.pojo.ActivityAndSignUpInfoModel;
+import com.cczu.spider.pojo.ActivityAndSignupEntitesModel;
 import com.cczu.spider.pojo.SysActivityAndSysSignUpModel;
 import com.cczu.spider.service.SysActivityService;
 import com.cczu.spider.service.SysSignUpService;
@@ -26,10 +27,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = "/cczu")
@@ -139,7 +137,12 @@ public class SignUpController {
     public R getOneActivityDetailByID(@ApiParam(value = "活动的主键ID",required = true,defaultValue = "1")@RequestParam(value = "ID",required = true, defaultValue = "1") Long ID) {
         SysActivityEntity one = sysActivityService.getOneByID(ID);
         List<SysSignUpEntity> signUpEntities = sysSignUpService.getSysSignUpEntitiesByActivityID(one.getActivityID());
-        return R.ok().put("data",one).put("allSignUpInfo",signUpEntities).put("count",signUpEntities.size());
+        ActivityAndSignupEntitesModel model = new ActivityAndSignupEntitesModel(one,signUpEntities,signUpEntities.size());
+        Map<String, Object> map = new HashMap<>();
+        map.put("act",one);
+        map.put("signUp",signUpEntities);
+        map.put("count",signUpEntities.size());
+        return R.ok().put("data",map);
     }
 
     /**
