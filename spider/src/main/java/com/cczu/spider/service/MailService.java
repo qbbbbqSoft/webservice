@@ -8,5 +8,5 @@ import java.util.List;
 public interface MailService {
     void sendMail(String type,String text);
 
-    void sendHtmlMail(SysActivityEntity sysActivityEntity, List<SysSignUpEntity> sysSignUpEntities, int type, String recieveEmail) throws Exception;
+    void sendHtmlMail(SysActivityEntity sysActivityEntity, List<SysSignUpEntity> sysSignUpEntities, String types, String recieveEmail) throws Exception;
 }

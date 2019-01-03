@@ -82,6 +82,12 @@ public class IndexContoller {
     @Autowired
     private RedisUtils redisUtils;
 
+    @Autowired
+    private SysActivityService sysActivityService;
+
+    @Autowired
+    private SysSignUpService sysSignUpService;
+
 
 
 
@@ -348,7 +354,7 @@ public class IndexContoller {
     public R getIndexList(String openid) {
         SysCourseEntity sysCourseEntity = null;
         List<CourseModel> courseModels = null;
-        List<SysIndexEntity> data = sysIndexService.getAll();
+        List<SysIndexEntity> data = sysIndexService.getIndexByPosition("index");
         List<SysCourseEntity> course = sysCourseService.getEntitiesByOpenIDAndWeek(openid,getWeek());
         if (course.size() != 0) {
             SysCourseEntity entity = course.get(0);
@@ -512,28 +518,64 @@ public class IndexContoller {
      * @param response
      */
     @RequestMapping("/exportExcel")
-    public void exportExcel(HttpServletResponse response) {
+    public void exportExcel(@RequestParam(value = "ID",required = true, defaultValue = "1") Long ID,HttpServletResponse response) {
+        SysActivityEntity one = sysActivityService.getOneByID(ID);
+        List<SysSignUpEntity> signUpEntities = sysSignUpService.getSysSignUpEntitiesByActivityID(one.getActivityID());
+        ActivityAndSignupEntitesModel model = new ActivityAndSignupEntitesModel(one,signUpEntities,signUpEntities.size());
         String sheetName = null;
         String[] headers = null;
         String[] columns = null;
         OutputStream out = null;
-        String filename = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String filename = one.getActivityName() + "_签到详情" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        List<String> headersList = new ArrayList<>();
+        List<String> columnsList = new ArrayList<>();
         headers = new String[]{
-                "标题1", "标题2","标题3", "标题4", "标题5"
+                "微信名称", "姓名", "学号","班级", "手机", "签到地址","签到状态"
         };
         columns = new String[]{
-                "head1", "head2", "head3", "head4", "head5"
+                "wxUserName", "name", "stuNum", "className", "phone", "signAddress","status"
         };
+        headersList = Arrays.asList(headers);
+        columnsList = Arrays.asList(columns);
+        headersList = new ArrayList<>(headersList);
+        columnsList = new ArrayList<>(columnsList);
+        if (!one.getKeep1().equals("")) {
+            headersList.add(one.getKeep1());
+            columnsList.add("keep1");
+        }
+        if (!one.getKeep2().equals("")) {
+            headersList.add(one.getKeep2());
+            columnsList.add("keep2");
+        }
+        headersList.add("签到时间");
+        columnsList.add("signDate");
+        headersList.add("签退时间");
+        columnsList.add("leaveDate");
         sheetName = "sheetName";
+        String[] head = new String[headersList.size()];
+        headersList.toArray(head);
+        String[] column = new String[columnsList.size()];
+        columnsList.toArray(column);
         List<HashMap<String,String>> col_cessList = new ArrayList<>();
         HashMap<String,String> map = null;
-        for (int i = 0; i < 10; i++) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒 E");
+        for (SysSignUpEntity entity: signUpEntities) {
             map = new HashMap<>();
-            map.put("head1", (new Date()).toString() + "head1");
-            map.put("head2", (new Date()).toString() + "head2");
-            map.put("head3", (new Date()).toString() + "head3");
-            map.put("head4", (new Date()).toString() + "head4");
-            map.put("head5", (new Date()).toString() + "head5");
+            map.put("wxUserName", entity.getWxusername());
+            map.put("name", entity.getName());
+            map.put("className", entity.getClassname());
+            map.put("phone", entity.getPhone());
+            map.put("signAddress", entity.getSignaddress());
+            map.put("stuNum",entity.getStunum());
+            if (entity.getStatus()) {
+                map.put("status","签到成功，签退成功");
+            } else {
+                map.put("status","签到成功，未签退");
+            }
+            map.put("signDate",entity.getSigndate() == null ? "无数据": sdf.format(entity.getSigndate()));
+            map.put("leaveDate",entity.getLeavedate() == null ? "无数据": sdf.format(entity.getLeavedate()));
+            map.put("keep1",entity.getKeep1());
+            map.put("keep2",entity.getKeep2());
             col_cessList.add(map);
         }
         try {
@@ -550,7 +592,7 @@ public class IndexContoller {
         try {
             List<Integer> textColumns = new ArrayList<>();
             textColumns.add(1);
-            ExcelUtil.exportExcel(sheetName, null, headers, columns, col_cessList, out, "yyyy-MM-dd HH:mm:ss", textColumns);
+            ExcelUtil.exportExcel(sheetName, null, head, column, col_cessList, out, "yyyy-MM-dd HH:mm:ss", textColumns);
             out.close();
         } catch (Exception e1) {
             e1.printStackTrace();
@@ -616,5 +658,37 @@ public class IndexContoller {
         long end = System.currentTimeMillis();
         System.out.println("时间为" + (end - start)/1000 + "s");
         return R.ok().put("data",coursePojos);
+    }
+
+    @GetMapping("/poemIndex")
+    public R poemIndex() {
+        List<SysIndexEntity> poemindexword = sysIndexService.getIndexByPosition("poemindexword");
+        List<SysIndexEntity> poemindexpic = sysIndexService.getIndexByPosition("poemindexpic");
+        String word = "";
+        String[] pics = null;
+        if (poemindexword.size() != 0) {
+            word = poemindexword.get(0).getContent();
+        } else {
+            word = "最近有谣言说我喜欢你，我要澄清一下，那不是谣言。";
+        }
+        if (poemindexpic.size() != 0) {
+            pics = poemindexpic.get(0).getContent().split(";");
+        } else {
+            pics = new String[]{"https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/fm1.jpg",
+                    "https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/fm2.jpg",
+                    "https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/fm3.jpg"};
+        }
+        List<String> list = Arrays.asList(pics);
+        return R.ok().put("word",word).put("imgUrls",list);
+    }
+
+    @GetMapping("/getScore")
+    public R getScore(String username,String password) {
+        try {
+            List<ScoreModel> score = cczu_spiderByHtmlUnit.getScore(username, password);
+            return R.ok().put("data",score);
+        } catch (Exception e) {
+            return R.error("发生错误");
+        }
     }
 }

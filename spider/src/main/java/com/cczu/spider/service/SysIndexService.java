@@ -7,4 +7,6 @@ import java.util.List;
 public interface SysIndexService {
 
     List<SysIndexEntity> getAll();
+
+    List<SysIndexEntity> getIndexByPosition(String position);
 }

@@ -28,10 +28,10 @@ public class HandlerInterceptorConfig implements HandlerInterceptor {
         // 参数键值对
         Map<String, String[]> parameterMap = httpServletRequest.getParameterMap();
         for (String k:parameterMap.keySet()) {
-            if (k.equals("openid")) {
+            if (k.equals("openid") || k.equals("types")) {
                 return true;
             } else {
-                for (String[] val : parameterMap.values()) {
+                for (String val : parameterMap.get(k)) {
                     boolean valid = sqlValidate(val);
                     // 验证通过
                     if (!valid) {

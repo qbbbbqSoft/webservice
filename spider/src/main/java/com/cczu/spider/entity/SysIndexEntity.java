@@ -13,6 +13,8 @@ public class SysIndexEntity {
     private String content;
     private Integer order;
     @JsonIgnore
+    private String position;
+    @JsonIgnore
     private Date createdate;
     @JsonIgnore
     private Date updatedate;
@@ -75,5 +77,13 @@ public class SysIndexEntity {
 
     public void setDelstatus(Boolean delstatus) {
         this.delstatus = delstatus;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 }

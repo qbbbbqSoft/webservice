@@ -37,16 +37,16 @@ public class EmailController {
     @GetMapping("/sendMail")
     @ApiOperation(value = "发送邮件",notes = "ID为活动的主键，type为1发送活动详情，2发送签到人员详情，receiveEmail接收邮件人的邮箱")
     public void sendMail(@ApiParam(value = "活动的主键",required = true,defaultValue = "1")@RequestParam(value = "ID",required = true,defaultValue = "1")Long ID,
-                         @ApiParam(value = "发送类型",required = true,defaultValue = "1")@RequestParam(value = "type",defaultValue = "1")Integer type,
+                         @ApiParam(value = "发送类型",required = true,defaultValue = "1")@RequestParam(value = "types",defaultValue = "1")String types,
                          @ApiParam(value = "邮件接收人邮箱地址",required = true,defaultValue = "")@RequestParam(value = "receiveEmail",defaultValue = "")String receiveEmail) {
         SysActivityEntity sysActivityEntity = sysActivityService.getOneByID(ID);
         List<SysSignUpEntity> sysSignUpEntities = null;
-        if (type == 2) {
+        if (types.indexOf("1") != -1) {
             sysSignUpEntities = sysSignUpService.getSysSignUpEntitiesByActivityID(sysActivityEntity.getActivityID());
         }
 
         try {
-            mailService.sendHtmlMail(sysActivityEntity,sysSignUpEntities,type,receiveEmail);
+            mailService.sendHtmlMail(sysActivityEntity,sysSignUpEntities,types,receiveEmail);
         } catch (Exception e) {
             e.printStackTrace();
         }

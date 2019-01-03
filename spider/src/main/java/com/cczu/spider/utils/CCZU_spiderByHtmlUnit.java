@@ -3,6 +3,7 @@ package com.cczu.spider.utils;
 import com.cczu.spider.entity.SysCourseEntity;
 import com.cczu.spider.pojo.CoursePojo;
 import com.cczu.spider.pojo.OrderAndValue;
+import com.cczu.spider.pojo.ScoreModel;
 import com.cczu.spider.repository.SysCourseRepo;
 import com.cczu.spider.utils.thread.CreateTask;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
@@ -182,5 +183,43 @@ public class CCZU_spiderByHtmlUnit {
         }
         System.out.println("返回数据的时间" + new Date());
         return coursePojos;
+    }
+
+    public List<ScoreModel> getScore(String inputUserName,String inputPassword) throws Exception {
+        Connection.Response res = Jsoup.connect("https://www.chenyaoyao.club/api/getscore?stuNum="+ inputUserName + "&password=" + inputPassword)
+                .header("Accept", "*/*")
+                .header("Accept-Encoding", "gzip, deflate")
+                .header("Accept-Language","zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3")
+                .header("Content-Type", "application/json;charset=UTF-8")
+                .header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:48.0) Gecko/20100101 Firefox/48.0")
+                .timeout(10000).ignoreContentType(true).execute();//.get();
+        String body = res.body();
+        List<ScoreModel> result = new ArrayList<>();
+        ScoreModel model = null;
+        Document document = Jsoup.parse(body);
+        Element table = document.getElementById("gvcj1");
+        if (table == null) {
+            return result;
+        }
+        Elements trs = table.getElementsByTag("tr");
+        for (Element tr:trs) {
+            Elements tds = tr.getElementsByTag("td");
+            if (tds.size() != 0) {
+                model = new ScoreModel();
+                model.setStuNum(tds.get(0).text());
+                model.setName(tds.get(1).text());
+                model.setTerm(tds.get(2).text());
+                model.setCourseName(tds.get(3).text());
+                model.setType(tds.get(4).text());
+                model.setCredit(tds.get(5).text());
+                model.setGrade(tds.get(6).text());
+                model.setExamType(tds.get(7).text());
+                model.setaPoint(tds.get(8).text());
+                model.setCourseNum(tds.get(9).text());
+                model.setClassHour(tds.get(10).text());
+                result.add(model);
+            }
+        }
+        return result;
     }
 }

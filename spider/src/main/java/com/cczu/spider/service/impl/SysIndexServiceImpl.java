@@ -19,4 +19,9 @@ public class SysIndexServiceImpl implements SysIndexService {
     public List<SysIndexEntity> getAll() {
         return sysIndexRepo.findAll();
     }
+
+    @Override
+    public List<SysIndexEntity> getIndexByPosition(String position) {
+        return sysIndexRepo.getIndexByPosition(position);
+    }
 }

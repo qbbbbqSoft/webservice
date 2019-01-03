@@ -11,6 +11,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.MimeMessage;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Service
@@ -35,9 +36,10 @@ public class MailServiceImpl implements MailService {
     }
 
     @Override
-    public void sendHtmlMail(SysActivityEntity sysActivityEntity, List<SysSignUpEntity> sysSignUpEntities, int type, String recieveEmail) throws Exception{
+    public void sendHtmlMail(SysActivityEntity sysActivityEntity, List<SysSignUpEntity> sysSignUpEntities, String types, String recieveEmail) throws Exception{
         String html = "";
-        if (type == 1) {
+        String html2 = "";
+        if (types.indexOf("0") != -1) {
             html="<html><head>\n" +
                     "<base target=\"_blank\">\n" +
                     "<style type=\"text/css\">\n" +
@@ -85,6 +87,8 @@ public class MailServiceImpl implements MailService {
                     "        <div class=\"container\">\n" +
                     "            <div class=\"content\">\n" +
                     "                <div class=\"title\">" + sysActivityEntity.getActivityName() + "</div>\n" +
+                    "                <div class=\"title\">" + sysActivityEntity.getActivityDate()+ "</div>\n" +
+                    "                <div class=\"title\">" + sysActivityEntity.getActivityPlace() + "</div>\n" +
                     "\t\t\t\t<div class=\"visible-print text-center\">\n" +
                     "\t\t\t\n" +
                     "\t\t\t\t\t<img src=\"" + sysActivityEntity.getActivityQrCodeUrl() +"\" style=\"padding:20px;\">  \n" +
@@ -134,7 +138,8 @@ public class MailServiceImpl implements MailService {
                     "</script>\n" +
                     "\n" +
                     "<div id=\"ntes_read_img_menu_0\" style=\"position: absolute; left: 684px; top: 33px; display: none;\"><div style=\"display:inline-block;+display:inline;+zoom:1;font-size: 12px; font-weight: normal;line-height: normal;margin-right:6px;\"><a href=\"javascript:void(0);\" hidefocus=\"hidefocus\" title=\"将图片保存到网盘\" onclick=\"NTES_Events.saveToNF('2');return false;\" style=\"vertical-align:bottom;display:inline-block;+display:inline;+zoom:1;position:relative;+zoom:1;background-image:url(https://mimg.127.net/ggimg/all/img18/140308_nui_btn.png);background-position:0 ; ;border:1px solid #999;border-top-left-radius:3px;border-bottom-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;text-decoration:none;color:#555;height:26px;width:38px;line-height:0;font-size:0;\"><img src=\"https://mimg.127.net/ggimg/all/img18/140312_wp_2x.png\" style=\"position:absolute;left:10px;top:6px;border:0;\" width=\"16\" height=\"13\"></a></div></div></body></html>";
-        } else if (type == 2){
+        }
+        if (types.indexOf("1") != -1){
             String list = "";
             for (SysSignUpEntity entity:sysSignUpEntities) {
                 list = list + "<tr>\n" +
@@ -144,7 +149,7 @@ public class MailServiceImpl implements MailService {
                         "                                        <td> " + entity.getSigndate() + "</td>\n" +
                         "                                    </tr>";
             }
-            html = "<html>\n" +
+            html2 = "<html>\n" +
                     "<head>\n" +
                     "    <base target=\"_blank\">\n" +
                     "    <style type=\"text/css\">\n" +
@@ -248,7 +253,7 @@ public class MailServiceImpl implements MailService {
                     "                                <tbody>\n" +
                     "                                    <tr>\n" +
                     "                                        <th style=\"width:30px;border:0\"></th>\n" +
-                    "                                        <th style=\"width:150px;border:0;padding-left:5px\">姓名</th>\n" +
+                    "                                        <th style=\"width:150px;border:0;padding-left:5px\">微信名称</th>\n" +
                     "                                        <th style=\"width:150px;border:0\"> 手机号</th>\n" +
                     "                                        <th style=\"width:200px;border:0\">签到时间</th>\n" +
                     "                                    </tr>\n" +
@@ -262,6 +267,7 @@ public class MailServiceImpl implements MailService {
                     "            </table>\n" +
                     "            <table>\n" +
                     "            </table>\n" +
+                    "<a href=\"https://www.bbqbb.top/cczu/exportExcel?ID=" + sysActivityEntity.getID() +"\">完整签到数据下载（excel表格）</a>\n" +
                     "        </div>\n" +
                     "    </div>\n" +
                     "    <style type=\"text/css\">\n" +
@@ -310,7 +316,8 @@ public class MailServiceImpl implements MailService {
                     "    </style>\n" +
                     "</body>\n" +
                     "</html>";
-        } else {
+        }
+        if (types.equals("1")){
             html = "<html><h1>邮件发送发生错误<h1></html>";
         }
         MimeMessage msg = javaMailSender.createMimeMessage();
@@ -319,11 +326,22 @@ public class MailServiceImpl implements MailService {
         helper.setFrom(FROM);//发件人
         helper.setTo(recieveEmail);//收件人
         helper.setSubject("常州大学课表小工具-扫码签到");//邮件标题
-        helper.setText(html,true); //测试内容（html）
-        try {
-            javaMailSender.send(msg);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (!html.equals("")) {
+            helper.setText(html,true); //测试内容（html）
+            try {
+                javaMailSender.send(msg);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+        if (!html2.equals("")) {
+            helper.setText(html2,true); //测试内容（html）
+            try {
+                javaMailSender.send(msg);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }
