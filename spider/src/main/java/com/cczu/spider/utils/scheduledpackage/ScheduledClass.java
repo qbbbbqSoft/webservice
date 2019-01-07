@@ -72,13 +72,14 @@ public class ScheduledClass {
 //        log.info(new Date() + "===========================delay");
 //    }
 
-//    @Scheduled(cron = "0 10 8,9,10,11,12,13,14,15,16,17,18,19,20,21 * * ? ")
+    @Scheduled(cron = "0 10 8,9,10,11,12,13,14,15,16,17,18,19,20,21 * * ? ")
     public void update() {
         lectureRepo.deleteAll();
         try {
             jzSpiderUtil.getAndSaveLectureInfo();
         } catch (Exception e) {
-            mailService.sendMail("保存出错","讲座信息保存失败" + e.getMessage());
+            e.printStackTrace();
+//            mailService.sendMail("保存出错","讲座信息保存失败" + e.getMessage());
             System.out.println("保存出错");
         }
     }
