@@ -237,7 +237,12 @@ public class ApiController {
                 model.getSession_key(),
                 60 * 5);
         SysWxuserinfoEntity entity = new SysWxuserinfoEntity(model.getOpenid(),wxUserInfoModel.getSysWxuserinfoEntity().getWxheadimageurl(),wxUserInfoModel.getSysWxuserinfoEntity().getWxusername(),wxUserInfoModel.getSysWxuserinfoEntity().getWxotheruserinfo(),new Date());
-        sysWxuserinfoService.insert(entity);
+        Map<String, Object> map = new HashMap<>();
+        map.put("openid",model.getOpenid());
+        List<SysWxuserinfoEntity> sysWxuserinfoEntities = apiService.checkUserIfExist(map);
+        if (sysWxuserinfoEntities == null) {
+            sysWxuserinfoService.insert(entity);
+        }
         return R.ok().put("data",model);
     }
 

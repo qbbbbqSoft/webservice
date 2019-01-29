@@ -5,6 +5,7 @@ import com.bbqbb.poem.admin.modules.admin.dao.SysTitleDao;
 import com.bbqbb.poem.admin.modules.admin.dao.SysZoneDao;
 import com.bbqbb.poem.admin.modules.admin.entity.SysCommentEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity;
+import com.bbqbb.poem.admin.modules.admin.entity.SysWxuserinfoEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity;
 import com.bbqbb.poem.admin.modules.api.dao.ApiDao;
 import com.bbqbb.poem.admin.modules.api.model.ActivityAndSignUpInfoModel;
@@ -133,5 +134,10 @@ public class ApiServiceImpl implements ApiService {
     @Override
     public List<ActivityAndSignUpInfoModel> queryActivityAndSignUpInfo(String openid) {
         return apiDao.queryActivityAndSignUpInfo(openid);
+    }
+
+    @Override
+    public List<SysWxuserinfoEntity> checkUserIfExist(Map<String, Object> map) {
+        return apiDao.checkUserIfExist(map);
     }
 }

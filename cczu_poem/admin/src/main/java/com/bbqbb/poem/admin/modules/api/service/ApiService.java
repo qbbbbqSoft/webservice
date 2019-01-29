@@ -2,6 +2,7 @@ package com.bbqbb.poem.admin.modules.api.service;
 
 import com.bbqbb.poem.admin.modules.admin.entity.SysCommentEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysTitleEntity;
+import com.bbqbb.poem.admin.modules.admin.entity.SysWxuserinfoEntity;
 import com.bbqbb.poem.admin.modules.admin.entity.SysZoneEntity;
 import com.bbqbb.poem.admin.modules.api.model.ActivityAndSignUpInfoModel;
 import com.bbqbb.poem.admin.modules.api.model.SysTitleModel;
@@ -43,4 +44,6 @@ public interface ApiService {
     SysZoneEntity getSysZoneEntity(SysZoneEntity entity);
 
     List<ActivityAndSignUpInfoModel> queryActivityAndSignUpInfo(String openid);
+
+    List<SysWxuserinfoEntity> checkUserIfExist(Map<String, Object> map);
 }
