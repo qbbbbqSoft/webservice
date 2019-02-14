@@ -240,7 +240,7 @@ public class ApiController {
         Map<String, Object> map = new HashMap<>();
         map.put("openid",model.getOpenid());
         List<SysWxuserinfoEntity> sysWxuserinfoEntities = apiService.checkUserIfExist(map);
-        if (sysWxuserinfoEntities == null) {
+        if (sysWxuserinfoEntities.size() == 0) {
             sysWxuserinfoService.insert(entity);
         }
         return R.ok().put("data",model);
