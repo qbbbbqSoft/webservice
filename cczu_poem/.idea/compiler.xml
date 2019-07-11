@@ -12,7 +12,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="web" target="1.5" />
+      <module name="admin" target="1.8" />
+      <module name="api" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="poem" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
