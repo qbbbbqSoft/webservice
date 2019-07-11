@@ -1,12 +1,12 @@
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     druid:
       first:  #数据源1
         url: jdbc:mysql://192.168.10.224:3306/cczupoem?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-        username: root
-        password: 1q2w3e$Fqb
+        username: bbqbb
+        password: 1q2w3e$
       second:  #数据源2
         url: jdbc:mysql://10.10.168.18:3306/renren_security?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
         username: renren

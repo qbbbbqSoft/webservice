@@ -86,7 +86,7 @@ public class CCZU_spiderByHtmlUnit {
     }
 
     public List<CoursePojo<List<OrderAndValue>>> cczuSpiderWithNode(String inputUserName,String inputPassword,Integer term, String openid,Integer type) throws Exception {
-        Connection.Response res = Jsoup.connect("https://www.chenyaoyao.club/api/getcourse?stuNum="+ inputUserName + "&password=" + inputPassword)
+        Connection.Response res = Jsoup.connect("http://localhost:3000/api/getcourse?stuNum="+ inputUserName + "&password=" + inputPassword)
                 .header("Accept", "*/*")
                 .header("Accept-Encoding", "gzip, deflate")
                 .header("Accept-Language","zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3")
@@ -186,7 +186,7 @@ public class CCZU_spiderByHtmlUnit {
     }
 
     public List<ScoreModel> getScore(String inputUserName,String inputPassword) throws Exception {
-        Connection.Response res = Jsoup.connect("https://www.chenyaoyao.club/api/getscore?stuNum="+ inputUserName + "&password=" + inputPassword)
+        Connection.Response res = Jsoup.connect("http://localhost:3000/api/getscore?stuNum="+ inputUserName + "&password=" + inputPassword)
                 .header("Accept", "*/*")
                 .header("Accept-Encoding", "gzip, deflate")
                 .header("Accept-Language","zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3")
